@@ -1,5 +1,4 @@
-# apps/grain_web
-cd $assets_dir
+cd grain_umbrella/apps/grain_web/assets
 node_modules/.bin/webpack -p
 cd $phoenix_dir
 mix "${phoenix_ex}.digest"
