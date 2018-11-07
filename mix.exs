@@ -4,6 +4,8 @@ defmodule Grain.Umbrella.MixProject do
   def project do
     [
       apps_path: "apps",
+      build_path: "../../_build",
+     config_path: "../../config/config.exs",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
