@@ -15,3 +15,8 @@
 2018-11-07 20:41:41.768 CST [7664] LOG:  redo done at 0/186F760
 2018-11-07 20:41:41.769 CST [7664] LOG:  last completed transaction was at log time 2018-11-07 13:35:50.217373+08
 2018-11-07 20:41:41.808 CST [7660] LOG:  database system is ready to accept connections
+2018-11-08 03:27:32.003 CST [7669] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-11-08 03:33:11.288 CST [7669] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-11-08 03:33:11.310 CST [29512] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-11-08 03:42:45.609 CST [7669] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-11-08 04:07:46.489 CST [7669] LOG:  using stale statistics instead of current ones because stats collector is not responding
