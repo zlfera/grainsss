@@ -1,4 +1,4 @@
-cd ./apps/grain_web/$assets_dir
+cd ./apps/grain_web
 node_modules/.bin/webpack -p
 
 cd $phoenix_dir
