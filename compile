@@ -1,5 +1,0 @@
-cd ./apps/grain_web/assets
-node_modules/.bin/webpack -p
-
-cd $phoenix_dir
-mix "${phoenix_ex}.digest"
