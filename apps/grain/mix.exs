@@ -38,6 +38,7 @@ defmodule Grain.MixProject do
     [
       {:postgrex, ">= 0.0.0-rc"},
       {:ecto_sql, "~> 3.0-rc"},
+      {:httpotion, "~> 3.1"}
     ]
   end
 

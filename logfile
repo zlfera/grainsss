@@ -20,3 +20,11 @@
 2018-11-08 03:33:11.310 CST [29512] LOG:  using stale statistics instead of current ones because stats collector is not responding
 2018-11-08 03:42:45.609 CST [7669] LOG:  using stale statistics instead of current ones because stats collector is not responding
 2018-11-08 04:07:46.489 CST [7669] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-11-08 11:59:36.990 CST [18490] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-08 11:59:37.000 CST [18490] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-08 11:59:37.099 CST [18494] LOG:  database system was interrupted; last known up at 2018-11-07 20:41:41 CST
+2018-11-08 11:59:37.547 CST [18494] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-08 11:59:37.550 CST [18494] LOG:  redo starts at 0/186F808
+2018-11-08 11:59:37.550 CST [18494] LOG:  invalid record length at 0/186F840: wanted 24, got 0
+2018-11-08 11:59:37.550 CST [18494] LOG:  redo done at 0/186F808
+2018-11-08 11:59:37.581 CST [18490] LOG:  database system is ready to accept connections
