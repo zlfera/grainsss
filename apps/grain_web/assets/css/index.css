@@ -1,0 +1,27 @@
+* {
+  box-sizing:border-box;
+}
+body {
+  margin:auto;
+  //border:0.5px solid green;
+  background-color:#CCE8CF;
+  font-size: 35px;
+}
+nav,footer p,form {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:3%;
+}
+nav a {
+  text-decoration:none;
+  margin:0.5%;
+  width:100%;
+}
+a:link {color:green;}
+a:visited {color:black;}
+a:hover {color:#FF00FF;}
+a:active {color:blue;}
+#a_red {color:red;}
+#q_red {color:red;}
+#w_red {color:red;}
