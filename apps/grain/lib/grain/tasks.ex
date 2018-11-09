@@ -5,7 +5,7 @@ defmodule Grain.Tasks do
   alias Grain.Repo
   # import Ecto.Query, only: [from: 2]
 
-  def run(_) do
+  def run() do
     {:ok, _} = Application.ensure_all_started(:grain)
     {:ok, pid} = Agent.start_link(fn -> %{} end)
     u1(b(), pid)

@@ -62,3 +62,45 @@
 2018-11-09 11:29:25.569 CST [3369] LOG:  invalid record length at 0/189C578: wanted 24, got 0
 2018-11-09 11:29:25.569 CST [3369] LOG:  redo done at 0/189C540
 2018-11-09 11:29:25.610 CST [3364] LOG:  database system is ready to accept connections
+2018-11-09 12:12:14.674 CST [8597] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-09 12:12:14.683 CST [8597] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-09 12:12:14.756 CST [8601] LOG:  database system was interrupted; last known up at 2018-11-09 11:29:25 CST
+2018-11-09 12:12:15.186 CST [8601] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-09 12:12:15.189 CST [8601] LOG:  redo starts at 0/189C5E8
+2018-11-09 12:12:15.189 CST [8601] LOG:  invalid record length at 0/189C620: wanted 24, got 0
+2018-11-09 12:12:15.189 CST [8601] LOG:  redo done at 0/189C5E8
+2018-11-09 12:12:15.220 CST [8597] LOG:  database system is ready to accept connections
+2018-11-09 12:21:12.813 CST [8689] LOG:  could not receive data from client: Software caused connection abort
+2018-11-09 12:21:12.812 CST [8692] LOG:  could not receive data from client: Software caused connection abort
+2018-11-09 12:21:12.813 CST [8690] LOG:  could not receive data from client: Connection reset by peer
+2018-11-09 12:21:12.813 CST [8697] LOG:  could not receive data from client: Software caused connection abort
+2018-11-09 12:21:12.813 CST [8693] LOG:  could not receive data from client: Connection reset by peer
+2018-11-09 12:21:12.813 CST [8698] LOG:  could not receive data from client: Connection reset by peer
+2018-11-09 12:21:12.813 CST [8691] LOG:  could not receive data from client: Software caused connection abort
+2018-11-09 12:21:12.813 CST [8694] LOG:  could not receive data from client: Connection reset by peer
+2018-11-09 12:21:12.813 CST [8695] LOG:  could not receive data from client: Software caused connection abort
+2018-11-09 12:21:12.813 CST [8696] LOG:  could not receive data from client: Connection reset by peer
+2018-11-09 12:30:19.813 CST [12656] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-09 12:30:19.822 CST [12656] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-09 12:30:19.898 CST [12660] LOG:  database system was interrupted; last known up at 2018-11-09 12:12:15 CST
+2018-11-09 12:30:20.217 CST [12660] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-09 12:30:20.223 CST [12660] LOG:  redo starts at 0/189C690
+2018-11-09 12:30:20.223 CST [12660] LOG:  invalid record length at 0/189C6C8: wanted 24, got 0
+2018-11-09 12:30:20.223 CST [12660] LOG:  redo done at 0/189C690
+2018-11-09 12:30:20.271 CST [12656] LOG:  database system is ready to accept connections
+2018-11-09 12:52:33.080 CST [13985] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-09 12:52:33.088 CST [13985] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-09 12:52:33.143 CST [13989] LOG:  database system was interrupted; last known up at 2018-11-09 12:30:20 CST
+2018-11-09 12:52:33.388 CST [13989] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-09 12:52:33.394 CST [13989] LOG:  redo starts at 0/189C738
+2018-11-09 12:52:33.394 CST [13989] LOG:  invalid record length at 0/189C770: wanted 24, got 0
+2018-11-09 12:52:33.394 CST [13989] LOG:  redo done at 0/189C738
+2018-11-09 12:52:33.423 CST [13985] LOG:  database system is ready to accept connections
+2018-11-09 19:16:12.277 CST [14182] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-09 19:16:12.283 CST [14182] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-09 19:16:12.371 CST [14186] LOG:  database system was interrupted; last known up at 2018-11-09 12:52:33 CST
+2018-11-09 19:16:12.793 CST [14186] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-09 19:16:12.797 CST [14186] LOG:  redo starts at 0/189C7E0
+2018-11-09 19:16:12.797 CST [14186] LOG:  invalid record length at 0/189C818: wanted 24, got 0
+2018-11-09 19:16:12.797 CST [14186] LOG:  redo done at 0/189C7E0
+2018-11-09 19:16:12.820 CST [14182] LOG:  database system is ready to accept connections
