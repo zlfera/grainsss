@@ -28,3 +28,37 @@
 2018-11-08 11:59:37.550 CST [18494] LOG:  invalid record length at 0/186F840: wanted 24, got 0
 2018-11-08 11:59:37.550 CST [18494] LOG:  redo done at 0/186F808
 2018-11-08 11:59:37.581 CST [18490] LOG:  database system is ready to accept connections
+2018-11-08 14:30:35.280 CST [21597] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-08 14:30:35.286 CST [21597] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-08 14:30:35.363 CST [21601] LOG:  database system was interrupted; last known up at 2018-11-08 12:18:23 CST
+2018-11-08 14:30:35.866 CST [21601] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-08 14:30:35.869 CST [21601] LOG:  redo starts at 0/189C2A0
+2018-11-08 14:30:35.870 CST [21601] LOG:  invalid record length at 0/189C380: wanted 24, got 0
+2018-11-08 14:30:35.870 CST [21601] LOG:  redo done at 0/189C348
+2018-11-08 14:30:35.888 CST [21597] LOG:  database system is ready to accept connections
+2018-11-08 20:41:29.734 CST [4764] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-08 20:41:29.740 CST [4764] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-08 20:41:29.822 CST [4768] LOG:  database system was interrupted; last known up at 2018-11-08 14:30:35 CST
+2018-11-08 20:41:30.247 CST [4768] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-08 20:41:30.250 CST [4768] LOG:  redo starts at 0/189C3F0
+2018-11-08 20:41:30.250 CST [4768] LOG:  invalid record length at 0/189C428: wanted 24, got 0
+2018-11-08 20:41:30.250 CST [4768] LOG:  redo done at 0/189C3F0
+2018-11-08 20:41:30.271 CST [4764] LOG:  database system is ready to accept connections
+2018-11-09 06:36:05.601 CST [1035] FATAL:  lock file "postmaster.pid" already exists
+2018-11-09 06:36:05.601 CST [1035] HINT:  Is another postmaster (PID 4764) running in data directory "/data/data/com.termux/files/home/data"?
+2018-11-09 08:49:06.966 CST [21608] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-09 08:49:06.973 CST [21608] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-09 08:49:07.066 CST [21614] LOG:  database system was interrupted; last known up at 2018-11-08 20:41:30 CST
+2018-11-09 08:49:07.658 CST [21614] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-09 08:49:07.662 CST [21614] LOG:  redo starts at 0/189C498
+2018-11-09 08:49:07.662 CST [21614] LOG:  invalid record length at 0/189C4D0: wanted 24, got 0
+2018-11-09 08:49:07.662 CST [21614] LOG:  redo done at 0/189C498
+2018-11-09 08:49:07.693 CST [21608] LOG:  database system is ready to accept connections
+2018-11-09 11:29:25.019 CST [3364] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-11-09 11:29:25.024 CST [3364] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2018-11-09 11:29:25.106 CST [3369] LOG:  database system was interrupted; last known up at 2018-11-09 08:49:07 CST
+2018-11-09 11:29:25.563 CST [3369] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-11-09 11:29:25.569 CST [3369] LOG:  redo starts at 0/189C540
+2018-11-09 11:29:25.569 CST [3369] LOG:  invalid record length at 0/189C578: wanted 24, got 0
+2018-11-09 11:29:25.569 CST [3369] LOG:  redo done at 0/189C540
+2018-11-09 11:29:25.610 CST [3364] LOG:  database system is ready to accept connections

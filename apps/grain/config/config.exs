@@ -7,4 +7,12 @@ use Mix.Config
 config :grain,
   ecto_repos: [Grain.Repo]
 
+# config :grain, Grain.Scheduler,
+# jobs: [
+# phoenix_job: [
+#   schedule: "* * * * *",
+#   task: {Grain.Tasks, :work, []}
+#  ]
+# ]
+
 import_config "#{Mix.env()}.exs"

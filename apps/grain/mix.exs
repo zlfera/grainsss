@@ -36,9 +36,11 @@ defmodule Grain.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:postgrex, ">= 0.0.0-rc"},
-      {:ecto_sql, "~> 3.0-rc"},
+      {:postgrex, ">= 0.0.0"},
+      {:ecto_sql, "~> 3.0"},
       {:httpotion, "~> 3.1"}
+      #      {:quantum, "~> 2.3"},
+      # {:timex, "~> 3.0"}
     ]
   end
 
