@@ -4,7 +4,6 @@ defmodule Grain.Tasks do
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
   # import Ecto.Query, only: [from: 2]
-
   def run() do
     {:ok, _} = Application.ensure_all_started(:grain)
     {:ok, pid} = Agent.start_link(fn -> %{} end)
@@ -15,7 +14,7 @@ defmodule Grain.Tasks do
     uu = "http://123.127.88.167:8888/tradeClient/observe/requestList?specialNo="
     u = uu <> dqqq
 
-    dd = HTTPotion.get(u).body |> Jason.decode!()
+    dd = HTTPoison.get!(u).body |> Jason.decode!()
   end
 
   def s(d) do
@@ -39,7 +38,7 @@ defmodule Grain.Tasks do
 
   def b do
     uuu = "http://123.127.88.167:8888/tradeClient/observe/specialList"
-    dqq = HTTPotion.get(uuu).body |> Jason.decode!()
+    dqq = HTTPoison.get!(uuu).body |> Jason.decode!()
   end
 
   def j(j) do
