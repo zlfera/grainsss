@@ -8,9 +8,8 @@ defmodule Grain.Application do
   def start(_type, _args) do
     children = [
       Grain.Repo,
-      # worker(Grain.Scheduler, []),
-      worker(Grain.Task, [])
-      #    worker(Grain.Tasks, [])
+      worker(Grain.Task, []),
+      worker(Grain.Scheduler, [])
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one, name: Grain.Supervisor)

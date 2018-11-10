@@ -39,9 +39,9 @@ defmodule Grain.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:ecto_sql, "~> 3.0"},
       # {:httpotion, "~> 3.1"},
-      {:httpoison, "~> 1.4"}
-      #      {:quantum, "~> 2.3"},
-      # {:timex, "~> 3.0"}
+      {:httpoison, "~> 1.4"},
+      {:quantum, github: "zlfera/quantum-core"},
+      {:timex, "~> 3.4"}
     ]
   end
 
