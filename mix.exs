@@ -23,7 +23,7 @@ defmodule Grain.Umbrella.MixProject do
   # and cannot be accessed from applications inside the apps folder
   defp deps do
     [
-      {:distillery, "~> 2.0", runtime: false},
+      # {:distillery, "~> 2.0", runtime: false},
       {:credo, github: "rrrene/credo", only: [:dev, :test], runtime: false}
     ]
   end
