@@ -11,7 +11,7 @@ use Mix.Config
 
 # Configure your database
 config :grain, Grain.Repo,
-  # url: "${DATABASE_URL}",
-  url: System.get_env("DATABASE_URL"),
+  url: "${DATABASE_URL}",
+  # url: System.get_env("DATABASE_URL"),
   ssl: true,
   pool_size: 2
