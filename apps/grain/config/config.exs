@@ -9,7 +9,7 @@ config :grain,
 
 config :grain, Grain.Scheduler,
   jobs: [
-    {"35 8 * * *", {Grain.Tasks, :run, []}}
+    {"35 24 * * *", {Grain.Tasks, :run, []}}
   ]
 
 import_config "#{Mix.env()}.exs"
