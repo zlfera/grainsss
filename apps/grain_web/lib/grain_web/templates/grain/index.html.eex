@@ -1,0 +1,58 @@
+<script charset="utf-8">
+  function submitForm(t, tt='zeng'){
+    let form = document.getElementById("myform")
+    document.getElementById("td_data").value = [t.innerHTML, tt]
+    form.submit()
+} 
+</script>
+<div>
+  <h1>稻谷历史交易记录</h1>
+  <% form_tag Routes.grain_path(@conn, :index), [id: "myform"] do %>
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        <td>交易时间</td>
+        <td>交货地址</td>
+        <td>类型</td>
+        <td>
+          品种
+          <!--
+          <select>
+            <option value="品种">品种</option>
+            <option value ="中晚籼稻">中晚籼稻</option>
+            <option value="晚籼稻">晚籼稻</option>
+            <option value="早籼稻">早籼稻</option>
+            <option value="粳稻">粳稻</option>
+            <option value="玉米">玉米</option>
+            <option value="大豆">大豆</option>
+            <option value="混合麦">混合麦</option>
+          </select>
+          <!-- </form> -->
+        </td>
+        <td>等级</td>
+        <td>年份</td>
+        <td>交易数量</td>
+        <td>起始价格</td>
+        <td>最终价格</td>
+
+      </tr>
+    </thead>
+    <tbody>
+      <%= for redis <- @grains do %>
+        <tr>
+          <td><%= redis['created_at'] |> NaiveDateTime.to_date %></td>
+          <td onclick=submitForm(this,"address")><%= redis['address'] <> "(#{redis['mark_number']})" %></td>
+          <td><%= redis['trantype'] %></td>
+          <td onclick=submitForm(this,"variety")><%= @redis['variety'] %></td>
+          <td><%= redis['grade'] %></td>
+          <td onclick=submitForm(this,"year")><%= redis['year'] %></td>
+          <td><%= redis['trade_amount'] %></td>
+          <td onclick=submitForm(this,"starting_price")><%= redis['starting_price'] %></td>
+          <td onclick=submitForm(this,"latest_price")><%= redis['latest_price'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <input type="hidden" name="td_data" id="td_data" value="" />
+  <% end %>
+</div>
