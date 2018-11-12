@@ -40,7 +40,7 @@ defmodule Grain.MixProject do
       {:ecto_sql, "~> 3.0"},
       # {:httpotion, "~> 3.1"},
       {:httpoison, "~> 1.4"},
-      {:quantum, github: "zlfera/quantum-core"},
+      {:quantum, "~> 2.3"},
       {:timex, "~> 3.4"}
     ]
   end
