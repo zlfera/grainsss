@@ -8,7 +8,7 @@ defmodule Grain.Application do
   def start(_type, _args) do
     children = [
       Grain.Repo,
-      worker(Grain.Task, []),
+      # worker(Grain.Task, []),
       worker(Grain.Scheduler, [])
     ]
 
