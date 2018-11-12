@@ -1,9 +1,8 @@
 defmodule Grain.Tasks do
   @moduledoc false
-  # use Mix.Task
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
-  # import Ecto.Query, only: [from: 2]
+
   def run() do
     {:ok, _} = Application.ensure_all_started(:grain)
     {:ok, pid} = Agent.start_link(fn -> %{} end)
