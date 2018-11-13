@@ -1,6 +1,5 @@
 defmodule GrainWeb.GrainController do
   use GrainWeb, :controller
-
   alias Grain.Grains, as: G
   alias Grain.Grains.Grain, as: Gg
 
