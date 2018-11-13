@@ -14,14 +14,30 @@ defmodule Grain.Tasks do
     uu = "http://123.127.88.167:8888/tradeClient/observe/requestList?specialNo="
     u = uu <> dqqq
 
-    dd = HTTPoison.get!(u).body |> Jason.decode!()
+    HTTPoison.get!(u).body |> Jason.decode!()
   end
 
   def s(d) do
+    x = d["requestAlias"]
+
+    y =
+      if String.length(x) <= 12 || String.length(x) == 13 do
+        # y = x |> String.slice(0, 4) |> String.to_integer()
+        y = x |> Regex.run(~r/^\d+/)
+
+        if y == nil do
+          "00"
+        else
+          y |> List.to_string()
+        end
+      else
+        x |> String.slice(11, 2)
+      end
+
     attr = %{
       market_name: "guojia",
       mark_number: d["requestAlias"],
-      year: "15",
+      year: y,
       variety: d["varietyName"],
       grade: d["gradeName"],
       trade_amount: d["num"],
@@ -39,7 +55,7 @@ defmodule Grain.Tasks do
   def b do
     :timer.sleep(5000)
     uuu = "http://123.127.88.167:8888/tradeClient/observe/specialList"
-    dqq = HTTPoison.get!(uuu).body |> Jason.decode!()
+    HTTPoison.get!(uuu).body |> Jason.decode!()
   end
 
   def j(j) do
@@ -90,7 +106,7 @@ defmodule Grain.Tasks do
     u1(b, pid)
   end
 
-  def u1(b, pid) when b == [] do
+  def u1(b) when b == [] do
     IO.puts("结束")
   end
 end
