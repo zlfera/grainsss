@@ -40,15 +40,15 @@
     <tbody>
       <%= for redis <- @grains do %>
         <tr>
-          <td><%= redis['created_at'] |> NaiveDateTime.to_date %></td>
+          <td><%= redis.created_at |> NaiveDateTime.to_date %></td>
           <td onclick=submitForm(this,"address")><%= redis['address'] <> "(#{redis['mark_number']})" %></td>
-          <td><%= redis['trantype'] %></td>
-          <td onclick=submitForm(this,"variety")><%= @redis['variety'] %></td>
-          <td><%= redis['grade'] %></td>
-          <td onclick=submitForm(this,"year")><%= redis['year'] %></td>
-          <td><%= redis['trade_amount'] %></td>
-          <td onclick=submitForm(this,"starting_price")><%= redis['starting_price'] %></td>
-          <td onclick=submitForm(this,"latest_price")><%= redis['latest_price'] %></td>
+          <td><%= redis.trantype %></td>
+          <td onclick=submitForm(this,"variety")><%= redis.variety %></td>
+          <td><%= redis.grade %></td>
+          <td onclick=submitForm(this,"year")><%= redis.year %></td>
+          <td><%= redis.trade_amount %></td>
+          <td onclick=submitForm(this,"starting_price")><%= redis.starting_price %></td>
+          <td onclick=submitForm(this,"latest_price")><%= redis.latest_price %></td>
         </tr>
       <% end %>
     </tbody>
