@@ -37,6 +37,7 @@ defmodule Grain.Tasks do
   end
 
   def b do
+    :timer.sleep(5000)
     uuu = "http://123.127.88.167:8888/tradeClient/observe/specialList"
     dqq = HTTPoison.get!(uuu).body |> Jason.decode!()
   end
