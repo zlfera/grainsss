@@ -40,8 +40,8 @@
     <tbody>
       <%= for redis <- @grains do %>
         <tr>
-          <td><%= redis.created_at |> NaiveDateTime.to_date %></td>
-          <td onclick=submitForm(this,"address")><%= redis['address'] <> "(#{redis['mark_number']})" %></td>
+          <td><%= redis.inserted_at |> NaiveDateTime.to_date %></td>
+          <td onclick=submitForm(this,"address")><%= redis.address <> "(#{redis.mark_number})" %></td>
           <td><%= redis.trantype %></td>
           <td onclick=submitForm(this,"variety")><%= redis.variety %></td>
           <td><%= redis.grade %></td>
