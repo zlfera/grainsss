@@ -42,7 +42,7 @@ defmodule Grain.Tasks do
   end
 
   def j(j) do
-    if String.to_integer(j["remainSeconds"]) <= 2 do
+    if String.to_integer(j["remainSeconds"]) <= 3 do
       s(j)
     end
   end
