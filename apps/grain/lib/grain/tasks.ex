@@ -23,7 +23,7 @@ defmodule Grain.Tasks do
     y =
       if String.length(x) <= 12 || String.length(x) == 13 do
         # y = x |> String.slice(0, 4) |> String.to_integer()
-        y = x |> Regex.run(~r/^\d+/)
+        y = Regex.run(~r/^\d+/, x)
 
         if y == nil do
           "00"
