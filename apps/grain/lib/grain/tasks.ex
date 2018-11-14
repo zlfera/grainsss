@@ -21,7 +21,7 @@ defmodule Grain.Tasks do
     x = d["requestAlias"]
 
     y =
-      if String.length(x) <= 12 || String.length(x) == 13 do
+      if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
         # y = x |> String.slice(0, 4) |> String.to_integer()
         y = Regex.run(~r/^\d+/, x)
 
