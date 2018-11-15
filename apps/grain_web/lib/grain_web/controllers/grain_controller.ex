@@ -18,8 +18,10 @@ defmodule GrainWeb.GrainController do
             Gg.list_grains()
 
           "starting_price" ->
+            [f] = Ecto.Query.from(p in Ggg, select: min(p.starting_price)) |> Gr.all()
+
             Ggg
-            |> Ecto.Query.where(starting_price: ^x)
+            |> Ecto.Query.where(starting_price: ^f)
             |> Ecto.Query.where([g], g.latest_price != "0")
             |> Ecto.Query.order_by(desc: :inserted_at)
             |> Gr.all()
