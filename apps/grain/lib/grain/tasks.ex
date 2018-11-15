@@ -2,7 +2,6 @@ defmodule Grain.Tasks do
   @moduledoc false
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
-  alias Grain.Tasks, as: T
 
   def run() do
     {:ok, _} = Application.ensure_all_started(:grain)
@@ -23,7 +22,7 @@ defmodule Grain.Tasks do
     y =
       if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
         # y = x |> String.slice(0, 4) |> String.to_integer()
-        y = Regex.run(~r/^\d+/, x)
+        y = ~r/^\d+/ |> Regex.run(x)
 
         if y == nil do
           "00"
@@ -59,7 +58,7 @@ defmodule Grain.Tasks do
   end
 
   def j(j) do
-    if String.to_integer(j["remainSeconds"]) <= 3 do
+    if String.to_integer(j["remainSeconds"]) <= 2 do
       s(j)
     end
   end

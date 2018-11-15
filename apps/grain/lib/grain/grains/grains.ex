@@ -6,9 +6,9 @@ defmodule Grain.Grains do
   import Ecto.Query, warn: false
   alias Grain.Repo
 
-  alias Grain.Grains.Grain, as: G
+  alias Grain.Grains.Grain, as: Ggg
 
   def list_grains do
-    Repo.all(Ecto.Query.order_by(G, desc: :inserted_at))
+    Repo.all(Ecto.Query.order_by(Ggg, desc: :inserted_at))
   end
 end
