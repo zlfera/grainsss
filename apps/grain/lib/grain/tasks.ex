@@ -2,6 +2,7 @@ defmodule Grain.Tasks do
   @moduledoc false
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
+  alias Grain.Tasks, as: Gt
 
   def run() do
     {:ok, _} = Application.ensure_all_started(:grain)
@@ -96,7 +97,7 @@ defmodule Grain.Tasks do
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
-        i = spawn(T, :grain, [y, pid])
+        i = spawn(Gt, :grain, [y, pid])
 
         Agent.update(pid, fn j -> Map.put(j, y, i) end)
       end
