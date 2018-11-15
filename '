@@ -19,14 +19,14 @@ defmodule GrainWeb.GrainController do
 
           "starting_price" ->
             Ggg
-            |> Ecto.Query.where(starting_price: ^x)
+            |> Ecto.Query.where(address: ^x)
             |> Ecto.Query.where([g], g.latest_price != "0")
             |> Ecto.Query.order_by(desc: :inserted_at)
             |> Gr.all()
 
           "year" ->
             Ggg
-            |> Ecto.Query.where(year: ^x)
+            |> Ecto.Query.where(address: ^x)
             |> Ecto.Query.where([g], g.latest_price != "0")
             |> Ecto.Query.order_by(desc: :inserted_at)
             |> Gr.all()

@@ -106,7 +106,7 @@ defmodule Grain.Tasks do
     u1(b, pid)
   end
 
-  def u1(b) when b == [] do
+  def u1(b, pid) when b == [] do
     IO.puts("结束")
   end
 end

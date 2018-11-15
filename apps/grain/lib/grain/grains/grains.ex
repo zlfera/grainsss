@@ -3,12 +3,14 @@ defmodule Grain.Grains do
   The Grains context.
   """
 
-  import Ecto.Query, warn: false
-  alias Grain.Repo
+  import Ecto.Query
 
   alias Grain.Grains.Grain, as: Ggg
 
   def list_grains do
-    Repo.all(Ecto.Query.order_by(Ggg, desc: :inserted_at))
+    Ggg
+    |> Ecto.Query.where([l], l.latest_price != "0")
+    |> Ecto.Query.order_by(desc: :inserted_at)
+    |> Grain.Repo.all()
   end
 end
