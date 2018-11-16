@@ -8,7 +8,6 @@ config :grain,
   ecto_repos: [Grain.Repo]
 
 config :grain, Grain.Scheduler,
-  timezone: "Asia/Shanghai",
   jobs: [
     {{:extended, "*/10 30 24-2 * *"}, {Grain.Tasks, :run, []}}
     # {"* * * * *", {Grain.Tasks, :run, []}}
