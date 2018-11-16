@@ -11,7 +11,7 @@ config :grain, Grain.Scheduler,
   jobs: [
     # {"31 24 * * *", {Grain.Tasks, :run, []}},
     # {"* * * * *", {Grain.Tasks, :run, []}}
-    {"31 0-2/2 * * *", {Grain.Tasks, :run, []}}
+    {"30 0-2/1 * * *", {Grain.Tasks, :run, []}}
   ]
 
 import_config "#{Mix.env()}.exs"
