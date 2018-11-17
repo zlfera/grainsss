@@ -4,9 +4,9 @@ defmodule Grain.Tasks do
   alias Grain.Repo
   alias Grain.Tasks, as: Gt
 
-  def run(pid) do
+  def run() do
     {:ok, _} = Application.ensure_all_started(:grain)
-    # {:ok, pid} = Agent.start_link(fn -> %{} end)
+    {:ok, pid} = Agent.start_link(fn -> %{} end)
     u1(b(), pid)
   end
 
