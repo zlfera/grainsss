@@ -3,14 +3,14 @@
 # and only for organization purposes. All other config goes to
 # the umbrella root.
 use Mix.Config
-# {:ok, pid} = Agent.start_link(fn -> %{} end)
+{:ok, pid} = Agent.start_link(fn -> %{} end)
 
 config :grain,
   ecto_repos: [Grain.Repo]
 
 config :grain, Grain.Scheduler,
   jobs: [
-    {{:extended, "*/10 13-60/1 0-3 * *"}, {Grain.Tasks, :run, []}}
+    {{:extended, "*/10 13-60/1 0-3 * *"}, {Grain.Tasks, :run, [pid]}}
     # {"* * * * *", {Grain.Tasks, :run, []}}
     # {"30 0-2/1 * * *", {Grain.Tasks, :run, []}}
   ]
