@@ -1,4 +1,4 @@
 cd $assets_dir
 node_modules/.bin/webpack -p
 cd $phoenix_dir
-mix "${phx}.digest"
+mix "${phoenix_ex}.digest"
