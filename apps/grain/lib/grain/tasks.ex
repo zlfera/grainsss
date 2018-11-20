@@ -7,6 +7,8 @@ defmodule Grain.Tasks do
   def run(pid) do
     {:ok, _} = Application.ensure_all_started(:grain)
     # {:ok, pid} = Agent.start_link(fn -> %{} end)
+    # p = Agent.get(pid, fn i -> i end)
+    # IO.inspect(p)
     u1(b(), pid)
   end
 
