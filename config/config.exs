@@ -22,4 +22,9 @@ config :phoenix, :json_library, Jason
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
+
+config :new_relic_agent,
+  app_name: "Grain App",
+  license_key: "ee9c2eabf9a8054364cfc885b768dc549c1ee5c6"
+
 import_config "#{Mix.env()}.exs"

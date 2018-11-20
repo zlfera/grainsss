@@ -11,6 +11,7 @@ config :grain_web,
 
 # Configures the endpoint
 config :grain_web, GrainWeb.Endpoint,
+  instrumenters: [NewRelic.Phoenix.Instrumenter],
   url: [host: "localhost"],
   secret_key_base: "J1yC9GgAwF/xY/ql9RVS8JNvE2Ggq4d8hrVhcumk9mFl4KrAXtOpQ4Au6GA+T6fq",
   render_errors: [view: GrainWeb.ErrorView, accepts: ~w(html json)],
