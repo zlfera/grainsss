@@ -9,7 +9,7 @@ defmodule Grain.Grains do
 
   def list_grains do
     Ggg
-    |> Ecto.Query.where([l], l.latest_price != "0")
+    # |> Ecto.Query.where([l], l.latest_price != "0")
     |> Ecto.Query.order_by(desc: :inserted_at)
     |> Grain.Repo.all()
   end
