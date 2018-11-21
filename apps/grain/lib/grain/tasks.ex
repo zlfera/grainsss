@@ -1,5 +1,6 @@
 defmodule Grain.Tasks do
   @moduledoc false
+  import Ecto.Query
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
   alias Grain.Tasks, as: Gt
@@ -61,7 +62,16 @@ defmodule Grain.Tasks do
 
   def j(j) do
     if String.to_integer(j["remainSeconds"]) <= 2 do
-      s(j)
+      g =
+        G
+        |> Ecto.Query.where([g], g.mark_number == ^j["requestAlias"])
+        |> limit(1)
+        |> Grain.Repo.all()
+        |> length
+
+      if g == 0 do
+        s(j)
+      end
     end
   end
 
