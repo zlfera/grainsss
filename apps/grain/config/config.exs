@@ -10,9 +10,9 @@ config :grain,
 
 config :grain, Grain.Scheduler,
   jobs: [
-    {{:extended, "*/10 * 0-3/1 * *"}, {Grain.Tasks, :run, [pid]}}
+    # {{:extended, "*/10 * 0-3/1 * *"}, {Grain.Tasks, :run, [pid]}}
     # {"* * * * *", {Grain.Tasks, :run, []}}
-    # {"30 0-2/1 * * *", {Grain.Tasks, :run, []}}
+    {"30/30 0-3/1 * * *", {Grain.Tasks, :run, [pid]}}
   ]
 
 import_config "#{Mix.env()}.exs"
