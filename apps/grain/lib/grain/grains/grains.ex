@@ -3,7 +3,7 @@ defmodule Grain.Grains do
   The Grains context.
   """
 
-  import Ecto.Query
+  import Ecto.Query, only: [from: 2]
 
   alias Grain.Grains.Grain, as: Ggg
   alias Grain.Repo, as: Gr
