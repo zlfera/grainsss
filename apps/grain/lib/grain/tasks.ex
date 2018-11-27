@@ -8,8 +8,12 @@ defmodule Grain.Tasks do
   def run(pid) do
     {:ok, _} = Application.ensure_all_started(:grain)
     # {:ok, pid} = Agent.start_link(fn -> %{} end)
-    Agent.get(pid, fn i -> i end) |> IO.inspect()
-    u1(b(), pid)
+    if Agent.get(pid, fn i -> i end) |> equal?(%{}) do 
+
+      u1(b(), pid)
+    else
+      IO.puts "the pid is live"
+    end
   end
 
   def a(dqqq) do
