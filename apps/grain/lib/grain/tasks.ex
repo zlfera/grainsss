@@ -12,7 +12,7 @@ defmodule Grain.Tasks do
 
       u1(b(), pid)
     else
-      IO.puts "the pid is live"
+      IO.inspect pid
     end
   end
 
