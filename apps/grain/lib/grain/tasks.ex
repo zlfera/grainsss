@@ -8,11 +8,13 @@ defmodule Grain.Tasks do
   def run(pid) do
     {:ok, _} = Application.ensure_all_started(:grain)
     # {:ok, pid} = Agent.start_link(fn -> %{} end)
-    if Agent.get(pid, fn i -> i end) |> Map.equal?(%{}) do 
+    p = Agent.get(pid, fn i -> i end)
+    IO.inspect p
+    if Map.equal?(p, %{}) do 
 
       u1(b(), pid)
     else
-      IO.inspect pid
+      IO.inspect p
     end
   end
 
