@@ -82,7 +82,8 @@ defmodule Grain.Tasks do
 
   def d(dd, y, pid) do
     if dd["status"] == "no" || dd["status"] == "end" do
-      "over"
+      IO.puts("The status is no or end")
+      Process.sleep(5000)
     else
       grain(y, pid)
     end
@@ -93,7 +94,13 @@ defmodule Grain.Tasks do
 
     if dd["status"] == "yes" do
       Enum.each(dd["rows"], fn jj ->
-        j(jj)
+        if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
+             String.match?(jj["varietyName"], ~r/油/) do
+          IO.puts("It is a #{jj["varietyName"]}")
+          Process.sleep(5000)
+        else
+          j(jj)
+        end
       end)
 
       grain(y, pid)
