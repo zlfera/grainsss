@@ -17,7 +17,7 @@ defmodule Grain.Task do
         Gr.get!(Ggg, i.id) |> Gr.delete()
       end)
     else
-      IO.puts("OK")
+      IO.puts("The number is #{l}")
     end
   end
 
