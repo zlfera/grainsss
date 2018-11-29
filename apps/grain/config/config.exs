@@ -10,10 +10,10 @@ config :grain,
 
 config :grain, Grain.Scheduler,
   jobs: [
-    {{:extended, "10 0,30/30 0-3/1 * *"}, {Grain.Tasks, :run, [pid]}}
+    {{:extended, "10 0,30/30 0-3/1 * *"}, {Grain.Tasks, :run, [pid]}},
     # {{:extended, "10 30/30 0-3/1 * *"}, {Grain.Tasks, :run, [pid]}}
     # {"* * * * *", {Grain.Tasks, :run, []}}
-    # {"0/30 0-3/1 * * *", {Grain.Tasks, :run, [pid]}},
+    {"30 22 * * *", {Grain.Task, :grain_delete, []}}
     # {"30/30 0-3/1 * * *", {Grain.Tasks, :run, [pid]}}
   ]
 
