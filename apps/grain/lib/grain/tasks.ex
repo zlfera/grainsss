@@ -13,8 +13,17 @@ defmodule Grain.Tasks do
 
     if is_nil(p) do
       Process.put(:zeng, %{})
+      u1(b())
     else
       IO.inspect(p)
+
+      Enum.each(Map.values(p), fn i ->
+        if Process.alive?(i) do
+          IO.puts("#{i} is alove")
+        else
+          u1(b())
+        end
+      end)
     end
 
     u1(b())
