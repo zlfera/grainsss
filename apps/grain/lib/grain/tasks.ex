@@ -19,7 +19,7 @@ defmodule Grain.Tasks do
 
       Enum.each(Map.values(p), fn i ->
         if Process.alive?(i) do
-          IO.puts("#{i} is alove")
+          IO.puts("#{i} is alive")
         else
           u1(b())
         end
