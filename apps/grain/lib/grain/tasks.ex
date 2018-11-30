@@ -5,16 +5,25 @@ defmodule Grain.Tasks do
   alias Grain.Repo
   alias Grain.Tasks, as: Gt
 
-  def run(pid) do
+  def run() do
     {:ok, _} = Application.ensure_all_started(:grain)
     # {:ok, pid} = Agent.start_link(fn -> %{} end)
-    p = Agent.get(pid, fn i -> i end)
+    #    p = Agent.get(pid, fn i -> i end)
+    p = Process.get(:zeng)
 
-    if Map.equal?(p, %{}) do
-      u1(b(), pid)
+    if is_nil(p) do
+      Process.put(:zeng, %{})
     else
       IO.inspect(p)
     end
+
+    u1(b())
+
+    #    if Map.equal?(p, %{}) do
+    #      u1(b(), pid)
+    #    else
+    #      IO.inspect(p)
+    #    end
   end
 
   def a(dqqq) do
@@ -60,7 +69,6 @@ defmodule Grain.Tasks do
   end
 
   def b do
-    # :timer.sleep(10000)
     uuu = "http://123.127.88.167:8888/tradeClient/observe/specialList"
     HTTPoison.get!(uuu).body |> Jason.decode!()
   end
@@ -80,15 +88,15 @@ defmodule Grain.Tasks do
     end
   end
 
-  def d(dd, y, pid) do
+  def d(dd, y) do
     if dd["status"] == "no" || dd["status"] == "end" do
       IO.puts("The status is no or end")
     else
-      grain(y, pid)
+      grain(y)
     end
   end
 
-  def grain(y, pid) do
+  def grain(y) do
     dd = a(y)
 
     if dd["status"] == "yes" do
@@ -101,35 +109,40 @@ defmodule Grain.Tasks do
         end
       end)
 
-      grain(y, pid)
+      grain(y)
     else
-      d(dd, y, pid)
+      d(dd, y)
     end
   end
 
-  def u1(b, pid) when b != [] do
-    qww = Agent.get(pid, & &1)
+  def u1(b) when b != [] do
+    #    qww = Agent.get(pid, & &1)
+    qww = Process.get(:zeng)
 
     Enum.each(b, fn x ->
       y = x["specialNo"]
 
       if Map.has_key?(qww, y) do
         if !Process.alive?(qww[y]) do
-          Agent.update(pid, fn j -> Map.delete(j, y) end)
+          #          Agent.update(pid, fn j -> Map.delete(j, y) end)
+          Map.delete(qww, y)
         end
       else
-        i = spawn(Gt, :grain, [y, pid])
+        i = spawn(Gt, :grain, [y])
 
-        Agent.update(pid, fn j -> Map.put(j, y, i) end)
+        #        Agent.update(pid, fn j -> Map.put(j, y, i) end)
+        qwww = Map.put(qww, y, i)
+        Process.put(:zeng, qwww)
       end
     end)
 
-    u1(b, pid)
+    u1(b())
   end
 
-  def u1(b, pid) when b == [] do
+  def u1(b) when b == [] do
     IO.puts("结束")
-    Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
-    IO.inspect(pid)
+    #    Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
+    Process.delete(:zeng)
+    #    IO.inspect(pid)
   end
 end
