@@ -18,15 +18,17 @@ defmodule Grain.Tasks do
       IO.inspect(p)
 
       Enum.each(Map.values(p), fn i ->
-        if Process.alive?(i) do
-          IO.puts("#{i} is alive")
+        if is_pid(i) do
+          if Process.alive?(i) do
+            IO.puts("#{i} is alive")
+          else
+            u1(b())
+          end
         else
-          u1(b())
+          IO.puts("#{i} is not a pid")
         end
       end)
     end
-
-    u1(b())
 
     #    if Map.equal?(p, %{}) do
     #      u1(b(), pid)
