@@ -131,7 +131,7 @@ defmodule Grain.Tasks do
 
   def u1(b, pid) when b == [] do
     IO.puts("结束")
-    Process.exit(pid, :kill)
+    Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
     IO.inspect(pid)
   end
 end
