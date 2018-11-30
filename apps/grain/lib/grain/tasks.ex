@@ -23,16 +23,14 @@ defmodule Grain.Tasks do
           if is_pid(i) do
             if Process.alive?(i) do
               IO.puts("#{i} is alive")
-            else
-              u1(b())
             end
           else
             IO.puts("#{i} is not a pid")
           end
         end)
-      else
-        u1(b())
       end
+    else
+      u1(b())
     end
 
     #    if Map.equal?(p, %{}) do
@@ -158,7 +156,7 @@ defmodule Grain.Tasks do
   def u1(b) when b == [] do
     IO.puts("结束")
     #    Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
-    # Process.delete(:zeng)
+    Process.delete(:zeng)
     #    IO.inspect(pid)
   end
 end
