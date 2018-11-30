@@ -15,19 +15,24 @@ defmodule Grain.Tasks do
       Process.put(:zeng, %{})
       u1(b())
     else
+      IO.puts(123)
       IO.inspect(p)
 
-      Enum.each(Map.values(p), fn i ->
-        if is_pid(i) do
-          if Process.alive?(i) do
-            IO.puts("#{i} is alive")
+      if length(Map.values(p)) != 0 do
+        Enum.each(Map.values(p), fn i ->
+          if is_pid(i) do
+            if Process.alive?(i) do
+              IO.puts("#{i} is alive")
+            else
+              u1(b())
+            end
           else
-            u1(b())
+            IO.puts("#{i} is not a pid")
           end
-        else
-          IO.puts("#{i} is not a pid")
-        end
-      end)
+        end)
+      else
+        u1(b())
+      end
     end
 
     #    if Map.equal?(p, %{}) do
@@ -153,7 +158,7 @@ defmodule Grain.Tasks do
   def u1(b) when b == [] do
     IO.puts("结束")
     #    Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
-    Process.delete(:zeng)
+    # Process.delete(:zeng)
     #    IO.inspect(pid)
   end
 end
