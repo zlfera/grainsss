@@ -11,26 +11,30 @@ defmodule Grain.Tasks do
     #    p = Agent.get(pid, fn i -> i end)
     p = Process.get(:zeng)
 
-    if is_nil(p) do
-      Process.put(:zeng, %{})
-      u1(b())
+    if b() == [] do
+      IO.puts("今天没有交易")
     else
-      IO.puts(123)
-      IO.inspect(p)
+      if is_nil(p) do
+        Process.put(:zeng, %{})
+        u1(b())
+      else
+        IO.puts(123)
+        IO.inspect(p)
 
-      if length(Map.values(p)) != 0 do
-        Enum.each(Map.values(p), fn i ->
-          if is_pid(i) do
-            if Process.alive?(i) do
-              IO.puts("#{i} is alive")
+        if length(Map.values(p)) != 0 do
+          Enum.each(Map.values(p), fn i ->
+            if is_pid(i) do
+              if Process.alive?(i) do
+                IO.puts("#{i} is alive")
+              end
+            else
+              IO.puts("#{i} is not a pid")
             end
-          else
-            IO.puts("#{i} is not a pid")
-          end
-        end)
+          end)
+        else
+          u1(b())
+        end
       end
-    else
-      u1(b())
     end
 
     #    if Map.equal?(p, %{}) do
