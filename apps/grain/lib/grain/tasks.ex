@@ -6,6 +6,7 @@ defmodule Grain.Tasks do
   alias Grain.Tasks, as: Gt
 
   def run() do
+    HTTPoison.get("https://youmilegg.herokuapp.com/home/grain_home")
     {:ok, _} = Application.ensure_all_started(:grain)
     # {:ok, pid} = Agent.start_link(fn -> %{} end)
     #    p = Agent.get(pid, fn i -> i end)
