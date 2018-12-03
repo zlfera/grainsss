@@ -17,7 +17,7 @@ defmodule Grain.Task do
         Gr.get!(Ggg, i.id) |> Gr.delete()
       end)
     else
-      IO.puts("The number is #{l}")
+      IO.puts("数据库里面现在数据为 #{l}")
     end
   end
 
