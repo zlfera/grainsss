@@ -121,7 +121,7 @@ defmodule Grain.Tasks do
     if dd["status"] == "yes" do
       Enum.each(dd["rows"], fn jj ->
         if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
-             String.match?(jj["varietyName"], ~r/油/) do
+             String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
           IO.puts("It is a #{jj["varietyName"]}")
         else
           j(jj)
