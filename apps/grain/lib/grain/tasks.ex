@@ -5,44 +5,23 @@ defmodule Grain.Tasks do
   alias Grain.Repo
   alias Grain.Tasks, as: Gt
 
-  def run() do
+  def run(pid) do
     HTTPoison.get("https://youmilegg.herokuapp.com/home/grain_home")
     {:ok, _} = Application.ensure_all_started(:grain)
     # {:ok, pid} = Agent.start_link(fn -> %{} end)
-    #    p = Agent.get(pid, fn i -> i end)
-    p = Process.get(:zeng)
+    p = Agent.get(pid, fn i -> i end)
 
     if b() == [] do
-      IO.puts("今天没有交易")
+      IO.puts("交易已经结束")
     else
-      if is_nil(p) do
-        Process.put(:zeng, %{})
-        u1(b())
+      if Map.equal?(p, %{}) do
+        IO.inspect(p)
+        u1(b(), pid)
       else
         IO.puts(123)
         IO.inspect(p)
-
-        if length(Map.values(p)) != 0 do
-          Enum.each(Map.values(p), fn i ->
-            if is_pid(i) do
-              if Process.alive?(i) do
-                IO.puts("#{i} is alive")
-              end
-            else
-              IO.puts("#{i} is not a pid")
-            end
-          end)
-        else
-          u1(b())
-        end
       end
     end
-
-    #    if Map.equal?(p, %{}) do
-    #      u1(b(), pid)
-    #    else
-    #      IO.inspect(p)
-    #    end
   end
 
   def a(dqqq) do
@@ -107,61 +86,56 @@ defmodule Grain.Tasks do
     end
   end
 
-  def d(dd, y) do
+  def d(dd, y, pid) do
     if dd["status"] == "no" || dd["status"] == "end" do
       IO.puts("The status is no or end")
     else
-      grain(y)
+      grain(y, pid)
     end
   end
 
-  def grain(y) do
+  def grain(y, pid) do
     dd = a(y)
 
     if dd["status"] == "yes" do
       Enum.each(dd["rows"], fn jj ->
         if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
              String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
-          IO.puts("It is a #{jj["varietyName"]}")
+          # IO.puts("It is a #{jj["varietyName"]}")
         else
           j(jj)
         end
       end)
 
-      grain(y)
+      grain(y, pid)
     else
-      d(dd, y)
+      d(dd, y, pid)
     end
   end
 
-  def u1(b) when b != [] do
-    #    qww = Agent.get(pid, & &1)
-    qww = Process.get(:zeng)
+  def u1(b, pid) when b != [] do
+    qww = Agent.get(pid, & &1)
 
     Enum.each(b, fn x ->
       y = x["specialNo"]
 
       if Map.has_key?(qww, y) do
         if !Process.alive?(qww[y]) do
-          #          Agent.update(pid, fn j -> Map.delete(j, y) end)
+          Agent.update(pid, fn j -> Map.delete(j, y) end)
           Map.delete(qww, y)
         end
       else
-        i = spawn(Gt, :grain, [y])
-
-        #        Agent.update(pid, fn j -> Map.put(j, y, i) end)
-        qwww = Map.put(qww, y, i)
-        Process.put(:zeng, qwww)
+        i = spawn(Gt, :grain, [y, pid])
+        Agent.update(pid, fn j -> Map.put(j, y, i) end)
       end
     end)
 
-    u1(b())
+    u1(b(), pid)
   end
 
-  def u1(b) when b == [] do
+  def u1(b, pid) when b == [] do
     IO.puts("结束")
-    #    Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
-    Process.delete(:zeng)
-    #    IO.inspect(pid)
+    Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
+    IO.inspect(pid)
   end
 end
