@@ -8,21 +8,7 @@ defmodule Grain.Tasks do
   def run(pid) do
     HTTPoison.get("https://youmilegg.herokuapp.com/home/grain_home")
     {:ok, _} = Application.ensure_all_started(:grain)
-    # {:ok, pid} = Agent.start_link(fn -> %{} end)
-    p = Agent.get(pid, fn i -> i end)
-
-    if b() == [] do
-      u1(b(), pid)
-      IO.puts("交易已经结束")
-    else
-      if Map.equal?(p, %{}) do
-        IO.inspect(p)
-        u1(b(), pid)
-      else
-        IO.puts(123)
-        IO.inspect(p)
-      end
-    end
+    u1(b(), pid)
   end
 
   def a(dqqq) do
@@ -135,7 +121,7 @@ defmodule Grain.Tasks do
   end
 
   def u1(b, pid) when b == [] do
-    IO.puts("结束")
+    IO.puts("交易已经结束")
     Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
     IO.inspect(pid)
   end
