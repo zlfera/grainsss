@@ -12,6 +12,7 @@ defmodule Grain.Tasks do
     p = Agent.get(pid, fn i -> i end)
 
     if b() == [] do
+      u1(b(), pid)
       IO.puts("交易已经结束")
     else
       if Map.equal?(p, %{}) do
