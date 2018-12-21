@@ -9,7 +9,7 @@ defmodule GrainWeb.GrainController do
         Gg.grains_list(x, y)
       else
         if Map.has_key?(params, "search") do
-          Gg.search_grains(params)
+          Gg.search_grains(params["search"])
         else
           Gg.list_grains()
         end
