@@ -6,12 +6,12 @@ body {
   background-color:#CCE8CF;
   font-size: 35px;
 }
-nav,footer p,form {
+/*nav,footer p,form {
   display:flex;
   align-items:center;
   justify-content:center;
   margin-bottom:3%;
-}
+}*/
 nav a {
   text-decoration:none;
   margin:0.5%;
