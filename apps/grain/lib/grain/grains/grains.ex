@@ -9,12 +9,11 @@ defmodule Grain.Grains do
   alias Grain.Repo, as: Gr
 
   def search_grains(user_input) do
-    g =
-      Ggg
-      |> Ecto.Query.order_by(desc: :inserted_at)
-      |> Gr.all()
-
-    Enum.reject(g, fn x -> String.match?(x.address, ~r/#{user_input}/) == false end)
+    Ggg
+    |> Ecto.Query.order_by(desc: :inserted_at)
+    |> Ecto.Query.limit(1000)
+    |> Gr.all()
+    |> Enum.reject(fn x -> String.match?(x.address, ~r/#{user_input["search"]}/) == false end)
   end
 
   def list_grains do
