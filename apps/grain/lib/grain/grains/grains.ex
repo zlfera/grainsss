@@ -8,8 +8,18 @@ defmodule Grain.Grains do
   alias Grain.Grains.Grain, as: Ggg
   alias Grain.Repo, as: Gr
 
+  def search_grains(user_input) do
+    g =
+      Ggg
+      |> Ecto.Query.order_by(desc: :inserted_at)
+      |> Gr.all()
+
+    Enum.reject(g, fn x -> String.match?(x.address, ~r/#{user_input}/) == false end)
+  end
+
   def list_grains do
     Ggg
+    |> Ecto.Query.limit(1000)
     |> Ecto.Query.where([l], l.latest_price != "0")
     |> Ecto.Query.order_by(desc: :inserted_at)
     |> Grain.Repo.all()

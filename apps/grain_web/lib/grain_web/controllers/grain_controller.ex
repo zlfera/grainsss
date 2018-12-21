@@ -8,7 +8,11 @@ defmodule GrainWeb.GrainController do
         [x, y] = params["td_data"] |> String.split(",")
         Gg.grains_list(x, y)
       else
-        Gg.list_grains()
+        if Map.has_key?(params, "search") do
+          Gg.search_grains(params["serach"])
+        else
+          Gg.list_grains()
+        end
       end
 
     render(conn, "index.html", grains: grains)
