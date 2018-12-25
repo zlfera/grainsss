@@ -6,8 +6,10 @@ use Mix.Config
 
 # Configure your database
 config :grain, Grain.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "grain_dev",
-  hostname: "localhost",
-  pool_size: 10
+  # username: "postgres",
+  # password: "postgres",
+  # database: "grain_dev",
+  # hostname: "localhost",
+  url:
+    "postgres://jglfexii:Oraq_oukbxRtsND6_6NMCo9nZz4g2Wnx@baasu.db.elephantsql.com:5432/jglfexii",
+  pool_size: 5
