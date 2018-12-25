@@ -12,6 +12,8 @@ use Mix.Config
 # Configure your database
 config :grain, Grain.Repo,
   # url: "${DATABASE_URL}",
-  url: System.get_env("DATABASE_URL1"),
+  # System.get_env("DATABASE_URL1"),
+  url:
+    "postgres://lwhybakh:O6jpUjjI1LzWkJWCUqsJxYnGEly2XzG5@baasu.db.elephantsql.com:5432/lwhybakh",
   ssl: true,
   pool_size: 5
