@@ -28,7 +28,7 @@ defmodule Grain.Grains do
     case y do
       "latest_price" ->
         Ggg
-        # |> Ecto.Query.where([l], l.latest_price != "0")
+        |> Ecto.Query.where([l], l.latest_price != "0")
         |> Ecto.Query.limit(1000)
         |> Ecto.Query.order_by(desc: :inserted_at)
         |> Grain.Repo.all()
