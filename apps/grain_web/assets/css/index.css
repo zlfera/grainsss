@@ -2,7 +2,8 @@
   box-sizing:border-box;
 }
 body {
-  margin:auto;
+  width: 100%;
+  margin:auto 2%;
   background-color:#CCE8CF;
   font-size: 35px;
 }
