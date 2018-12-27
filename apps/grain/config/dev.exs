@@ -6,9 +6,13 @@ use Mix.Config
 
 # Configure your database
 config :grain, Grain.Repo,
-  username: "wecwjsnz",
-  password: "rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve",
-  database: "wecwjsnz",
-  hostname: "baasu.db.elephantsql.com",
+  # username: "wecwjsnz",
+  # password: "rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve",
+  # database: "wecwjsnz",
+  # hostname: "baasu.db.elephantsql.com",
   # url:"postgres://wecwjsnz:rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve@baasu.db.elephantsql.com:5432/wecwjsnz",
-  pool_size: 5
+  pool_size: 10,
+  username: "postgres",
+  password: "postgres",
+  database: "grain_dev",
+  hostname: "localhost"
