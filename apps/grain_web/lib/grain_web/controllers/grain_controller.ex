@@ -15,6 +15,7 @@ defmodule GrainWeb.GrainController do
         end
       end
 
-    render(conn, "index.html", grains: grains)
+    {:ok, pid} = Agent.start_link(fn -> 0 end)
+    render(conn, "index.html", grains: grains, pid: pid)
   end
 end
