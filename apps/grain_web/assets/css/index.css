@@ -2,17 +2,17 @@
   box-sizing:border-box;
 }
 body {
-  width: 100%;
-  margin:auto 22%;
+  width:100%;
+  margin:0,2%;
   background-color:#CCE8CF;
   font-size: 35px;
 }
-div,nav,footer p,form {
+/*nav,footer p,form {
   display:flex;
   align-items:center;
   justify-content:center;
   margin-bottom:3%;
-}
+}*/
 nav a {
   text-decoration:none;
   margin:0.5%;
