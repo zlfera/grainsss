@@ -16,5 +16,6 @@
       <!--<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>-->
     </footer>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <script type="text/javascript" src="https://js.users.51.la/19821413.js"></script>
   </body>
 </html>
