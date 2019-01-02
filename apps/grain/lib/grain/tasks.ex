@@ -101,10 +101,9 @@ defmodule Grain.Tasks do
   end
 
   def u1(b, pid) when b != [] do
-    qww = Agent.get(pid, & &1)
-
     Enum.each(b, fn x ->
       y = x["specialNo"]
+      qww = Agent.get(pid, & &1)
 
       if Map.has_key?(qww, y) do
         if !Process.alive?(qww[y]) do

@@ -19,6 +19,7 @@ defmodule GrainWeb.Router do
     get "/", PageController, :index
     get "/grains", GrainController, :index
     post "/grains", GrainController, :index
+    get "/home", HomeController, :index
   end
 
   # Other scopes may use custom stacks.
