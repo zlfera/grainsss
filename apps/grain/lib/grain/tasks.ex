@@ -9,7 +9,13 @@ defmodule Grain.Tasks do
     HTTPoison.get("https://youmilegg.herokuapp.com/home/grain_home")
     {:ok, _} = Application.ensure_all_started(:grain)
     Agent.get(pid, fn i -> i end) |> IO.inspect()
-    u1(b(), pid)
+    p = Agent.get(pid, fn i -> i end)
+
+    if p != %{} do
+      IO.puts("当前任务正在进行中")
+    else
+      u1(b(), pid)
+    end
   end
 
   def a(dqqq) do
