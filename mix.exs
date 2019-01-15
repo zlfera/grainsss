@@ -23,8 +23,8 @@ defmodule Grain.Umbrella.MixProject do
   # and cannot be accessed from applications inside the apps folder
   defp deps do
     [
-      # {:new_relic_agent, "~> 1.0"},
-      # {:new_relic_phoenix, "~> 0.1"},
+      {:new_relic_agent, "~> 1.0"},
+      {:new_relic_phoenix, "~> 0.1"}
       # {:distillery, "~> 2.0", runtime: false},
       # {:credo, github: "rrrene/credo", only: [:dev, :test], runtime: false}
     ]

@@ -45,9 +45,9 @@ defmodule GrainWeb.MixProject do
       {:gettext, "~> 0.11"},
       {:grain, in_umbrella: true},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"},
-      {:new_relic_agent, "~> 1.0"},
-      {:new_relic_phoenix, "~> 0.1"}
+      {:plug_cowboy, "~> 2.0"}
+      # {:new_relic_agent, "~> 1.0"},
+      # {:new_relic_phoenix, "~> 0.1"}
     ]
   end
 
