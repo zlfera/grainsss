@@ -11,12 +11,16 @@ config :grain_web,
 
 # Configures the endpoint
 config :grain_web, GrainWeb.Endpoint,
-  # instrumenters: [NewRelic.Phoenix.Instrumenter],
+  instrumenters: [NewRelic.Phoenix.Instrumenter],
   url: [host: "localhost"],
   secret_key_base: "J1yC9GgAwF/xY/ql9RVS8JNvE2Ggq4d8hrVhcumk9mFl4KrAXtOpQ4Au6GA+T6fq",
   render_errors: [view: GrainWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: GrainWeb.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
+# of thisname file so it overrides the configuration defined above.
+config :new_relic_agent,
+  app_name: "My App",
+  license_key: "ee9c2eabf9a8054364cfc885b768dc549c1ee5c6"
+
 import_config "#{Mix.env()}.exs"

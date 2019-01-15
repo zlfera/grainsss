@@ -1,7 +1,9 @@
 defmodule GrainWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :grain_web
-  # use NewRelic.Phoenix.Transaction
+  use NewRelic.Phoenix.Transaction
 
+  # config :my_app, MyApp.Endpoint,
+  # instrumenters: [NewRelic.Phoenix.Instrumenter]
   socket("/socket", GrainWeb.UserSocket,
     websocket: true,
     longpoll: false
