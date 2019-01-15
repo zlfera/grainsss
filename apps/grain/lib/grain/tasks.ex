@@ -74,23 +74,22 @@ defmodule Grain.Tasks do
         |> Ecto.Query.where([g], g.mark_number == ^j["requestAlias"])
         |> limit(1)
         |> Grain.Repo.all()
-        |> length
 
-      if g == 0 do
+      if g == [] do
         s(j)
       end
     end
   end
 
-  def d(dd, y, pid) do
+  def d(dd, y) do
     if dd["status"] == "no" || dd["status"] == "end" do
       IO.puts("The status is no or end")
     else
-      grain(y, pid)
+      grain(y)
     end
   end
 
-  def grain(y, pid) do
+  def grain(y) do
     dd = a(y)
 
     if dd["status"] == "yes" do
@@ -103,9 +102,9 @@ defmodule Grain.Tasks do
         end
       end)
 
-      grain(y, pid)
+      grain(y)
     else
-      d(dd, y, pid)
+      d(dd, y)
     end
   end
 
@@ -119,7 +118,7 @@ defmodule Grain.Tasks do
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
-        i = spawn(Gt, :grain, [y, pid])
+        i = spawn(Gt, :grain, [y])
         Agent.update(pid, fn j -> Map.put(j, y, i) end)
       end
     end)
