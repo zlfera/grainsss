@@ -12,7 +12,7 @@ defmodule Grain.Tasks do
     p = Agent.get(pid, fn i -> i end)
 
     if p != %{} && b() != [] do
-      Map.keys(p) |> Enum.each(fn i -> Process.alive?(i) |> IO.puts() end)
+      Map.keys(p) |> Enum.each(fn i -> Process.alive?(p[i]) |> IO.puts() end)
       IO.puts("当前任务正在进行中")
     else
       "启动新任务" |> IO.puts()
