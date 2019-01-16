@@ -115,7 +115,9 @@ defmodule Grain.Tasks do
 
       if Map.has_key?(qww, y) do
         if Process.alive?(qww[y]) == false do
+          IO.inspect(123)
           Agent.update(pid, fn j -> Map.delete(j, y) end)
+          Agent.get(pid, fn i -> i end) |> IO.inspect()
         end
       else
         i = spawn(Gt, :grain, [y])
