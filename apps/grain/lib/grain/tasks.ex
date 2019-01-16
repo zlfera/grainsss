@@ -114,7 +114,7 @@ defmodule Grain.Tasks do
       qww = Agent.get(pid, & &1)
 
       if Map.has_key?(qww, y) do
-        if !Process.alive?(qww[y]) do
+        if Process.alive?(qww[y] == false) do
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
