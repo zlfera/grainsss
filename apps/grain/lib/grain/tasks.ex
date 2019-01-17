@@ -81,7 +81,9 @@ defmodule Grain.Tasks do
     end
   end
 
-  def d(dd, y) do
+  def d(y) do
+    dd = a(y)
+
     if dd["status"] == "no" || dd["status"] == "end" do
       IO.puts("The status is no or end")
     else
@@ -104,7 +106,7 @@ defmodule Grain.Tasks do
 
       grain(y)
     else
-      d(dd, y)
+      d(y)
     end
   end
 
