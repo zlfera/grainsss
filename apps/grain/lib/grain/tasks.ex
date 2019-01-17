@@ -33,7 +33,6 @@ defmodule Grain.Tasks do
 
     y =
       if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
-        # y = x |> String.slice(0, 4) |> String.to_integer()
         y = ~r/^\d+/ |> Regex.run(x)
 
         if y == nil do
@@ -83,7 +82,7 @@ defmodule Grain.Tasks do
   end
 
   def d(y) do
-    dd = a(y)
+    dd = y
 
     if dd["status"] == "no" || dd["status"] == "end" do
       IO.puts("The status is no or end")
@@ -101,13 +100,15 @@ defmodule Grain.Tasks do
              String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
           # IO.puts("It is a #{jj["varietyName"]}")
         else
+          IO.puts("j(jj)")
           j(jj)
         end
       end)
 
       grain(y)
     else
-      d(y)
+      IO.puts("d(dd)")
+      d(dd)
     end
   end
 
