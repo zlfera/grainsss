@@ -8,6 +8,7 @@ defmodule Grain.Tasks do
   def run(pid) do
     HTTPoison.get("https://youmilegg.herokuapp.com/home/grain_home")
     {:ok, _} = Application.ensure_all_started(:grain)
+
     Agent.get(pid, fn i -> i end) |> IO.inspect()
     p = Agent.get(pid, fn i -> i end)
 
