@@ -114,13 +114,16 @@ defmodule Grain.Tasks do
     Enum.each(b, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
+      IO.inspect("123#{qww}")
 
       if Map.has_key?(qww, y) do
         if Process.alive?(qww[y]) == false do
+          IO.inspect("567#{qww[y]}")
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
         i = spawn(Gt, :grain, [y])
+        IO.inspect("789#{i}")
         Agent.update(pid, fn j -> Map.put(j, y, i) end)
       end
     end)
