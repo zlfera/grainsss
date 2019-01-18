@@ -81,34 +81,29 @@ defmodule Grain.Tasks do
     end
   end
 
-  def d(y) do
-    dd = y
-
-    if dd["status"] == "no" || dd["status"] == "end" do
-      IO.puts("The status is no or end")
-    else
-      grain(y)
-    end
-  end
-
   def grain(y) do
     dd = a(y)
 
-    if dd["status"] == "yes" do
-      Enum.each(dd["rows"], fn jj ->
-        if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
-             String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
-          # IO.puts("It is a #{jj["varietyName"]}")
-        else
-          IO.puts("j(jj)")
-          j(jj)
-        end
-      end)
+    case dd["status"] do
+      "yes" ->
+        Enum.each(dd["rows"], fn jj ->
+          if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
+               String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
+          else
+            j(jj)
+          end
+        end)
 
-      grain(y)
-    else
-      IO.puts("d(dd)")
-      d(dd)
+        grain(y)
+
+      "end" ->
+        IO.puts("The status is end")
+
+      "no" ->
+        IO.puts("The status is no")
+
+      _ ->
+        grain(y)
     end
   end
 
@@ -116,16 +111,15 @@ defmodule Grain.Tasks do
     Enum.each(b, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
-      IO.inspect("123#{qww}")
 
       if Map.has_key?(qww, y) do
         if Process.alive?(qww[y]) == false do
-          IO.inspect("567#{qww[y]}")
+          IO.puts(1)
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
         i = spawn(Gt, :grain, [y])
-        IO.inspect("789#{i}")
+        IO.puts(2)
         Agent.update(pid, fn j -> Map.put(j, y, i) end)
       end
     end)

@@ -645,3 +645,63 @@
 [INFO] - 2019-01-17 15:32:12 - Completed Transaction Trace harvest - size: 0
 [INFO] - 2019-01-17 15:32:12 - Completed Custom Event harvest - size: 56
 [INFO] - 2019-01-17 16:22:46 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-01-18 08:02:09 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-01-18 08:02:13 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-01-18 08:03:12 - Completed Metric harvest - size: 2
+[INFO] - 2019-01-18 08:03:13 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-18 08:03:13 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-18 08:03:13 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-18 08:03:13 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-18 08:03:14 - Completed Transaction Trace harvest - size: 0
+[ERROR] - 2019-01-18 08:03:18 - custom_event_data: %HTTPoison.Error{id: nil, reason: :timeout}
+[ERROR] - 2019-01-18 08:03:23 - custom_event_data: %HTTPoison.Error{id: nil, reason: :timeout}
+[INFO] - 2019-01-18 08:03:23 - Completed Custom Event harvest - size: 51
+[INFO] - 2019-01-18 08:04:13 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-18 08:04:13 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-18 08:04:14 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-18 08:04:15 - Completed Span Event harvest - size: 0
+[ERROR] - 2019-01-18 08:04:17 - metric_data: %HTTPoison.Error{id: nil, reason: :timeout}
+[ERROR] - 2019-01-18 08:04:17 - custom_event_data: %HTTPoison.Error{id: nil, reason: :timeout}
+[INFO] - 2019-01-18 08:04:20 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-18 08:04:21 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2019-01-18 08:04:22 - custom_event_data: %HTTPoison.Error{id: nil, reason: :timeout}
+[INFO] - 2019-01-18 08:04:22 - Completed Custom Event harvest - size: 55
+[INFO] - 2019-01-18 08:05:12 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-18 08:05:12 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-18 08:05:12 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-18 08:05:13 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-18 08:05:13 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-18 08:05:13 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2019-01-18 08:05:18 - custom_event_data: %HTTPoison.Error{id: nil, reason: :timeout}
+[ERROR] - 2019-01-18 08:05:23 - custom_event_data: %HTTPoison.Error{id: nil, reason: :timeout}
+[INFO] - 2019-01-18 08:05:23 - Completed Custom Event harvest - size: 54
+[INFO] - 2019-01-18 08:06:12 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-18 08:06:12 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-18 08:06:12 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-18 08:06:12 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-18 08:06:13 - Completed Custom Event harvest - size: 54
+[INFO] - 2019-01-18 08:06:13 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-18 08:06:13 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-18 08:06:26 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-01-18 08:06:30 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-01-18 08:07:29 - Completed Metric harvest - size: 2
+[INFO] - 2019-01-18 08:07:30 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-18 08:07:30 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-18 08:07:30 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-18 08:07:30 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-18 08:07:30 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-18 08:07:31 - Completed Custom Event harvest - size: 51
+[INFO] - 2019-01-18 08:08:29 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-18 08:08:29 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-18 08:08:29 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-18 08:08:29 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-18 08:08:29 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-18 08:08:29 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-18 08:08:30 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-18 08:09:29 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-18 08:09:29 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-18 08:09:29 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-18 08:09:29 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-18 08:09:29 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-18 08:09:29 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-18 08:09:30 - Completed Custom Event harvest - size: 55
