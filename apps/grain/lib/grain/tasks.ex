@@ -81,7 +81,9 @@ defmodule Grain.Tasks do
     end
   end
 
-  def grain(dd) do
+  def grain(y) do
+    dd = a(y)
+
     case dd["status"] do
       "yes" ->
         Enum.each(dd["rows"], fn jj ->
@@ -116,7 +118,7 @@ defmodule Grain.Tasks do
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
-        i = spawn(Gt, :grain, [a(y)])
+        i = spawn(Gt, :grain, [y])
         IO.puts(2)
         Agent.update(pid, fn j -> Map.put(j, y, i) end)
       end
