@@ -126,7 +126,7 @@ defmodule Grain.Tasks do
       end
     end)
 
-    u1(b, pid)
+    u1(b(), pid)
   end
 
   def u1(c, pid) when c == [] do
