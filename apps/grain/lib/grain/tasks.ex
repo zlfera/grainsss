@@ -17,7 +17,8 @@ defmodule Grain.Tasks do
       IO.puts("当前任务正在进行中")
     else
       "启动新任务" |> IO.puts()
-      u1(b(), pid)
+      b = b()
+      u1(b, pid)
     end
   end
 
