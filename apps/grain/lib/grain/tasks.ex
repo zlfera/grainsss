@@ -17,8 +17,7 @@ defmodule Grain.Tasks do
       IO.puts("当前任务正在进行中")
     else
       "启动新任务" |> IO.puts()
-      b = b()
-      u1(b, pid)
+      u1(b(), pid)
     end
   end
 
@@ -108,8 +107,8 @@ defmodule Grain.Tasks do
     end
   end
 
-  def u1(b, pid) when b != [] do
-    Enum.each(b, fn x ->
+  def u1(c, pid) when c != [] do
+    Enum.each(c, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
 
@@ -130,7 +129,7 @@ defmodule Grain.Tasks do
     u1(b, pid)
   end
 
-  def u1(b, pid) when b == [] do
+  def u1(c, pid) when c == [] do
     IO.puts("交易已经结束")
     # Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
     IO.inspect(Agent.get(pid, fn i -> i end))
