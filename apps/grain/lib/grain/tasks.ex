@@ -12,7 +12,7 @@ defmodule Grain.Tasks do
     Agent.get(pid, fn i -> i end) |> IO.inspect()
     p = Agent.get(pid, fn i -> i end)
 
-    if p != %{} do
+    if p != %{} && b() != [] do
       Map.keys(p) |> Enum.each(fn i -> Process.alive?(p[i]) |> IO.puts() end)
       IO.puts("当前任务正在进行中")
     else
@@ -131,7 +131,7 @@ defmodule Grain.Tasks do
 
   def u1(c, pid) when c == [] do
     IO.puts("交易已经结束")
-    # Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
+    Agent.update(pid, fn i -> Map.drop(i, Map.keys(i)) end)
     IO.inspect(Agent.get(pid, fn i -> i end))
   end
 end
