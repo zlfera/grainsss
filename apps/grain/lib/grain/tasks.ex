@@ -30,15 +30,15 @@ defmodule Grain.Tasks do
     HTTPoison.get!(u).body |> Jason.decode!()
   end
 
-  def s(d, dd) do
-    x = d["requestAlias"]
+  def s(d) do
+    # x = d["requestAlias"]
 
-    dd =
-      if Regex.match?(~r/竞价/, dd) do
-        "拍卖"
-      else
-        "采购"
-      end
+    # dd =
+    # if Regex.match?(~r/竞价/, dd) do
+    #   "拍卖"
+    # else
+    #   "采购"
+    # end
 
     y =
       if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
@@ -64,7 +64,7 @@ defmodule Grain.Tasks do
       latest_price: d["currentPrice"],
       address: d["requestBuyDepotName"],
       status: d["statusName"],
-      trantype: dd
+      trantype: "拍卖"
     }
 
     changeset = G.changeset(%G{}, attr)
@@ -76,7 +76,7 @@ defmodule Grain.Tasks do
     HTTPoison.get!(uuu).body |> Jason.decode!()
   end
 
-  def j(j, jj) do
+  def j(j) do
     if String.to_integer(j["remainSeconds"]) <= 3 do
       g =
         G
@@ -85,14 +85,12 @@ defmodule Grain.Tasks do
         |> Grain.Repo.all()
 
       if g == [] do
-        s(j, jj)
+        s(j)
       end
     end
   end
 
   def grain(y) do
-    yy = y["specialName"]
-    y = y["specialNo"]
     dd = a(y)
 
     case dd["status"] do
@@ -101,7 +99,7 @@ defmodule Grain.Tasks do
           if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
                String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
           else
-            j(jj, yy)
+            j(jj)
           end
         end)
 
@@ -130,7 +128,7 @@ defmodule Grain.Tasks do
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
-        i = spawn(Gt, :grain, [x])
+        i = spawn(Gt, :grain, [y])
         IO.puts(2)
         Agent.get(pid, fn i -> IO.inspect(i) end)
         Agent.update(pid, fn j -> Map.put(j, y, i) end)
