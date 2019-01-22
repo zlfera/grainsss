@@ -30,15 +30,15 @@ defmodule Grain.Tasks do
     HTTPoison.get!(u).body |> Jason.decode!()
   end
 
-  def s(d) do
+  def s(d, dd) do
     x = d["requestAlias"]
 
-    # dd =
-    # if Regex.match?(~r/竞价/, dd) do
-    #   "拍卖"
-    # else
-    #   "采购"
-    # end
+    dd =
+      if Regex.match?(~r/竞价/, dd) do
+        "拍卖"
+      else
+        "采购"
+      end
 
     y =
       if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
@@ -64,7 +64,7 @@ defmodule Grain.Tasks do
       latest_price: d["currentPrice"],
       address: d["requestBuyDepotName"],
       status: d["statusName"],
-      trantype: "拍卖"
+      trantype: dd
     }
 
     changeset = G.changeset(%G{}, attr)
@@ -76,7 +76,7 @@ defmodule Grain.Tasks do
     HTTPoison.get!(uuu).body |> Jason.decode!()
   end
 
-  def j(j) do
+  def j(j, d) do
     if String.to_integer(j["remainSeconds"]) <= 3 do
       g =
         G
@@ -85,13 +85,14 @@ defmodule Grain.Tasks do
         |> Grain.Repo.all()
 
       if g == [] do
-        s(j)
+        s(j, d)
       end
     end
   end
 
   def grain(y) do
     dd = a(y)
+    ddd = dd["specialName"]
 
     case dd["status"] do
       "yes" ->
@@ -99,7 +100,7 @@ defmodule Grain.Tasks do
           if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
                String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
           else
-            j(jj)
+            j(jj, ddd)
           end
         end)
 
