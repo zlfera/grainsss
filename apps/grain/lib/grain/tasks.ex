@@ -128,6 +128,7 @@ defmodule Grain.Tasks do
         if Process.alive?(qww[y]) do
           IO.inspect("#{qww[y]} is true")
         else
+          IO.puts(1)
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
