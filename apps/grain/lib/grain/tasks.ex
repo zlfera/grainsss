@@ -107,10 +107,10 @@ defmodule Grain.Tasks do
         grain(y)
 
       "end" ->
-        IO.puts("The status is end")
+        IO.puts("The status #{y} is end")
 
       "no" ->
-        IO.puts("The status is no")
+        IO.puts("The status #{y} is no")
 
       _ ->
         grain(y)
