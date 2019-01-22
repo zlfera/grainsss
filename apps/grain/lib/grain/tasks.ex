@@ -31,7 +31,7 @@ defmodule Grain.Tasks do
   end
 
   def s(d) do
-    # x = d["requestAlias"]
+    x = d["requestAlias"]
 
     # dd =
     # if Regex.match?(~r/竞价/, dd) do
