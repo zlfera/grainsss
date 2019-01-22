@@ -33,11 +33,12 @@ defmodule Grain.Tasks do
   def s(d, dd) do
     x = d["requestAlias"]
 
-    if Regex.match?(~r/竞价/, dd) do
-      dd = "拍卖"
-    else
-      dd = "采购"
-    end
+    dd =
+      if Regex.match?(~r/竞价/, dd) do
+        "拍卖"
+      else
+        "采购"
+      end
 
     y =
       if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
