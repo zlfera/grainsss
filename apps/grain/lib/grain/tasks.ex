@@ -123,6 +123,8 @@ defmodule Grain.Tasks do
       qww = Agent.get(pid, & &1)
 
       if Map.has_key?(qww, y) do
+        qww[y] |> Process.alive?() |> IO.inspect()
+
         if Process.alive?(qww[y]) == false do
           IO.puts(1)
           Agent.get(pid, fn i -> IO.inspect(i) end)
