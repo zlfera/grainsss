@@ -13,13 +13,13 @@ defmodule Grain.Tasks do
     p = Agent.get(pid, fn i -> i end)
 
     if b() != [] do
-      # if p != %{} do
-      Map.keys(p) |> Enum.each(fn i -> Process.alive?(p[i]) |> IO.puts() end)
-      # IO.puts("当前任务正在进行中")
-      # else
-      # "启动新任务" |> IO.puts()
-      u1(b(), pid)
-      # end
+      if p != %{} do
+        Map.keys(p) |> Enum.each(fn i -> Process.alive?(p[i]) |> IO.puts() end)
+        IO.puts("当前任务正在进行中")
+      else
+        "启动新任务" |> IO.puts()
+        u1(b(), pid)
+      end
     end
   end
 
@@ -124,8 +124,8 @@ defmodule Grain.Tasks do
 
       if Map.has_key?(qww, y) do
         if !Process.alive?(qww[y]) do
-          # IO.inspect(qww[y])
-          IO.inspect("#{qww[y]} is false")
+          IO.inspect(qww[y])
+          IO.inspect("is false")
           Agent.update(pid, fn j -> Map.delete(j, y) end)
         end
       else
