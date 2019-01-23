@@ -455,3 +455,22 @@
 [INFO] - 2019-01-23 10:58:55 - Completed Transaction Event harvest - size: 0
 [INFO] - 2019-01-23 10:58:56 - Completed Custom Event harvest - size: 55
 [INFO] - 2019-01-23 10:59:50 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-01-23 10:59:54 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-01-23 11:00:53 - Completed Metric harvest - size: 2
+[INFO] - 2019-01-23 11:00:54 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:00:54 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:00:54 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:00:54 - Completed Custom Event harvest - size: 51
+[INFO] - 2019-01-23 11:00:55 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:00:57 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:01:53 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:01:53 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:01:53 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:01:53 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:01:53 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:01:53 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:01:53 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-23 11:02:30 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2019-01-23 11:02:40 - preconnect: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:02:50 - connect: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[INFO] - 2019-01-23 11:02:51 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
