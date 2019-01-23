@@ -100,3 +100,6 @@
 [INFO] - 2019-01-23 10:01:27 - Completed Error Trace harvest - size: 0
 [INFO] - 2019-01-23 10:01:27 - Completed Metric harvest - size: 11
 [INFO] - 2019-01-23 10:01:28 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-23 10:02:41 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-01-23 10:02:52 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-01-23 10:03:21 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
