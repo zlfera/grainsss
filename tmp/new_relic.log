@@ -474,3 +474,90 @@
 [ERROR] - 2019-01-23 11:02:40 - preconnect: %HTTPoison.Error{id: nil, reason: :connect_timeout}
 [ERROR] - 2019-01-23 11:02:50 - connect: %HTTPoison.Error{id: nil, reason: :connect_timeout}
 [INFO] - 2019-01-23 11:02:51 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-01-23 11:03:42 - Completed Metric harvest - size: 2
+[ERROR] - 2019-01-23 11:03:50 - error_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:03:50 - transaction_sample_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:03:50 - analytic_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:03:50 - error_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:03:50 - custom_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:03:50 - span_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[INFO] - 2019-01-23 11:03:50 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:03:51 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:03:51 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:03:51 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:03:51 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:03:51 - Completed Custom Event harvest - size: 50
+[INFO] - 2019-01-23 11:04:42 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:04:42 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:04:42 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:04:42 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:04:42 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:04:42 - Completed Custom Event harvest - size: 52
+[ERROR] - 2019-01-23 11:04:50 - span_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[INFO] - 2019-01-23 11:04:50 - Completed Span Event harvest - size: 0
+[ERROR] - 2019-01-23 11:05:50 - transaction_sample_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:05:50 - metric_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:05:50 - error_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:05:50 - span_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:05:50 - error_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:05:50 - analytic_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-01-23 11:05:50 - custom_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[INFO] - 2019-01-23 11:05:51 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:05:51 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:05:51 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:05:51 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:05:51 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:05:51 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:05:51 - Completed Custom Event harvest - size: 51
+[INFO] - 2019-01-23 11:06:42 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:06:43 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:06:43 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:06:43 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:06:43 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:06:44 - Completed Custom Event harvest - size: 52
+[INFO] - 2019-01-23 11:06:44 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:07:42 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:07:42 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:07:42 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:07:42 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:07:42 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:07:42 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:07:42 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-23 11:08:42 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:08:42 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:08:42 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:08:42 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:08:42 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:08:42 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:08:42 - Completed Custom Event harvest - size: 55
+[INFO] - 2019-01-23 11:09:42 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:09:42 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:09:42 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:09:42 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:09:42 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:09:42 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:09:42 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-23 11:10:42 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:10:42 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:10:42 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:10:42 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:10:42 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:10:42 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:10:42 - Completed Custom Event harvest - size: 56
+[ERROR] - 2019-01-23 11:12:15 - span_event_data: %HTTPoison.Error{id: nil, reason: :closed}
+[ERROR] - 2019-01-23 11:12:15 - error_data: %HTTPoison.Error{id: nil, reason: :closed}
+[INFO] - 2019-01-23 11:12:15 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:12:15 - Completed Transaction Trace harvest - size: 0
+[ERROR] - 2019-01-23 11:12:16 - metric_data: %HTTPoison.Error{id: nil, reason: :closed}
+[INFO] - 2019-01-23 11:12:17 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:12:18 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:12:19 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-23 11:12:20 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-23 11:12:20 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:13:35 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-23 11:13:35 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-23 11:13:35 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-23 11:13:36 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-23 11:13:36 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-23 11:13:36 - Completed Custom Event harvest - size: 52
+[INFO] - 2019-01-23 11:13:36 - Completed Transaction Event harvest - size: 0
