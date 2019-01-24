@@ -13,13 +13,13 @@ defmodule Grain.Tasks do
     p = Agent.get(pid, & &1)
 
     if b() != [] do
-      if p != %{} do
-        Map.keys(p) |> Enum.each(&(Process.alive?(p[&1]) |> IO.puts()))
-        IO.puts("当前任务正在进行中")
-      else
-        "启动新任务" |> IO.puts()
-        u1(b(), pid)
-      end
+      # if p != %{} do
+      Map.keys(p) |> Enum.each(&(Process.alive?(p[&1]) |> IO.puts()))
+      # IO.puts("当前任务正在进行中")
+      # else
+      # "启动新任务" |> IO.puts()
+      u1(b(), pid)
+      # end
     end
   end
 
@@ -136,15 +136,14 @@ defmodule Grain.Tasks do
 
         receive do
           {:DOWN, ^ref, :process, ^i, :normal} ->
-            IO.inspect("Normal exit from #{i}")
+            IO.inspect("Normal exit")
 
-          {:DOWN, ^ref, :process, ^i, msg} ->
-            IO.inspect("Received :DOWN from #{i}")
-            IO.inspect(msg)
+          {:DOWN, ^ref, :process, ^i, _msg} ->
+            IO.inspect("the pid is false")
             u1(b(), pid)
         after
           50 ->
-            IO.inspect("the #{i} is alive")
+            IO.inspect("the pid is alive")
         end
       end
     end)
