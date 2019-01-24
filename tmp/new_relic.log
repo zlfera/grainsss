@@ -1026,3 +1026,31 @@
 [INFO] - 2019-01-24 08:32:07 - Completed Span Event harvest - size: 0
 [INFO] - 2019-01-24 08:32:07 - Completed Transaction Event harvest - size: 0
 [INFO] - 2019-01-24 08:32:08 - Completed Custom Event harvest - size: 55
+[INFO] - 2019-01-24 08:33:07 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-24 08:33:07 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-24 08:33:07 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-24 08:33:07 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-24 08:33:07 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-24 08:33:07 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-24 08:33:08 - Completed Custom Event harvest - size: 55
+[INFO] - 2019-01-24 08:34:07 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-24 08:34:07 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-24 08:34:07 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-24 08:34:07 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-24 08:34:07 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-24 08:34:07 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-24 08:34:07 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-24 08:35:07 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-24 08:35:07 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-24 08:35:07 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-24 08:35:07 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-24 08:35:07 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-24 08:35:07 - Completed Custom Event harvest - size: 55
+[INFO] - 2019-01-24 08:35:07 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-24 08:36:07 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-24 08:36:07 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-24 08:36:07 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-24 08:36:07 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-24 08:36:07 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-24 08:36:07 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-24 08:36:07 - Completed Custom Event harvest - size: 56

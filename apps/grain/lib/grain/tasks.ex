@@ -131,6 +131,7 @@ defmodule Grain.Tasks do
       else
         IO.inspect("#{qww[y]} is nil")
         i = spawn_link(Gt, :grain, [y])
+        Agent.update(pid, &Map.put(&1, y, i))
         ref = Process.monitor(i)
 
         receive do
@@ -145,8 +146,6 @@ defmodule Grain.Tasks do
           _ ->
             IO.inspect("the #{i} is alive")
         end
-
-        Agent.update(pid, &Map.put(&1, y, i))
       end
     end)
 
