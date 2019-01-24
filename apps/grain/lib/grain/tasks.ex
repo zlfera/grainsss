@@ -130,20 +130,20 @@ defmodule Grain.Tasks do
         end
       else
         IO.inspect("#{qww[y]} is nil")
-        i = spawn_link(Gt, :grain, [y])
+        i = spawn(Gt, :grain, [y])
         Agent.update(pid, &Map.put(&1, y, i))
         ref = Process.monitor(i)
 
         receive do
           {:DOWN, ^ref, :process, ^i, :normal} ->
-            IO.puts("Normal exit from #{inspect(i)}")
+            IO.inspect("Normal exit from #{i}")
 
           {:DOWN, ^ref, :process, ^i, msg} ->
-            IO.puts("Received :DOWN from #{inspect(i)}")
+            IO.inspect("Received :DOWN from #{i}")
             IO.inspect(msg)
             u1(b(), pid)
-
-          _ ->
+        after
+          50 ->
             IO.inspect("the #{i} is alive")
         end
       end
