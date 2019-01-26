@@ -15,28 +15,28 @@ defmodule Grain.TaskGrain do
       a(dqqq)
     end
 
-    #    %{
-    # "specialName" => "国家临储玉米竞价交易",
-    # "status" => "yes",
-    # "countdownStartTime" => "30",
-    # "specialNo" => "1155",
-    # "section" => "201",
-    # "rows" => [
-    #   %{
-    #     "statusId" => "8504",
-    #     "gradeName" => "二等",
-    #     "num" => "1020",
-    #     "requestAlias" => "180607JLS2215LYM0961",
-    #     "requestBuyDepotName" => "中央储备粮延吉直属库有限公司",
-    #     "varietyName" => "玉米",
-    #     "requestNo" => "2018053101122",
-    #     "statusName" => "交易中",
-    #     "currentPrice" => "0",
-    #     "remainSeconds" => "30",
-    #     "basePrice" => "1490"
-    #   }
-    # ]
-    # }
+    %{
+      "specialName" => "国家临储玉米竞价交易",
+      "status" => "yes",
+      "countdownStartTime" => "30",
+      "specialNo" => "1155",
+      "section" => "201",
+      "rows" => [
+        %{
+          "statusId" => "8504",
+          "gradeName" => "二等",
+          "num" => "1020",
+          "requestAlias" => "180607JLS2215LYM0961",
+          "requestBuyDepotName" => "中央储备粮延吉直属库有限公司",
+          "varietyName" => "玉米",
+          "requestNo" => "2018053101122",
+          "statusName" => "交易中",
+          "currentPrice" => "0",
+          "remainSeconds" => "30",
+          "basePrice" => "1490"
+        }
+      ]
+    }
   end
 
   def s(d, dd) do
