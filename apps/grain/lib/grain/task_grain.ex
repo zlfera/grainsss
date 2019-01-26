@@ -43,7 +43,7 @@ defmodule Grain.TaskGrain do
     x = d["requestAlias"]
 
     dd =
-      if Regex.match?(~r/销售/, dd) do
+      if Regex.match?(~r/销售/, dd) || Regex.match?(~r/竞价/, dd) do
         "拍卖"
       else
         "采购"

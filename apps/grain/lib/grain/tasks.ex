@@ -5,7 +5,6 @@ defmodule Grain.Tasks do
   def run(pid) do
     HTTPoison.get("https://youmilegg.herokuapp.com/home/grain_home")
     {:ok, _} = Application.ensure_all_started(:grain)
-    IO.inspect(pid)
     Agent.get(pid, & &1) |> IO.inspect()
     p = Agent.get(pid, & &1)
 
@@ -41,13 +40,12 @@ defmodule Grain.Tasks do
 
       if Map.has_key?(qww, y) do
         if !Process.alive?(qww[y]) do
-          IO.inspect(qww[y])
           IO.inspect("#{y} is false")
           Agent.update(pid, &Map.delete(&1, y))
         end
       else
         IO.inspect("#{y} is nil")
-        i = spawn_link(Gt, :grain, [y])
+        i = spawn(Gt, :grain, [y])
         Agent.update(pid, &Map.put(&1, y, i))
       end
     end)
@@ -57,7 +55,7 @@ defmodule Grain.Tasks do
 
   def u1(c, pid) when c == [] do
     IO.puts("交易已经结束")
-    Agent.update(pid, &Map.drop(&1, Map.keys(&1)))
+    # Agent.update(pid, &Map.drop(&1, Map.keys(&1)))
     IO.inspect(Agent.get(pid, & &1))
   end
 end
