@@ -55,7 +55,7 @@ defmodule Grain.Tasks do
 
   def u1(c, pid) when c == [] do
     IO.puts("交易已经结束")
-    # Agent.update(pid, &Map.drop(&1, Map.keys(&1)))
+    Agent.update(pid, &Map.drop(&1, Map.keys(&1)))
     IO.inspect(Agent.get(pid, & &1))
   end
 end
