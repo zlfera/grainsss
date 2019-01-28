@@ -5,8 +5,8 @@ defmodule Grain.Tasks do
   def run(pid) do
     HTTPoison.get("https://youmilegg.herokuapp.com/home/grain_home")
     {:ok, _} = Application.ensure_all_started(:grain)
-    Agent.get(pid, & &1) |> IO.inspect()
     p = Agent.get(pid, & &1)
+    IO.inspect(p)
 
     if b() != [] do
       if p != %{} do
