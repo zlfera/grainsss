@@ -80,22 +80,38 @@ defmodule Grain.TaskGrain do
   end
 
   def j(j, d) do
-    if String.to_integer(j["remainSeconds"]) <= 3 do
-      g =
-        G
-        |> where([g], g.mark_number == ^j["requestAlias"])
-        |> limit(1)
-        |> Repo.all()
+    case String.to_integer(j["remainSeconds"]) do
+      x when x >= 30 ->
+        Process.sleep(27)
+        IO.puts("27")
 
-      if g == [] do
-        s(j, d)
-      end
+      x when x >= 25 ->
+        Process.sleep(22)
+        IO.puts("22")
+
+      x when x >= 20 ->
+        Process.sleep(17)
+        IO.puts("17")
+
+      x when x >= 10 ->
+        Process.sleep(7)
+        IO.puts("7")
+
+      x when x <= 3 ->
+        g =
+          G
+          |> where([g], g.mark_number == ^j["requestAlias"])
+          |> limit(1)
+          |> Repo.all()
+
+        if g == [] do
+          s(j, d)
+        end
     end
   end
 
   def grain(y) do
     dd = a(y)
-    ddd = dd["specialName"]
 
     case dd["status"] do
       "yes" ->
@@ -103,7 +119,7 @@ defmodule Grain.TaskGrain do
           if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
                String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
           else
-            j(jj, ddd)
+            j(jj, dd["specialName"])
           end
         end)
 
