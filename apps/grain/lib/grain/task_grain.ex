@@ -82,19 +82,19 @@ defmodule Grain.TaskGrain do
   def j(j, d) do
     case String.to_integer(j["remainSeconds"]) do
       x when x >= 30 ->
-        Process.sleep(27)
+        Process.sleep(27000)
         IO.puts("27")
 
       x when x >= 25 ->
-        Process.sleep(22)
+        Process.sleep(22000)
         IO.puts("22")
 
       x when x >= 20 ->
-        Process.sleep(17)
+        Process.sleep(17000)
         IO.puts("17")
 
       x when x >= 10 ->
-        Process.sleep(7)
+        Process.sleep(7000)
         IO.puts("7")
 
       x when x <= 3 ->
