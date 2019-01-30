@@ -81,21 +81,113 @@ defmodule Grain.TaskGrain do
 
   def j(j, d) do
     case String.to_integer(j["remainSeconds"]) do
-      x when x >= 30 ->
+      x when x == 30 ->
         Process.sleep(27000)
         IO.puts("27")
 
-      x when x >= 25 ->
-        Process.sleep(22000)
+      x when x == 29 ->
+        Process.sleep(26000)
+        IO.puts("29")
+
+      x when x == 28 ->
+        Process.sleep(25000)
         IO.puts("22")
 
-      x when x >= 20 ->
+      x when x == 27 ->
+        Process.sleep(24000)
+        IO.puts("27")
+
+      x when x == 26 ->
+        Process.sleep(23000)
+        IO.puts("26")
+
+      x when x == 25 ->
+        Process.sleep(22000)
+        IO.puts("25")
+
+      x when x == 24 ->
+        Process.sleep(21000)
+        IO.puts("24")
+
+      x when x == 23 ->
+        Process.sleep(20000)
+        IO.puts("23")
+
+      x when x == 22 ->
+        Process.sleep(19000)
+        IO.puts("22")
+
+      x when x == 21 ->
+        Process.sleep(18000)
+        IO.puts("21")
+
+      x when x == 20 ->
         Process.sleep(17000)
+        IO.puts("20")
+
+      x when x == 19 ->
+        Process.sleep(16000)
+        IO.puts("19")
+
+      x when x == 18 ->
+        Process.sleep(15000)
+        IO.puts("18")
+
+      x when x == 17 ->
+        Process.sleep(14000)
         IO.puts("17")
 
-      x when x >= 10 ->
+      x when x == 16 ->
+        Process.sleep(13000)
+        IO.puts("16")
+
+      x when x == 15 ->
+        Process.sleep(12000)
+        IO.puts("15")
+
+      x when x == 14 ->
+        Process.sleep(11000)
+        IO.puts("14")
+
+      x when x == 13 ->
+        Process.sleep(10000)
+        IO.puts("13")
+
+      x when x == 12 ->
+        Process.sleep(9000)
+        IO.puts("12")
+
+      x when x == 11 ->
+        Process.sleep(8000)
+        IO.puts("11")
+
+      x when x == 10 ->
         Process.sleep(7000)
+        IO.puts("10")
+
+      x when x == 9 ->
+        Process.sleep(6000)
+        IO.puts("9")
+
+      x when x == 8 ->
+        Process.sleep(5000)
+        IO.puts("8")
+
+      x when x == 7 ->
+        Process.sleep(4000)
         IO.puts("7")
+
+      x when x == 6 ->
+        Process.sleep(3000)
+        IO.puts("6")
+
+      x when x == 5 ->
+        Process.sleep(2000)
+        IO.puts("5")
+
+      x when x == 4 ->
+        Process.sleep(1000)
+        IO.puts("4")
 
       x when x <= 3 ->
         g =
