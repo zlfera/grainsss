@@ -2195,3 +2195,12 @@
 [INFO] - 2019-01-31 09:18:56 - Completed Transaction Event harvest - size: 0
 [INFO] - 2019-01-31 09:18:56 - Completed Span Event harvest - size: 0
 [INFO] - 2019-01-31 09:18:57 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-31 10:14:01 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-01-31 10:14:05 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-01-31 10:15:04 - Completed Metric harvest - size: 2
+[INFO] - 2019-01-31 10:15:05 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 10:15:05 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 10:15:05 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 10:15:05 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 10:15:05 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 10:15:06 - Completed Custom Event harvest - size: 51
