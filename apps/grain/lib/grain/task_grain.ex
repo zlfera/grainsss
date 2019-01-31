@@ -38,7 +38,7 @@ defmodule Grain.TaskGrain do
     # }
   end
 
-  def s(d, dd) do
+  def s(d, dd, pid) do
     x = d["requestAlias"]
 
     dd =
@@ -61,6 +61,13 @@ defmodule Grain.TaskGrain do
         x |> String.slice(11, 2)
       end
 
+    status_name =
+      if d["latest_price"] == "0" do
+        "流拍"
+      else
+        "成交"
+      end
+
     attr = %{
       market_name: "guojia",
       mark_number: d["requestAlias"],
@@ -71,34 +78,41 @@ defmodule Grain.TaskGrain do
       starting_price: d["basePrice"],
       latest_price: d["currentPrice"],
       address: d["requestBuyDepotName"],
-      status: d["statusName"],
+      status: status_name,
       trantype: dd
     }
 
-    changeset = G.changeset(%G{}, attr)
-    Repo.insert(changeset)
+    rows = Agent.get(pid, & &1)
+
+    if Enum.member?(rows, attr.mark_number) do
+      IO.puts(true)
+    else
+      Agent.update(pid, &[attr.mark_number | &1])
+      changeset = G.changeset(%G{}, attr)
+      Repo.insert(changeset)
+    end
   end
 
-  def j(j, d) do
+  def j(j, d, pid) do
     case String.to_integer(j["remainSeconds"]) do
       x when x > 3 ->
         Process.sleep(x * 1000 - 3000)
         IO.put(x * 1000 - 3000)
 
       x when x <= 3 ->
-        g =
-          G
-          |> where([g], g.mark_number == ^j["requestAlias"])
-          |> limit(1)
-          |> Repo.all()
+        # g =
+        # G
+        # |> where([g], g.mark_number == ^j["requestAlias"])
+        # |> limit(1)
+        # |> Repo.all()
 
-        if g == [] do
-          s(j, d)
-        end
+        # if g == [] do
+        s(j, d, pid)
+        # end
     end
   end
 
-  def grain(y) do
+  def grain(y, pid) do
     dd = a(y)
 
     case dd["status"] do
@@ -107,11 +121,11 @@ defmodule Grain.TaskGrain do
           if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
                String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
           else
-            j(jj, dd["specialName"])
+            j(jj, dd["specialName"], pid)
           end
         end)
 
-        grain(y)
+        grain(y, pid)
 
       "end" ->
         IO.puts("The status #{y} is end")
@@ -120,7 +134,7 @@ defmodule Grain.TaskGrain do
         IO.puts("The status #{y} is no")
 
       _ ->
-        grain(y)
+        grain(y, pid)
     end
   end
 end

@@ -47,7 +47,8 @@ defmodule Grain.Tasks do
         end
       else
         IO.inspect("#{y} is nil")
-        i = spawn(Gt, :grain, [y])
+        {:ok, pid_list} = Agent.start_link(fn -> [] end)
+        i = spawn(Gt, :grain, [y, pid_list])
         Agent.update(pid, &Map.put(&1, y, i))
       end
     end)
