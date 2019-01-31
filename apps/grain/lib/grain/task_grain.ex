@@ -62,7 +62,7 @@ defmodule Grain.TaskGrain do
       end
 
     status_name =
-      if d["latest_price"] == "0" do
+      if d["currentPrice"] == "0" do
         "流拍"
       else
         "成交"
