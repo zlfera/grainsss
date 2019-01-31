@@ -83,6 +83,7 @@ defmodule Grain.TaskGrain do
     }
 
     rows = Agent.get(pid, & &1)
+    IO.insert(rows)
 
     if Enum.member?(rows, attr.mark_number) do
       IO.puts(true)
