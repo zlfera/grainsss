@@ -97,7 +97,7 @@ defmodule Grain.TaskGrain do
     case String.to_integer(j["remainSeconds"]) do
       x when x > 3 ->
         Process.sleep(x * 1000 - 3000)
-        IO.put(x * 1000 - 3000)
+        IO.puts(x * 1000 - 3000)
 
       x when x <= 3 ->
         # g =
