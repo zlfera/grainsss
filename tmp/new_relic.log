@@ -2137,3 +2137,61 @@
 [INFO] - 2019-01-31 09:06:37 - Completed Transaction Event harvest - size: 0
 [INFO] - 2019-01-31 09:06:37 - Completed Custom Event harvest - size: 55
 [INFO] - 2019-01-31 09:06:37 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:10:53 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-01-31 09:10:59 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-01-31 09:11:56 - Completed Metric harvest - size: 2
+[INFO] - 2019-01-31 09:11:57 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 09:11:57 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:11:57 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 09:11:57 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 09:11:57 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 09:11:58 - Completed Custom Event harvest - size: 51
+[INFO] - 2019-01-31 09:12:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 09:12:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 09:12:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 09:12:56 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-31 09:12:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:12:56 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 09:12:57 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-31 09:13:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 09:13:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 09:13:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 09:13:56 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-31 09:13:56 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 09:13:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:13:57 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-31 09:14:56 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-31 09:14:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 09:14:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 09:14:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 09:14:56 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 09:14:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:14:57 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-31 09:15:56 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-31 09:15:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 09:15:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 09:15:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 09:15:56 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 09:15:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:15:57 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-31 09:16:56 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-31 09:16:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 09:16:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 09:16:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 09:16:56 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 09:16:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:16:57 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-31 09:17:56 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-31 09:17:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 09:17:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 09:17:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 09:17:56 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 09:17:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:17:57 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-01-31 09:18:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-01-31 09:18:56 - Completed Metric harvest - size: 11
+[INFO] - 2019-01-31 09:18:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-01-31 09:18:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-01-31 09:18:56 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-01-31 09:18:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-01-31 09:18:57 - Completed Custom Event harvest - size: 56

@@ -94,11 +94,12 @@ defmodule Grain.TaskGrain do
     end
   end
 
-  def j(j, d, pid) do
+  def j(j, d, y, pid) do
     case String.to_integer(j["remainSeconds"]) do
       x when x > 3 ->
         Process.sleep(x * 1000 - 3000)
         IO.puts(x * 1000 - 3000)
+        grain(y, pid)
 
       x when x <= 3 ->
         # g =
@@ -122,7 +123,7 @@ defmodule Grain.TaskGrain do
           if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
                String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
           else
-            j(jj, dd["specialName"], pid)
+            j(jj, dd["specialName"], y, pid)
           end
         end)
 
