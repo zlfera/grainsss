@@ -42,10 +42,10 @@ defmodule Grain.TaskGrain do
     x = d["requestAlias"]
 
     trantype =
-      if Regex.match?(~r/销售/, dd) || Regex.match?(~r/竞价/, dd) do
-        "拍卖"
-      else
+      if Regex.match?(~r/采购/, dd) do
         "采购"
+      else
+        "拍卖"
       end
 
     y =
