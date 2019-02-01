@@ -1,2 +1,32 @@
 [INFO] - 2019-01-31 21:53:44 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [INFO] - 2019-01-31 21:53:49 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-01 08:21:37 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-02-01 08:21:41 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-01 08:22:40 - Completed Metric harvest - size: 2
+[INFO] - 2019-02-01 08:22:41 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-02-01 08:22:41 - Completed Error Event harvest - size: 0
+[INFO] - 2019-02-01 08:22:41 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-02-01 08:22:41 - Completed Span Event harvest - size: 0
+[INFO] - 2019-02-01 08:22:41 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-02-01 08:22:42 - Completed Custom Event harvest - size: 51
+[INFO] - 2019-02-01 08:23:40 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-02-01 08:23:40 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-02-01 08:23:40 - Completed Metric harvest - size: 11
+[INFO] - 2019-02-01 08:23:40 - Completed Error Event harvest - size: 0
+[INFO] - 2019-02-01 08:23:40 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-02-01 08:23:40 - Completed Span Event harvest - size: 0
+[INFO] - 2019-02-01 08:23:41 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-02-01 08:35:14 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2019-02-01 08:35:29 - preconnect: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-02-01 08:35:46 - connect: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-02-01 08:35:54 - connect: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[INFO] - 2019-02-01 08:36:02 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-01 15:40:37 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-02-01 15:40:41 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-01 15:41:40 - Completed Metric harvest - size: 2
+[INFO] - 2019-02-01 15:41:41 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-02-01 15:41:41 - Completed Error Event harvest - size: 0
+[INFO] - 2019-02-01 15:41:41 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-02-01 15:41:41 - Completed Span Event harvest - size: 0
+[INFO] - 2019-02-01 15:41:41 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-02-01 15:41:41 - Completed Custom Event harvest - size: 51
