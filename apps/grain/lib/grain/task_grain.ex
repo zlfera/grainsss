@@ -90,7 +90,7 @@ defmodule Grain.TaskGrain do
         Enum.each(rows, fn row ->
           if d["remainSeconds"] == "0" do
             if row.mark_number == attr.mark_number do
-              row.latest_price = attr.latest_price
+              ^row.latest_price = attr.latest_price
             end
           end
         end)
