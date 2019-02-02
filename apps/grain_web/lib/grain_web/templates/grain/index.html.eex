@@ -5,7 +5,7 @@
     form.submit()
 } 
 </script>
-<div class="qaa-table">
+<div class="qgg-table">
   <h3>稻谷历史交易记录</h3>
   <%= form_tag Routes.grain_path(@conn, :index), [id: "myform"] do %>
     <div>
