@@ -1,19 +1,19 @@
-<script charset="utf-7">
+<script charset="utf-8">
   function submitForm(t, tt='zeng'){
     let form = document.getElementById("myform")
     document.getElementById("td_data").value = [t.innerHTML, tt]
     form.submit()
 } 
 </script>
-<div>
-  <h1>稻谷历史交易记录</h1>
+<div class="qaa-table">
+  <h3>稻谷历史交易记录</h3>
   <%= form_tag Routes.grain_path(@conn, :index), [id: "myform"] do %>
     <div>
     <label for="">查询已交易粮库（例如“九江”）</label>
     <input type="text" value="" name="search"/>
     <input type="submit" value="搜索">
     </div>
-    <table class='qgg-table'>
+    <table>
     <thead>
       <tr>
         <td>编号</td>
