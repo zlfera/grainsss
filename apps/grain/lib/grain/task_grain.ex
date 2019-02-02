@@ -85,32 +85,43 @@ defmodule Grain.TaskGrain do
     rows = Agent.get(pid, & &1)
     IO.inspect(rows)
 
-    if Enum.member?(rows, attr.mark_number) do
+    if Enum.member?(rows, attr) do
+      Agent.update(pid, fn rows ->
+        Enum.each(rows, fn row ->
+          if d["remainSeconds"] == "0" do
+            if row.mark_number == attr.mark_number do
+              row.latest_price = attr.latest_price
+            end
+          end
+        end)
+      end)
+
       IO.puts(true)
     else
-      Agent.update(pid, &[attr.mark_number | &1])
-      changeset = G.changeset(%G{}, attr)
-      Repo.insert(changeset)
+      Agent.update(pid, &[attr | &1])
     end
   end
 
   def j(j, d, pid) do
     case String.to_integer(j["remainSeconds"]) do
       x when x > 3 ->
+        rows = Agent.get(pid, & &1)
+
+        if !Enum.empty?(rows) do
+          Enum.each(rows, fn attr ->
+            IO.inspect(attr)
+            changeset = G.changeset(%G{}, attr)
+            Repo.insert(changeset)
+            Agent.update(pid, &Enum.drop_every(&1, 1))
+          end)
+        end
+
         Process.sleep(x * 1000 - 3000)
         IO.puts(x * 1000 - 3000)
         grain(d["specialNo"], pid)
 
       x when x <= 3 ->
-        # g =
-        # G
-        # |> where([g], g.mark_number == ^j["requestAlias"])
-        # |> limit(1)
-        # |> Repo.all()
-
-        # if g == [] do
         s(j, d["specialName"], pid)
-        # end
     end
   end
 
