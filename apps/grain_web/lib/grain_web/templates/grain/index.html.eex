@@ -13,7 +13,7 @@
     <input type="text" value="" name="search"/>
     <input type="submit" value="搜索">
     </div>
-    <table class='table table-bordered table-striped'>
+    <table class='qgg-table'>
     <thead>
       <tr>
         <td>编号</td>
