@@ -5,7 +5,7 @@
     form.submit()
 } 
 </script>
-<div class="qgg-table">
+<div>
   <h3>稻谷历史交易记录</h3>
   <%= form_tag Routes.grain_path(@conn, :index), [id: "myform"] do %>
     <div>
@@ -13,7 +13,7 @@
     <input type="text" value="" name="search"/>
     <input type="submit" value="搜索">
     </div>
-    <table>
+    <table class="qgg-table">
     <thead>
       <tr>
         <td>编号</td>
