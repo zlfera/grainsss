@@ -131,9 +131,10 @@ defmodule Grain.TaskGrain do
     case dd["status"] do
       "yes" ->
         Enum.each(dd["rows"], fn jj ->
-          if String.match?(jj["varietyName"], ~r/玉米/) || String.match?(jj["varietyName"], ~r/麦/) ||
-               String.match?(jj["varietyName"], ~r/油/) || String.match?(jj["varietyName"], ~r/豆/) do
-          else
+          if !(String.match?(jj["varietyName"], ~r/玉米/) ||
+                 String.match?(jj["varietyName"], ~r/麦/) ||
+                 String.match?(jj["varietyName"], ~r/油/) ||
+                 String.match?(jj["varietyName"], ~r/豆/)) do
             j(jj, dd, pid)
           end
         end)
