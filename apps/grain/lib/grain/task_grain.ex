@@ -98,7 +98,15 @@ defmodule Grain.TaskGrain do
 
       IO.puts(true)
     else
-      Agent.update(pid, &[attr | &1])
+      if rows != [] do
+        Enum.each(rows, fn row ->
+          if row.mark_number! = attr.mark_number do
+            Agent.update(pid, &[attr | &1])
+          end
+        end)
+      else
+        Agent.update(pid, &[attr | &1])
+      end
     end
   end
 
