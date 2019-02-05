@@ -99,11 +99,9 @@ defmodule Grain.TaskGrain do
       IO.puts(true)
     else
       if rows != [] do
-        Enum.each(rows, fn row ->
-          if row.mark_number! = attr.mark_number do
-            Agent.update(pid, &[attr | &1])
-          end
-        end)
+        if !Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number)) do
+          Agent.update(pid, &[attr | &1])
+        end
       else
         Agent.update(pid, &[attr | &1])
       end
