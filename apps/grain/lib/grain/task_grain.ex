@@ -88,17 +88,20 @@ defmodule Grain.TaskGrain do
     if Enum.member?(rows, attr) do
       if d["remainSeconds"] == "0" do
         Agent.update(pid, fn rows ->
-          Enum.each(rows, fn row ->
-            if row.mark_number == attr.mark_number do
-              Map.put(row, :latest_price, attr.latest_price)
-            end
-          end)
+          index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
+          List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
+
+          # Enum.each(rows, fn row ->
+          # if row.mark_number == attr.mark_number do
+          #   Map.put(row, :latest_price, attr.latest_price)
+          # end
+          # end)
         end)
       end
 
       IO.puts(true)
     else
-      if rows != [] do
+      if !Enum.empty?(rows) do
         if !Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number)) do
           Agent.update(pid, &[attr | &1])
         end
