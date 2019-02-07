@@ -13,7 +13,7 @@ defmodule Grain.Grains do
     |> Ecto.Query.order_by(desc: :inserted_at)
     |> Ecto.Query.limit(1000)
     |> Gr.all()
-    |> Enum.reject(fn x -> String.match?(x.address, ~r/#{user_input}/) == false end)
+    |> Enum.reject(&(String.match?(&1.address, ~r/#{user_input}/) == false))
   end
 
   def list_grains do
@@ -21,7 +21,7 @@ defmodule Grain.Grains do
     |> Ecto.Query.limit(1000)
     |> Ecto.Query.where([l], l.latest_price != "0")
     |> Ecto.Query.order_by(desc: :inserted_at)
-    |> Grain.Repo.all()
+    |> Gr.all()
   end
 
   def grains_list(x, y) do
