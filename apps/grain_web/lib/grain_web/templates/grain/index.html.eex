@@ -44,10 +44,9 @@
       </tr>
     </thead>
     <tbody>
-      <%= {:ok,p}=Agent.start_link(fn -> 0 end) %>
       <%= for redis <- @grains do %>
         <tr>
-          <td><%= dizeng(p) %></td>
+          <td><%= dizeng(@pid) %></td>
           <td><%= redis.inserted_at |> NaiveDateTime.to_date %></td>
           <td onclick=submitForm(this,"address")><%= redis.address <> "(#{redis.mark_number})" %></td>
           <td><%= redis.trantype %></td>
