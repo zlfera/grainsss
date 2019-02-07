@@ -44,9 +44,10 @@
       </tr>
     </thead>
     <tbody>
+      <% {:ok,p}=Agent.start_link(fn -> 0 end) %>
       <%= Enum.each(@grains,fn redis -> %>
         <tr>
-          <td><%= dizeng(@pid) %></td>
+          <td><%= dizeng(p) %></td>
           <td><%= redis.inserted_at |> NaiveDateTime.to_date %></td>
           <td onclick=submitForm(this,"address")><%= redis.address <> "(#{redis.mark_number})" %></td>
           <td><%= redis.trantype %></td>
@@ -57,7 +58,7 @@
           <td onclick=submitForm(this,"starting_price")><%= redis.starting_price %></td>
           <td onclick=submitForm(this,"latest_price")><%= redis.latest_price %></td>
         </tr>
-      <% end) %>
+      <%= end) %>
     </tbody>
   </table>
   <input type="hidden" name="td_data" id="td_data" value="" />
