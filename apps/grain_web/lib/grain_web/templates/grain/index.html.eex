@@ -44,7 +44,7 @@
       </tr>
     </thead>
     <tbody>
-      <% for redis <- @grains do %>
+      <%= for redis <- @grains do %>
         <tr>
           <td><%= dizeng(@pid) %></td>
           <td><%= redis.inserted_at |> NaiveDateTime.to_date %></td>
