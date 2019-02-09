@@ -13,29 +13,6 @@ defmodule Grain.TaskGrain do
     else
       a(dqqq)
     end
-
-    # %{
-    # "specialName" => "国家临储玉米竞价交易",
-    # "status" => "yes",
-    # "countdownStartTime" => "30",
-    # "specialNo" => "1155",
-    #  "section" => "201",
-    # "rows" => [
-    #   %{
-    #     "statusId" => "8504",
-    #     "gradeName" => "二等",
-    #     "num" => "1020",
-    #     "requestAlias" => "180607JLS2215LYM0961",
-    #     "requestBuyDepotName" => "中央储备粮延吉直属库有限公司",
-    #     "varietyName" => "玉米",
-    #     "requestNo" => "2018053101122",
-    #     "statusName" => "交易中",
-    #     "currentPrice" => "0",
-    #     "remainSeconds" => "30",
-    #     "basePrice" => "1490"
-    #   }
-    # ]
-    # }
   end
 
   def s(d, dd, pid) do
@@ -85,16 +62,6 @@ defmodule Grain.TaskGrain do
     rows = Agent.get(pid, & &1)
     IO.inspect(rows)
 
-    # if Enum.member?(rows, attr) do
-    # if d["remainSeconds"] == "0" do
-    # Agent.update(pid, fn rows ->
-    # index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
-    # List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
-    # end)
-    # end
-
-    # IO.puts(true)
-    # else
     if Enum.empty?(rows) do
       Agent.update(pid, &[attr | &1])
     else
@@ -144,10 +111,7 @@ defmodule Grain.TaskGrain do
     case dd["status"] do
       "yes" ->
         Enum.each(dd["rows"], fn jj ->
-          if !(String.match?(jj["varietyName"], ~r/玉米/) ||
-                 String.match?(jj["varietyName"], ~r/麦/) ||
-                 String.match?(jj["varietyName"], ~r/油/) ||
-                 String.match?(jj["varietyName"], ~r/豆/)) do
+          if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆/) do
             j(jj, dd, pid)
           end
         end)

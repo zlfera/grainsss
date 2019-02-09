@@ -31,8 +31,6 @@ defmodule Grain.Tasks do
     else
       b()
     end
-
-    # [%{"specialName" => "国家临储玉米竞价交易", "specialNo" => "1155"}]
   end
 
   def u1(c, pid) when c != [] do
