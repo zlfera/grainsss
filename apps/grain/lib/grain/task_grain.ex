@@ -60,7 +60,6 @@ defmodule Grain.TaskGrain do
     }
 
     rows = Agent.get(pid, & &1)
-    IO.inspect(rows)
 
     if Enum.empty?(rows) do
       Agent.update(pid, &[attr | &1])
@@ -72,8 +71,6 @@ defmodule Grain.TaskGrain do
             List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
           end)
         end
-
-        IO.puts(true)
       else
         Agent.update(pid, &[attr | &1])
       end
@@ -102,6 +99,7 @@ defmodule Grain.TaskGrain do
 
       x when x <= 2 ->
         s(j, d["specialName"], pid)
+        IO.puts(1)
     end
   end
 
