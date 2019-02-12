@@ -93,13 +93,13 @@ defmodule Grain.TaskGrain do
           end)
         end
 
-        Process.sleep(x * 1000 - 1000)
         IO.puts(x * 1000 - 1000)
+        Process.sleep(x * 1000 - 1000)
         grain(d["specialNo"], pid)
 
       x when x <= 1 ->
-        s(j, d["specialName"], pid)
         IO.puts(11)
+        s(j, d["specialName"], pid)
     end
   end
 
