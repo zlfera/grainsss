@@ -86,7 +86,6 @@ defmodule Grain.TaskGrain do
 
         if !Enum.empty?(rows) do
           Enum.each(rows, fn attr ->
-            IO.inspect(attr)
             changeset = G.changeset(%G{}, attr)
             Repo.insert(changeset)
             Agent.update(pid, &Enum.drop_every(&1, 1))
