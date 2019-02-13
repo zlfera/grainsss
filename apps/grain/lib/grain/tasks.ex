@@ -39,7 +39,7 @@ defmodule Grain.Tasks do
 
       if Map.has_key?(qww, y) do
         Enum.each(Map.keys(qww), fn k ->
-          if !Process.alive?(k) do
+          if !Process.alive?(qww[k]) do
             Agent.update(pid, &Map.delete(&1, k))
           end
         end)
