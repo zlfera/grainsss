@@ -38,11 +38,17 @@ defmodule Grain.Tasks do
       qww = Agent.get(pid, & &1)
 
       if Map.has_key?(qww, y) do
-        if !Process.alive?(qww[y]) do
-          IO.inspect("#{y} is false")
-          Agent.update(pid, &Map.delete(&1, y))
-          IO.inspect(Agent.get(pid, & &1))
-        end
+        Enum.each(Map.keys(qww), fn k ->
+          if !Process.alive?(k) do
+            Agent.update(pid, &Map.delete(&1, k))
+          end
+        end)
+
+        # if !Process.alive?(qww[y]) do
+        # IO.inspect("#{y} is false")
+        # Agent.update(pid, &Map.delete(&1, y))
+        # IO.inspect(Agent.get(pid, & &1))
+        # end
       else
         IO.inspect("#{y} is nil")
         {:ok, pid_list} = Agent.start_link(fn -> [] end)
@@ -56,7 +62,7 @@ defmodule Grain.Tasks do
 
   def u1(c, pid) when c == [] do
     IO.puts("交易已经结束")
-    Agent.update(pid, &Map.drop(&1, Map.keys(&1)))
+    # Agent.update(pid, &Map.drop(&1, Map.keys(&1)))
     IO.inspect(Agent.get(pid, & &1))
   end
 end

@@ -509,3 +509,28 @@
 [INFO] - 2019-02-09 19:22:40 - Completed Transaction Event harvest - size: 0
 [INFO] - 2019-02-09 19:22:40 - Completed Error Event harvest - size: 0
 [INFO] - 2019-02-09 19:22:40 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-02-13 08:57:51 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-02-13 08:57:57 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-13 08:58:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-02-13 08:58:56 - Completed Metric harvest - size: 2
+[INFO] - 2019-02-13 08:58:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-02-13 08:58:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-02-13 08:58:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-02-13 08:58:56 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-02-13 08:58:57 - Completed Custom Event harvest - size: 51
+[INFO] - 2019-02-13 08:59:56 - Completed Error Event harvest - size: 0
+[INFO] - 2019-02-13 08:59:56 - Completed Span Event harvest - size: 0
+[INFO] - 2019-02-13 08:59:56 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-02-13 08:59:56 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-02-13 08:59:56 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-02-13 08:59:57 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-02-13 08:59:57 - Completed Metric harvest - size: 11
+[INFO] - 2019-02-13 09:00:27 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-02-13 09:00:34 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-13 09:01:30 - Completed Metric harvest - size: 2
+[INFO] - 2019-02-13 09:01:31 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-02-13 09:01:31 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-02-13 09:01:31 - Completed Custom Event harvest - size: 51
+[INFO] - 2019-02-13 09:01:32 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-02-13 09:01:32 - Completed Error Event harvest - size: 0
+[INFO] - 2019-02-13 09:01:32 - Completed Span Event harvest - size: 0
