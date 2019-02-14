@@ -57,7 +57,7 @@ defmodule Grain.Tasks do
       end
     end)
 
-    Process.sleep(5 * 1000)
+    Process.sleep(5000)
     u1(b(), pid)
   end
 
