@@ -1,5 +1,4 @@
 defmodule Grain.TaskGrain do
-  import Ecto.Query
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
 
