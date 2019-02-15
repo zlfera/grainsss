@@ -2,7 +2,7 @@ defmodule Grain.Grains.Grain do
   use Ecto.Schema
   import Ecto.Changeset
 
-
+  @derive {Jason.Encoder, except: [:__meta__, :inserted_at, :updated_at, :id]}
   schema "grains" do
     field :address, :string
     field :grade, :string
@@ -22,8 +22,32 @@ defmodule Grain.Grains.Grain do
   @doc false
   def changeset(grain, attrs) do
     grain
-    |> cast(attrs, [:address, :mark_number, :grade, :latest_price, :market_name, :starting_price, :status, :trade_amount, :variety, :year, :trantype])
-    |> validate_required([:address, :mark_number, :grade, :latest_price, :market_name, :starting_price, :status, :trade_amount, :variety, :year, :trantype])
+    |> cast(attrs, [
+      :address,
+      :mark_number,
+      :grade,
+      :latest_price,
+      :market_name,
+      :starting_price,
+      :status,
+      :trade_amount,
+      :variety,
+      :year,
+      :trantype
+    ])
+    |> validate_required([
+      :address,
+      :mark_number,
+      :grade,
+      :latest_price,
+      :market_name,
+      :starting_price,
+      :status,
+      :trade_amount,
+      :variety,
+      :year,
+      :trantype
+    ])
     |> unique_constraint(:mark_number)
   end
 end
