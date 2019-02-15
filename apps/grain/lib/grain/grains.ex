@@ -12,6 +12,7 @@ defmodule Grain.Grains do
     Ggg
     |> Ecto.Query.order_by(desc: :inserted_at)
     # |> Ecto.Query.limit(1000)
+    # |> offset(i)
     |> Gr.all()
     |> Enum.reject(&(String.match?(&1.address, ~r/#{user_input}/) == false))
   end
