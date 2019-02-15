@@ -7,7 +7,7 @@
 </script>
 <div>
   <h3>稻谷历史交易记录</h3>
-  <%= form_tag Routes.grain_path(@conn, :index), [id: "myform",method: "get"] do %>
+  <%= form_tag Routes.grain_path(@conn, :index), [id: "myform",method: :get] do %>
     <div>
     <label for="">查询已交易粮库（例如“九江”）</label>
     <input type="text" value="" name="search"/>
