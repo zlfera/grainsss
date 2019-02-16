@@ -1,7 +1,7 @@
 defmodule Grain.Grains.Grain do
   use Ecto.Schema
   import Ecto.Changeset
-
+  @derive {Inspect, except: [:__meta__, :inserted_at, :updated_at, :id]}
   @derive {Jason.Encoder, except: [:__meta__, :inserted_at, :updated_at, :id]}
   schema "grains" do
     field :address, :string
