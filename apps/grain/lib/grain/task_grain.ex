@@ -113,10 +113,10 @@ defmodule Grain.TaskGrain do
         grain(y, pid)
 
       "end" ->
-        IO.puts("The status #{y} is end")
+        0
 
       "no" ->
-        IO.puts("The status #{y} is no")
+        0
 
       _ ->
         Process.sleep(5000)

@@ -1480,3 +1480,27 @@
 [INFO] - 2019-02-16 19:41:20 - Completed Span Event harvest - size: 0
 [INFO] - 2019-02-16 19:41:20 - Completed Transaction Event harvest - size: 0
 [INFO] - 2019-02-16 19:41:21 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-02-17 07:59:41 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-02-17 07:59:47 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-17 08:00:41 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2019-02-17 08:00:52 - connect: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[INFO] - 2019-02-17 08:00:54 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-17 08:01:44 - Completed Metric harvest - size: 2
+[ERROR] - 2019-02-17 08:01:52 - error_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-02-17 08:01:52 - analytic_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-02-17 08:01:52 - transaction_sample_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-02-17 08:01:52 - error_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-02-17 08:01:52 - custom_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[ERROR] - 2019-02-17 08:01:52 - span_event_data: %HTTPoison.Error{id: nil, reason: :connect_timeout}
+[INFO] - 2019-02-17 08:01:53 - Completed Error Event harvest - size: 0
+[INFO] - 2019-02-17 08:01:54 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-02-17 08:01:54 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-02-17 08:01:54 - Completed Span Event harvest - size: 0
+[INFO] - 2019-02-17 08:01:54 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-02-17 08:01:54 - Completed Custom Event harvest - size: 50
+[INFO] - 2019-02-17 08:02:27 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-02-17 08:02:32 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-17 08:13:53 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-02-17 08:13:58 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[INFO] - 2019-02-17 10:57:44 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2019-02-17 10:57:50 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064

@@ -43,14 +43,7 @@ defmodule Grain.Tasks do
             Agent.update(pid, &Map.delete(&1, k))
           end
         end)
-
-        # if !Process.alive?(qww[y]) do
-        # IO.inspect("#{y} is false")
-        # Agent.update(pid, &Map.delete(&1, y))
-        # IO.inspect(Agent.get(pid, & &1))
-        # end
       else
-        IO.inspect("#{y} is nil")
         {:ok, pid_list} = Agent.start_link(fn -> [] end)
         i = spawn(Gt, :grain, [y, pid_list])
         Agent.update(pid, &Map.put(&1, y, i))
