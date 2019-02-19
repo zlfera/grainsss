@@ -80,7 +80,7 @@ defmodule Grain.TaskGrain do
 
   def j(j, d, pid) do
     case String.to_integer(j["remainSeconds"]) do
-      x when x > 1 ->
+      x when x > 2 ->
         rows = Agent.get(pid, & &1)
 
         if !Enum.empty?(rows) do
@@ -91,10 +91,10 @@ defmodule Grain.TaskGrain do
           end)
         end
 
-        Process.sleep(x * 1000 - 1000)
+        Process.sleep(x * 1000 - 2000)
         grain(d["specialNo"], pid)
 
-      x when x <= 1 ->
+      x when x <= 2 ->
         s(j, d["specialName"], pid)
     end
   end
