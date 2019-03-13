@@ -113,10 +113,26 @@ defmodule Grain.TaskGrain do
         grain(y, pid)
 
       "end" ->
-        0
+        rows = Agent.get(pid, & &1)
+
+        if !Enum.empty?(rows) do
+          Enum.each(rows, fn attr ->
+            changeset = G.changeset(%G{}, attr)
+            Repo.insert(changeset)
+            Agent.update(pid, &Enum.drop_every(&1, 1))
+          end)
+        end
 
       "no" ->
-        0
+        rows = Agent.get(pid, & &1)
+
+        if !Enum.empty?(rows) do
+          Enum.each(rows, fn attr ->
+            changeset = G.changeset(%G{}, attr)
+            Repo.insert(changeset)
+            Agent.update(pid, &Enum.drop_every(&1, 1))
+          end)
+        end
 
       _ ->
         Process.sleep(5000)
