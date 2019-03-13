@@ -1782,3 +1782,10 @@
 [INFO] - 2019-03-13 11:06:18 - Completed Transaction Trace harvest - size: 0
 [INFO] - 2019-03-13 11:06:18 - Completed Custom Event harvest - size: 56
 [INFO] - 2019-03-13 11:06:18 - Completed Error Trace harvest - size: 0
+[INFO] - 2019-03-13 11:07:18 - Completed Span Event harvest - size: 0
+[INFO] - 2019-03-13 11:07:18 - Completed Error Event harvest - size: 0
+[INFO] - 2019-03-13 11:07:18 - Completed Transaction Event harvest - size: 0
+[INFO] - 2019-03-13 11:07:18 - Completed Transaction Trace harvest - size: 0
+[INFO] - 2019-03-13 11:07:18 - Completed Metric harvest - size: 11
+[INFO] - 2019-03-13 11:07:18 - Completed Custom Event harvest - size: 56
+[INFO] - 2019-03-13 11:07:18 - Completed Error Trace harvest - size: 0
