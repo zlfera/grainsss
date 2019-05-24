@@ -6,7 +6,7 @@
 } 
 </script>
 <div>
-  <h5><a href="https://youmile.vip">点击进入长虹米厂官网</a></h5>
+  <h5><a href="https://www.youmile.vip">点击进入长虹米厂官网</a></h5>
   <h3>稻谷历史交易记录</h3>
   <%= form_tag Routes.grain_path(@conn, :index), [id: "myform", method: :get] do %>
     <div>
