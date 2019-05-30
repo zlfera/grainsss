@@ -74,8 +74,6 @@ defmodule Grain.TaskGrain do
         Agent.update(pid, &[attr | &1])
       end
     end
-
-    # end
   end
 
   def j(j, d, pid) do
