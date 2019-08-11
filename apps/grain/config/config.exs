@@ -13,7 +13,7 @@ config :grain, Grain.Scheduler,
     {{:extended, "5 0-59/1 0-9/1 * *"}, {Grain.Tasks, :run, [pid]}},
     # {{:extended, "10 * * * *"}, {Grain.Tasks, :run, [pid]}},
     # {"* * * * *", {Grain.Tasks, :run, [pid]}}
-    {"0 0 * * *", {Grain.Task, :grain_delete, []}}
+    {"0 22 * * *", {Grain.Task, :grain_delete, []}}
     # {"30/30 0-3/1 * * *", {Grain.Tasks, :run, [pid]}}
   ]
 
