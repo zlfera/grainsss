@@ -10,7 +10,7 @@ defmodule Grain.Task do
       g =
         Ggg
         |> order_by(asc: :inserted_at)
-        |> limit(10000)
+        |> limit(30000)
         |> Gr.all()
 
       Enum.each(g, fn i ->
