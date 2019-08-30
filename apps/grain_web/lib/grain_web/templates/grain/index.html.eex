@@ -48,7 +48,7 @@
       <%= for redis <- @grains do %>
         <tr>
           <td><%= dizeng(@pid) %></td>
-          <td><%= redis.inserted_at |> Timex.to_datetime("Asia/Shanghai") |> DateTime.to_string %></td>
+          <td><%= redis.inserted_at |> Timex.to_datetime("Asia/Shanghai") |> DateTime.to_native %></td>
           <td onclick=submitForm(this,"address")><%= redis.address <> "(#{redis.mark_number})" %></td>
           <td><%= redis.trantype %></td>
           <td onclick=submitForm(this,"variety")><%= redis.variety %></td>
