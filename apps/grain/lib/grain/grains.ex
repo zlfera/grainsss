@@ -11,7 +11,7 @@ defmodule Grain.Grains do
   def search_grains(user_input) do
     Ggg
     |> Ecto.Query.order_by(desc: :inserted_at)
-    |> Ecto.Query.limit(1000)
+    |> Ecto.Query.limit(3000)
     # |> offset(i)
     |> Gr.all()
     |> Enum.reject(&(String.match?(&1.address, ~r/#{user_input}/) == false))
@@ -19,7 +19,7 @@ defmodule Grain.Grains do
 
   def list_grains do
     Ggg
-    |> Ecto.Query.limit(1000)
+    |> Ecto.Query.limit(3000)
     |> Ecto.Query.where([l], l.latest_price != "0")
     |> Ecto.Query.order_by(desc: :inserted_at)
     |> Gr.all()
@@ -30,7 +30,7 @@ defmodule Grain.Grains do
       "latest_price" ->
         Ggg
         |> Ecto.Query.where([l], l.latest_price != "0")
-        |> Ecto.Query.limit(1000)
+        |> Ecto.Query.limit(3000)
         |> Ecto.Query.order_by(desc: :inserted_at)
         |> Grain.Repo.all()
 
@@ -46,7 +46,7 @@ defmodule Grain.Grains do
       "year" ->
         Ggg
         |> Ecto.Query.where(year: ^x)
-        |> Ecto.Query.limit(1000)
+        |> Ecto.Query.limit(3000)
         # |> Ecto.Query.where([g], g.latest_price != "0")
         |> Ecto.Query.order_by(desc: :inserted_at)
         |> Gr.all()
@@ -56,7 +56,7 @@ defmodule Grain.Grains do
 
         Ggg
         |> Ecto.Query.where(address: ^xx)
-        |> Ecto.Query.limit(1000)
+        |> Ecto.Query.limit(3000)
         # |> Ecto.Query.where([g], g.latest_price != "0")
         |> Ecto.Query.order_by(desc: :inserted_at)
         |> Gr.all()
@@ -64,7 +64,7 @@ defmodule Grain.Grains do
       "variety" ->
         Ggg
         |> Ecto.Query.where(variety: ^x)
-        |> Ecto.Query.limit(1000)
+        |> Ecto.Query.limit(3000)
         # |> Ecto.Query.where([g], g.latest_price != "0")
         |> Ecto.Query.order_by(desc: :inserted_at)
         |> Gr.all()
