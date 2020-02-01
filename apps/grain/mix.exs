@@ -37,7 +37,7 @@ defmodule Grain.MixProject do
   defp deps do
     [
       {:postgrex, ">= 0.0.0"},
-      {:ecto_sql, "~> 3.0"},
+      {:ecto_sql, "~> 3.3"},
       # {:httpotion, "~> 3.1"},
       {:httpoison, "~> 1.5"},
       {:quantum, "~> 2.3"},
