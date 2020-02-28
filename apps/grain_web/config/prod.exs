@@ -15,7 +15,7 @@ use Mix.Config
 # before starting your production server.
 config :grain_web, GrainWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 5000],
-  url: [host: "example.com", port: 80],
+  url: [host: "grain.gigalixirapp.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # ## SSL Support
