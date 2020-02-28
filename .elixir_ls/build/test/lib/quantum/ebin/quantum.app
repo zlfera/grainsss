@@ -8,6 +8,7 @@
                         'Elixir.Quantum.ClusterTaskSupervisorRegistry.StartOpts',
                         'Elixir.Quantum.ClusterTaskSupervisorRegistry.State',
                         'Elixir.Quantum.DateLibrary',
+                        'Elixir.Quantum.DateLibrary.Core',
                         'Elixir.Quantum.DateLibrary.InvalidDateTimeForTimezoneError',
                         'Elixir.Quantum.DateLibrary.InvalidTimezoneError',
                         'Elixir.Quantum.DateLibrary.Timex',
@@ -44,5 +45,5 @@
                         'Elixir.Quantum.TaskRegistry.State',
                         'Elixir.Quantum.Util']},
               {registered,[]},
-              {vsn,"2.3.4"},
+              {vsn,"2.4.0"},
               {mod,{'Elixir.Quantum.Application',[]}}]}.

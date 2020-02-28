@@ -21,6 +21,7 @@
                         'Elixir.NewRelic.DistributedTrace.W3CTraceContext.TraceState',
                         'Elixir.NewRelic.DistributedTrace.W3CTraceContext.TraceState.NewRelicState',
                         'Elixir.NewRelic.EnabledSupervisor',
+                        'Elixir.NewRelic.EnabledSupervisorManager',
                         'Elixir.NewRelic.Error.Event',
                         'Elixir.NewRelic.Error.LoggerHandler',
                         'Elixir.NewRelic.Error.Reporter',
@@ -81,5 +82,5 @@
                         'Elixir.NewRelic.Util.RequestStart',
                         'Elixir.NewRelic.Util.Vendor']},
               {registered,[]},
-              {vsn,"1.16.4"},
+              {vsn,"1.16.6"},
               {mod,{'Elixir.NewRelic.Application',[]}}]}.
