@@ -23,8 +23,7 @@ defmodule Grain.Umbrella.MixProject do
   # and cannot be accessed from applications inside the apps folder
   defp deps do
     [
-      {:dialyxir, "~> 1.0.0-rc.4", only: [:dev], runtime: false},
-      {:master_proxy, "~> 0.1"}
+      {:dialyxir, "~> 1.0.0-rc.4", only: [:dev], runtime: false}
       # {:new_relic_agent, "~> 1.0"},
       # {:new_relic_phoenix, "~> 0.1"}
       # {:distillery, "~> 2.0", runtime: false},

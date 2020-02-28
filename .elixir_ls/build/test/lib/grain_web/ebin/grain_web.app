@@ -2,7 +2,7 @@
              [{applications,[kernel,stdlib,elixir,logger,runtime_tools,
                              gettext,jason,phoenix_pubsub,grain,phoenix_html,
                              plug_cowboy,phoenix,new_relic_agent,
-                             new_relic_phoenix,phoenix_ecto]},
+                             new_relic_phoenix,master_proxy,phoenix_ecto]},
               {description,"grain_web"},
               {modules,['Elixir.GrainWeb','Elixir.GrainWeb.Application',
                         'Elixir.GrainWeb.ChannelCase',
