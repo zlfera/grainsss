@@ -82,20 +82,40 @@ defmodule Grain.TaskGrain do
 
     rows = Agent.get(pid, & &1)
 
-    if Enum.empty?(rows) do
-      Agent.update(pid, &[attr | &1])
-    else
-      if Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number)) do
-        if d["remainSeconds"] == "0" do
-          Agent.update(pid, fn rows ->
-            index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
-            List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
-          end)
-        end
-      else
+    {i, j, k} = {
+      Enum.empty?(rows),
+      Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number)),
+      d["remainSeconds"] == "0"
+    }
+
+    case {i, j, k} do
+      {true, _, _} ->
         Agent.update(pid, &[attr | &1])
-      end
+
+      {false, true, true} ->
+        Agent.update(pid, fn rows ->
+          index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
+          List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
+        end)
+
+      {false, _, _} ->
+        Agent.update(pid, &[attr | &1])
     end
+
+    # if Enum.empty?(rows) do
+    #  Agent.update(pid, &[attr | &1])
+    # else
+    #  if Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number)) do
+    #    if d["remainSeconds"] == "0" do
+    #      Agent.update(pid, fn rows ->
+    #        index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
+    #        List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
+    #      end)
+    #    end
+    #  else
+    #    Agent.update(pid, &[attr | &1])
+    #  end
+    # end
   end
 
   def j(j, d, pid) do
