@@ -16,33 +16,55 @@ defmodule Grain.TaskGrain do
 
   def s(d, dd, pid) do
     x = d["requestAlias"]
-
+    # 123
     trantype =
-      if Regex.match?(~r/采购/, dd) do
-        "采购"
-      else
-        "拍卖"
+      case Regex.match?(~r/采购/, dd) do
+        true -> "采购"
+        false -> "拍卖"
       end
+
+    # 123
+    # trantype =
+    #  if Regex.match?(~r/采购/, dd) do
+    #    "采购"
+    #  else
+    #    "拍卖"
+    #  end
+    {i, j} =
+      {String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15,
+       ~r/^\d+/ |> Regex.run(x)}
 
     y =
-      if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
-        y = ~r/^\d+/ |> Regex.run(x)
-
-        if y == nil do
-          "00"
-        else
-          y |> List.to_string()
-        end
-      else
-        x |> String.slice(11, 2)
+      case {i, j} do
+        {true, nil} -> "00"
+        {true, _} -> List.to_string(j)
+        {false, _} -> String.slice(11, 2)
       end
+
+    # y =
+    #  if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
+    #    y = ~r/^\d+/ |> Regex.run(x)
+
+    #    if y == nil do
+    #      "00"
+    #    else
+    #      y |> List.to_string()
+    #    end
+    #  else
+    #    x |> String.slice(11, 2)
+    #  end
 
     status_name =
-      if d["currentPrice"] == "0" do
-        "流拍"
-      else
-        "成交"
+      case d["currentPrice"] do
+        "0" -> "流拍"
+        _ -> "成交"
       end
+
+    # if d["currentPrice"] == "0" do
+    #  "流拍"
+    # else
+    #  "成交"
+    # end
 
     attr = %{
       market_name: "guojia",
