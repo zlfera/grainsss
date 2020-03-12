@@ -16,20 +16,13 @@ defmodule Grain.TaskGrain do
 
   def s(d, dd, pid) do
     x = d["requestAlias"]
-    # 123
+
     trantype =
       case Regex.match?(~r/采购/, dd) do
         true -> "采购"
         false -> "拍卖"
       end
 
-    # 123
-    # trantype =
-    #  if Regex.match?(~r/采购/, dd) do
-    #    "采购"
-    #  else
-    #    "拍卖"
-    #  end
     {i, j} =
       {String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15,
        ~r/^\d+/ |> Regex.run(x)}
@@ -41,30 +34,11 @@ defmodule Grain.TaskGrain do
         {false, _} -> String.slice(11, 2)
       end
 
-    # y =
-    #  if String.length(x) <= 12 || String.length(x) == 13 || String.length(x) == 15 do
-    #    y = ~r/^\d+/ |> Regex.run(x)
-
-    #    if y == nil do
-    #      "00"
-    #    else
-    #      y |> List.to_string()
-    #    end
-    #  else
-    #    x |> String.slice(11, 2)
-    #  end
-
     status_name =
       case d["currentPrice"] do
         "0" -> "流拍"
         _ -> "成交"
       end
-
-    # if d["currentPrice"] == "0" do
-    #  "流拍"
-    # else
-    #  "成交"
-    # end
 
     attr = %{
       market_name: "guojia",
@@ -101,26 +75,13 @@ defmodule Grain.TaskGrain do
       {false, _, _} ->
         Agent.update(pid, &[attr | &1])
     end
-
-    # if Enum.empty?(rows) do
-    #  Agent.update(pid, &[attr | &1])
-    # else
-    #  if Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number)) do
-    #    if d["remainSeconds"] == "0" do
-    #      Agent.update(pid, fn rows ->
-    #        index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
-    #        List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
-    #      end)
-    #    end
-    #  else
-    #    Agent.update(pid, &[attr | &1])
-    #  end
-    # end
   end
 
   def j(j, d, pid) do
-    case String.to_integer(j["remainSeconds"]) do
-      x when x > 2 ->
+    x = String.to_integer(j["remainSeconds"])
+
+    cond do
+      x > 2 ->
         rows = Agent.get(pid, & &1)
 
         if !Enum.empty?(rows) do
@@ -134,7 +95,7 @@ defmodule Grain.TaskGrain do
         Process.sleep(x * 1000 - 2000)
         grain(d["specialNo"], pid)
 
-      x when x <= 2 ->
+      x <= 2 ->
         s(j, d["specialName"], pid)
     end
   end
@@ -142,8 +103,10 @@ defmodule Grain.TaskGrain do
   def grain(y, pid) do
     dd = a(y)
 
-    case dd["status"] do
-      "yes" ->
+    i = dd["status"]
+
+    cond do
+      "yes" == i ->
         Enum.each(dd["rows"], fn jj ->
           if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆|肉/) do
             j(jj, dd, pid)
@@ -152,7 +115,7 @@ defmodule Grain.TaskGrain do
 
         grain(y, pid)
 
-      "end" ->
+      "end" == i || "no" == i ->
         rows = Agent.get(pid, & &1)
 
         if !Enum.empty?(rows) do
@@ -163,18 +126,7 @@ defmodule Grain.TaskGrain do
           end)
         end
 
-      "no" ->
-        rows = Agent.get(pid, & &1)
-
-        if !Enum.empty?(rows) do
-          Enum.each(rows, fn attr ->
-            changeset = G.changeset(%G{}, attr)
-            Repo.insert(changeset)
-            Agent.update(pid, &Enum.drop_every(&1, 1))
-          end)
-        end
-
-      _ ->
+      true ->
         Process.sleep(5000)
         grain(y, pid)
     end
