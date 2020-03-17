@@ -1,34 +1,34 @@
+set encoding=UTF-8
+set termguicolors
 set nocompatible
+syntax on
 filetype off
 call plug#begin('~/.vim/plugged')
+autocmd FileType elixir let b:coc_root_patterns = ['.elixir_ls']
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+     \ pumvisible() ? coc#_select_confirm() :
+     \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+     \ <SID>check_back_space() ? "\<TAB>" :
+     \ coc#refresh()
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-let g:coc_snippet_next = '<tab>'
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+let g:coc_snippet_next = '<TAB>'
+"autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 Plug 'mattn/emmet-vim'
+let g:user_emmet_leader_key='<space>'
 Plug 'scrooloose/nerdtree'
-"Plug 'tomtom/tlib_vim'
-"Plug 'MarcWeber/vim-addon-mw-utils'
-"Plug 'garbas/vim-snipmate'
-"Plug 'honza/vim-snippets'
-"Plug 'othree/html5.vim'
-"Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
-"let g:airline#extensions#tabline#enabled = 1
 Plug 'vim-airline/vim-airline-themes'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
-Plug 'fatih/vim-go'
-"let g:go_fmt_fail_silently = 1
+let g:mix_format_silent_errors = 1
+"Plug 'fatih/vim-go'
+Plug 'honza/vim-snippets'
+set autowrite
 let g:mix_format_on_save = 1
 Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
@@ -43,10 +43,10 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 filetype plugin indent on
-colorscheme desert
-"set statusline^=%{coc#status()}
+colorscheme dracula
 set noerrorbells
 set number
 set nobackup
@@ -63,7 +63,7 @@ set softtabstop=2
 set tabstop=2
 set shortmess=atI
 "aTIO
-:nmap <space>e :NERDTreeToggle<CR>
+:nmap <space><space> :NERDTreeToggle<CR>
 "map <C-l> :NERDTreeToggle<CR>
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
