@@ -32,6 +32,7 @@ defmodule Grain.TaskGrain do
         {true, nil} -> "00"
         {true, _} -> List.to_string(j)
         {false, _} -> String.slice(11, 2)
+        {_, _} -> "00"
       end
 
     status_name =
