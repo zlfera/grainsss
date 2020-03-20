@@ -685,3 +685,24 @@
 [DEBUG] - 2020-03-20 10:41:05 - Completed Transaction Event harvest - size: 0
 [DEBUG] - 2020-03-20 10:41:05 - Completed Error Event harvest - size: 0
 [DEBUG] - 2020-03-20 10:41:05 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:09 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:09 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:10 - Completed Custom Event harvest - size: 10
+[DEBUG] - 2020-03-20 10:41:15 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:15 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:16 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:19 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:20 - Completed Metric harvest - size: 14
+[DEBUG] - 2020-03-20 10:41:20 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:20 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:20 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:20 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:20 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:24 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:24 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:25 - Completed Custom Event harvest - size: 11
+[DEBUG] - 2020-03-20 10:41:29 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:29 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-03-20 10:41:30 - Completed Custom Event harvest - size: 0
+[INFO] - 2020-03-20 10:41:43 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-03-20 10:41:46 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}

@@ -31,7 +31,7 @@ defmodule Grain.TaskGrain do
       case {i, j} do
         {true, nil} -> "00"
         {true, _} -> List.to_string(j)
-        {false, _} -> String.slice(j, 11, 2)
+        {false, _} -> String.slice(x, 11, 2)
       end
 
     status_name =
