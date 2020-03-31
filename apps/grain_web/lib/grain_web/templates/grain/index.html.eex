@@ -58,7 +58,6 @@
           <td onclick=submitForm(this,"starting_price")><%= redis.starting_price %></td>
           <td onclick=submitForm(this,"latest_price")><%= redis.latest_price %></td>
         </tr>
-        <% Process.sleep(1)%>
       <% end %>
     </tbody>
   </table>
