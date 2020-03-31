@@ -39,7 +39,7 @@ defmodule GrainWeb.MixProject do
     [
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 4.0"},
+      {:phoenix_ecto, github: "zlfera/phoenix_ecto"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
