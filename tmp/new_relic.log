@@ -19375,3 +19375,4 @@
 [DEBUG] - 2020-04-03 00:04:16 - Completed Custom Event harvest - size: 9
 [INFO] - 2020-04-03 07:21:24 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [ERROR] - 2020-04-03 07:21:26 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-03 07:53:00 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
