@@ -15,6 +15,7 @@ defmodule Grain.Grains.Grain do
     field :trantype, :string
     field :variety, :string
     field :year, :string
+    field :requst_no, :string
 
     timestamps()
   end
@@ -23,6 +24,7 @@ defmodule Grain.Grains.Grain do
   def changeset(grain, attrs) do
     grain
     |> cast(attrs, [
+      :request_no,
       :address,
       :mark_number,
       :grade,

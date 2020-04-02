@@ -23,7 +23,6 @@ defmodule Grain.TaskGrain do
         false -> "拍卖"
       end
 
-    # {String.length(x) <= 12 || String.length(x) == 13 
     {i, j} = {String.length(x) <= 14, ~r/^\d+/ |> Regex.run(x)}
 
     y =
