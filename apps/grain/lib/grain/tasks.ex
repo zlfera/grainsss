@@ -17,8 +17,8 @@ defmodule Grain.Tasks do
       end
     end
 
-    HTTPoison.get("https://youmilegg.herokuapp.com/home/grain_home")
-    HTTPoison.get("https://youmile.herokuapp.com/home/grain_home")
+    spawn(HTTPoison, :get, ["https://youmilegg.herokuapp.com/home/grain_home"])
+    spawn(HTTPoison, :get, ["https://youmile.herokuapp.com/home/grain_home"])
   end
 
   def b do
