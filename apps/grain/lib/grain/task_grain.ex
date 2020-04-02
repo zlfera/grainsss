@@ -41,6 +41,7 @@ defmodule Grain.TaskGrain do
     attr = %{
       market_name: "guojia",
       mark_number: d["requestAlias"],
+      request_no: d["requestNo"],
       year: y,
       variety: d["varietyName"],
       grade: d["gradeName"],
