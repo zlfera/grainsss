@@ -15,7 +15,7 @@ defmodule Grain.Grains.Grain do
     field :trantype, :string
     field :variety, :string
     field :year, :string
-    field :requst_no, :string
+    field :request_no, :string
 
     timestamps()
   end
