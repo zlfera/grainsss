@@ -2,6 +2,25 @@ defmodule Grain.TaskGrain do
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
 
+  def get_year(request_no) do
+    params = [
+      params: %{
+        param:
+          Jason.encode!(%{
+            m: "tradeCenterPlanDetailInfo",
+            requestNo: "#{request_no}",
+            flag: "G"
+          })
+      }
+    ]
+
+    get_data =
+      HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params).body
+      |> Jason.decode!()
+
+    get_data["data"]["prodDate"]
+  end
+
   def a(dqqq) do
     uu = "http://123.127.88.167:8888/tradeClient/observe/requestList?specialNo="
     u = uu <> dqqq
@@ -15,7 +34,8 @@ defmodule Grain.TaskGrain do
   end
 
   def s(d, dd, pid) do
-    x = d["requestAlias"]
+    # x = d["requestAlias"]
+    y = get_year(d["request_no"])
 
     trantype =
       case Regex.match?(~r/采购/, dd) do
@@ -23,14 +43,14 @@ defmodule Grain.TaskGrain do
         false -> "拍卖"
       end
 
-    {i, j} = {String.length(x) <= 14, ~r/^\d+/ |> Regex.run(x)}
+    # {i, j} = {String.length(x) <= 14, ~r/^\d+/ |> Regex.run(x)}
 
-    y =
-      case {i, j} do
-        {true, nil} -> "00"
-        {true, _} -> List.to_string(j)
-        {false, _} -> String.slice(x, 11, 2)
-      end
+    # y =
+    #  case {i, j} do
+    #    {true, nil} -> "00"
+    #    {true, _} -> List.to_string(j)
+    #    {false, _} -> String.slice(x, 11, 2)
+    #  end
 
     status_name =
       case d["currentPrice"] do
