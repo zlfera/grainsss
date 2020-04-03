@@ -4,23 +4,23 @@ defmodule Grain.Tasks do
 
   def run(pid) do
     # {:ok, _} = Application.ensure_all_started(:grain)
-    a = Grain.Repo.all(Grain.Grains.Grain)
+    # a = Grain.Repo.all(Grain.Grains.Grain)
 
-    aa =
-      Enum.reject(a, fn x ->
-        Map.has_key?(x, :request_no) == false
-      end)
+    # aa =
+    #  Enum.reject(a, fn x ->
+    #    Map.has_key?(x, :request_no) == false
+    #  end)
 
-    aaa =
-      Enum.reject(aa, fn x ->
-        x.request_no == nil
-      end)
+    # aaa =
+    #  Enum.reject(aa, fn x ->
+    #    x.request_no == nil
+    #  end)
 
-    Enum.each(aaa, fn x ->
-      year = Grain.TaskGrain.get_year(x.request_no)
-      p = Ecto.Changeset.change(x, year: year)
-      Grain.Repo.update!(p)
-    end)
+    # Enum.each(aaa, fn x ->
+    #  year = Grain.TaskGrain.get_year(x.request_no)
+    #  p = Ecto.Changeset.change(x, year: year)
+    #  Grain.Repo.update!(p)
+    # end)
 
     p = Agent.get(pid, & &1)
     IO.inspect(p)
