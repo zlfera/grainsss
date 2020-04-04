@@ -23028,3 +23028,11 @@
 [DEBUG] - 2020-04-04 08:41:54 - Completed Transaction Event harvest - size: 0
 [INFO] - 2020-04-04 08:51:18 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [ERROR] - 2020-04-04 08:51:23 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-04 12:05:01 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-04 12:05:04 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-04 12:12:19 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-04 12:12:21 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-04 12:13:55 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-04 12:13:58 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-04 12:14:46 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-04 12:14:47 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
