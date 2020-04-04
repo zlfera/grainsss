@@ -75,6 +75,9 @@ defmodule Grain.TaskGrain do
       {true, _, _} ->
         Agent.update(pid, &[attr | &1])
 
+      {false, false, _} ->
+        Agent.update(pid, &[attr | &1])
+
       {false, true, "拍卖"} ->
         if attr.latest_price > row.latest_price do
           Agent.update(pid, fn rows ->
@@ -90,9 +93,6 @@ defmodule Grain.TaskGrain do
             List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
           end)
         end
-
-      {false, false, _} ->
-        Agent.update(pid, &[attr | &1])
     end
   end
 
