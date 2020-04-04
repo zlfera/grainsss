@@ -79,7 +79,7 @@ defmodule Grain.TaskGrain do
         Agent.update(pid, &[attr | &1])
 
       {false, true, "拍卖"} ->
-        if attr.latest_price > row.latest_price do
+        if String.to_integer(attr.latest_price) > String.to_integer(row.latest_price) do
           Agent.update(pid, fn rows ->
             index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
             List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
@@ -87,7 +87,7 @@ defmodule Grain.TaskGrain do
         end
 
       {false, true, "采购"} ->
-        if attr.latest_price < row.latest_price do
+        if String.to_integer(attr.latest_price) < String.to_integer(row.latest_price) do
           Agent.update(pid, fn rows ->
             index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
             List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
