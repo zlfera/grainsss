@@ -34,25 +34,13 @@ defmodule Grain.TaskGrain do
   end
 
   def s(d, dd, pid) do
-    # x = d["requestAlias"]
     task = Task.async(Grain.TaskGrain, :get_year, [d["request_no"]])
-
-    # y = get_year(d["request_no"])
 
     trantype =
       case Regex.match?(~r/采购/, dd) do
         true -> "采购"
         false -> "拍卖"
       end
-
-    # {i, j} = {String.length(x) <= 14, ~r/^\d+/ |> Regex.run(x)}
-
-    # y =
-    #  case {i, j} do
-    #    {true, nil} -> "00"
-    #    {true, _} -> List.to_string(j)
-    #    {false, _} -> String.slice(x, 11, 2)
-    #  end
 
     status_name =
       case d["currentPrice"] do
@@ -77,23 +65,33 @@ defmodule Grain.TaskGrain do
 
     rows = Agent.get(pid, & &1)
 
-    {i, j, k} = {
-      Enum.empty?(rows),
-      Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number)),
-      d["remainSeconds"] == "0"
-    }
+    i = Enum.empty?(rows)
+    j = Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number))
+    row = Enum.find(rows, &(&1.mark_number == attr.mark_number))
 
-    case {i, j, k} do
+    # d["remainSeconds"] == "0"
+
+    case {i, j, trantype} do
       {true, _, _} ->
         Agent.update(pid, &[attr | &1])
 
-      {false, true, true} ->
-        Agent.update(pid, fn rows ->
-          index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
-          List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
-        end)
+      {false, true, "拍卖"} ->
+        if attr.latest_price > row.latest_price do
+          Agent.update(pid, fn rows ->
+            index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
+            List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
+          end)
+        end
 
-      {false, _, _} ->
+      {false, true, "采购"} ->
+        if attr.latest_price < row.latest_price do
+          Agent.update(pid, fn rows ->
+            index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
+            List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
+          end)
+        end
+
+      {false, false, _} ->
         Agent.update(pid, &[attr | &1])
     end
   end
@@ -102,7 +100,7 @@ defmodule Grain.TaskGrain do
     x = String.to_integer(j["remainSeconds"])
 
     cond do
-      x > 2 ->
+      x > 3 ->
         rows = Agent.get(pid, & &1)
 
         if !Enum.empty?(rows) do
@@ -113,10 +111,10 @@ defmodule Grain.TaskGrain do
           end)
         end
 
-        Process.sleep(x * 1000 - 2000)
+        Process.sleep(x * 1000 - 3000)
         grain(d["specialNo"], pid)
 
-      x <= 2 ->
+      x <= 3 ->
         s(j, d["specialName"], pid)
     end
   end
