@@ -17,8 +17,8 @@ defmodule GrainWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/grain", GrainController, :inde
     get "/grains", GrainController, :index
-    # post "/grains", GrainController, :index
     get "/home", HomeController, :index
   end
 

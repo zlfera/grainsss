@@ -2,6 +2,19 @@ defmodule GrainWeb.GrainController do
   use GrainWeb, :controller
   alias Grain.Grains, as: Gg
 
+  def inde(conn, params) do
+    params =
+      if params == %{} do
+        %{"year" => "", "city1" => "", "city2" => "", "city3" => "", "limit" => ""}
+      else
+        params
+      end
+
+    grains = Gg.search_grain(params)
+    {:ok, pid} = Agent.start_link(fn -> 0 end)
+    render(conn, "inde.html", grains: grains, pid: pid)
+  end
+
   def index(conn, params) do
     grains =
       if Map.has_key?(params, "td_data") && params["td_data"] != "" do

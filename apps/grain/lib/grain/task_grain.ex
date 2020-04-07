@@ -2,13 +2,36 @@ defmodule Grain.TaskGrain do
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
 
+  def get_list(special_no, id, size) do
+    params = [
+      params: %{
+        param:
+          Jason.encode!(%{
+            indexid: id,
+            pagesize: size,
+            m: "tradeCenterPlanList",
+            specialNo: special_no,
+            flag: "G"
+          })
+      },
+      timeout: 10000
+    ]
+
+    get_data =
+      HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params).body
+      |> Jason.decode!()
+
+    # get_data["data"]["prodDate"]
+    get_data
+  end
+
   def get_year(request_no) do
     params = [
       params: %{
         param:
           Jason.encode!(%{
             m: "tradeCenterPlanDetailInfo",
-            requestNo: "#{request_no}",
+            requestNo: request_no,
             flag: "G"
           })
       }
@@ -18,7 +41,8 @@ defmodule Grain.TaskGrain do
       HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params).body
       |> Jason.decode!()
 
-    get_data["data"]["prodDate"]
+    # get_data["data"]["prodDate"]
+    get_data
   end
 
   def a(dqqq) do

@@ -1,0 +1,54 @@
+<div>
+  <h5><a href="https://www.youmile.vip">点击进入长虹米厂官网</a></h5>
+  <h3>稻谷历史交易记录</h3>
+  <%= form_for @conn,Routes.grain_path(@conn, :inde),[method: :get] ,fn f -> %>
+    <div>
+    <label for="">查询已交易粮库（例如“九江”）</label>
+    <%= text_input f, :city1 %>
+    <%= label f,:city2 %>
+    <%= text_input f, :city2 %>
+    <%= label f,:year%>
+    <%= text_input f, :year %>
+    <%= label f,:limit %>
+    <%= text_input f, :limit %>
+    <%= label f,:city3%>
+    <%= text_input f, :city3 %>
+
+
+    <%= submit "Search Grains"%>
+    </div>
+    <table class="qgg-table">
+    <thead>
+      <tr>
+        <td>编号</td>
+        <td>交易时间</td>
+        <td>交货地址</td>
+        <td>类型</td>
+        <td>品种</td>
+        <td>等级</td>
+        <td>年份</td>
+        <td>交易数量</td>
+        <td>起始价格</td>
+        <td>最终价格</td>
+
+      </tr>
+    </thead>
+    <tbody>
+      <%= for redis <- @grains do %>
+        <tr>
+          <td><%= dizeng(@pid) %></td>
+          <td><%= redis.inserted_at |> Timex.to_datetime("Etc/UTC") |> Timex.to_datetime("Asia/Shanghai") |> DateTime.to_naive %></td>
+          <td><%= redis.address <> "(#{redis.mark_number})" %></td>
+          <td><%= redis.trantype %></td>
+          <td><%= redis.variety %></td>
+          <td><%= redis.grade %></td>
+          <td><%= redis.year %></td>
+          <td><%= redis.trade_amount %></td>
+          <td><%= redis.starting_price %></td>
+          <td><%= redis.latest_price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+</div>
