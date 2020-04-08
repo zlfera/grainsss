@@ -13,8 +13,7 @@ defmodule Grain.TaskGrain do
             specialNo: special_no,
             flag: "G"
           })
-      },
-      timeout: 10000
+      }
     ]
 
     get_data =
@@ -41,8 +40,7 @@ defmodule Grain.TaskGrain do
       HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params).body
       |> Jason.decode!()
 
-    # get_data["data"]["prodDate"]
-    get_data
+    get_data["data"]["prodDate"]
   end
 
   def a(dqqq) do

@@ -8,6 +8,23 @@ defmodule Grain.Grains do
   alias Grain.Grains.Grain, as: Ggg
   alias Grain.Repo, as: Gr
 
+  def year(g, year) do
+    if year == "" do
+      g
+    else
+      where(g, [a], a.year == ^year)
+    end
+  end
+
+  def city(g, city) do
+    if city == "" do
+      g
+    else
+      city = "%#{city}%"
+      or_where(g, [a], like(a.address, ^city))
+    end
+  end
+
   def search_grain(params) do
     limit =
       if params["limit"] == "" do
@@ -16,40 +33,14 @@ defmodule Grain.Grains do
         String.to_integer(params["limit"])
       end
 
-    city1 =
-      if params["city1"] == "" do
-        "%九江%"
-      else
-        "%#{params["city1"]}%"
-      end
-
-    city2 =
-      if params["city2"] == "" do
-        "%九江%"
-      else
-        "%#{params["city2"]}%"
-      end
-
-    city3 =
-      if params["city3"] == "" do
-        "%九江%"
-      else
-        "%#{params["city3"]}%"
-      end
-
-    year =
-      if params["year"] == "" do
-        "2016"
-      else
-        params["year"]
-      end
-
     Ggg
     |> limit(^limit)
-    |> where([a], like(a.address, ^city1))
-    |> or_where([a], like(a.address, ^city2))
-    |> or_where([a], like(a.address, ^city3))
-    |> where([a], a.year == ^year)
+    # |> offset(0)
+    |> city(params["city1"])
+    |> city(params["city2"])
+    |> city(params["city3"])
+    |> year(params["year"])
+    |> order_by(desc: :inserted_at)
     |> Gr.all()
   end
 
