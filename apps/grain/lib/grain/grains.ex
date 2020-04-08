@@ -25,23 +25,41 @@ defmodule Grain.Grains do
     end
   end
 
-  def search_grain(params) do
-    limit =
-      if params["limit"] == "" do
-        200
-      else
-        String.to_integer(params["limit"])
-      end
+  def limit_num(g, l) do
+    if l == "" do
+      limit(g, 50)
+    else
+      l = String.to_integer(l)
+      limit(g, ^l)
+    end
+  end
 
-    Ggg
-    |> limit(^limit)
-    # |> offset(0)
-    |> city(params["city1"])
-    |> city(params["city2"])
-    |> city(params["city3"])
-    |> year(params["year"])
-    |> order_by(desc: :inserted_at)
-    |> Gr.all()
+  def page(g, params) do
+    if params["page"] == "" || !Map.has_key?(params, "page") do
+      g
+      |> offset(0)
+      |> limit_num(params["limit"])
+    else
+      page = params["page"]
+      page = String.to_integer(page) * String.to_integer(params["limit"])
+
+      g
+      |> offset(^page)
+      |> limit_num(params["limit"])
+    end
+  end
+
+  def search_grain(params) do
+    gg =
+      Ggg
+      |> city(params["city1"])
+      |> city(params["city2"])
+      |> city(params["city3"])
+      |> year(params["year"])
+      |> order_by(desc: :inserted_at)
+
+    ggg = page(gg, params)
+    {length(Gr.all(gg)), Gr.all(ggg)}
   end
 
   def search_grains(user_input) do

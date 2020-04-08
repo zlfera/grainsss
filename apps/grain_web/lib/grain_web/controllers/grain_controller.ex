@@ -5,14 +5,14 @@ defmodule GrainWeb.GrainController do
   def inde(conn, params) do
     params =
       if params == %{} do
-        %{"year" => "", "city1" => "", "city2" => "", "city3" => "", "limit" => ""}
+        %{"page" => "", "year" => "", "city1" => "", "city2" => "", "city3" => "", "limit" => ""}
       else
         params
       end
 
-    grains = Gg.search_grain(params)
+    {g, grains} = Gg.search_grain(params)
     {:ok, pid} = Agent.start_link(fn -> 0 end)
-    render(conn, "inde.html", grains: grains, pid: pid)
+    render(conn, "inde.html", g: g, grains: grains, pid: pid, params: params)
   end
 
   def index(conn, params) do

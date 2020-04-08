@@ -51,4 +51,9 @@
     </tbody>
   </table>
 <% end %>
+<ul class="pagination">
+  <%= for x <-  0..limit_num(@g,@params) do %>
+    <li class=\"active\"><a href= <%= page(x,@params) %>><%= x+1 %></a></li>
+  <% end %>
+</ul>
 </div>
