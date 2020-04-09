@@ -36,11 +36,18 @@ defmodule Grain.TaskGrain do
       }
     ]
 
-    get_data =
-      HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params).body
-      |> Jason.decode!()
+    {ok, get_data} =
+      HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params)
 
-    get_data["data"]["prodDate"]
+    if ok == :ok do
+      get_data =
+        get_data.body
+        |> Jason.decode!()
+
+      get_data["data"]["prodDate"]
+    else
+      "00"
+    end
   end
 
   def a(dqqq) do
