@@ -9,14 +9,14 @@ defmodule GrainWeb.GrainView do
   def page(num, params) do
     "/grain?page=#{num}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{params["city3"]}&year=#{
       params["year"]
-    }&limit=#{params["limit"]}"
+    }&limit=#{params["limit"]}&fenye=10"
   end
 
   def limit_num(num, params) do
     if params["limit"] == "" do
-      50
+      ceil(num / 50)
     else
-      div(num, String.to_integer(params["limit"]) - 1)
+      ceil(num / String.to_integer(params["limit"]))
     end
   end
 end
