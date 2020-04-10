@@ -63,7 +63,7 @@ defmodule Grain.TaskGrain do
   end
 
   def s(d, dd, pid) do
-    task = Task.async(Grain.TaskGrain, :get_year, [d["request_no"]])
+    # task = Task.async(Grain.TaskGrain, :get_year, [d["request_no"]])
 
     trantype =
       case Regex.match?(~r/采购/, dd) do
@@ -81,7 +81,8 @@ defmodule Grain.TaskGrain do
       market_name: "guojia",
       mark_number: d["requestAlias"],
       request_no: d["requestNo"],
-      year: Task.await(task),
+      # Task.await(task),
+      year: "00",
       variety: d["varietyName"],
       grade: d["gradeName"],
       trade_amount: d["num"],

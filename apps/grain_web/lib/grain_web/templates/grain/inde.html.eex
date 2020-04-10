@@ -52,9 +52,10 @@
   </table>
 <% end %>
 <ul class="pagination">
-  <%= for x <-  1..limit_num(@g,@params) do %>
-    <li class="active"><a href= <%= page(x-1,@params) %>><%= x %></a></li>
+   <%= for x <- (fenye(@fenye,@params))..(fenyeend(@params)+9) do %>
+
+    <li class="active"><a href= <%= page(x,@params) %>><%= x+1 %></a></li>
   <% end %>
-  <li><a href=<%= "#" %>></a></li>
+  <li><a href=<%= fenyeurl(@fenye,@params) %>>the next page</a></li>
 </ul>
 </div>
