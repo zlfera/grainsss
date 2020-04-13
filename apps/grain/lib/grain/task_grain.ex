@@ -44,8 +44,8 @@ defmodule Grain.TaskGrain do
         get_data.body
         |> Jason.decode!()
 
-      # get_data["data"]["prodDate"]
-      get_data
+      get_data["data"]["prodDate"]
+      # get_data
     else
       "00"
     end
