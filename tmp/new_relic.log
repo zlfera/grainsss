@@ -7974,3 +7974,402 @@
 [ERROR] - 2020-04-13 16:31:50 - connect: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
 [INFO] - 2020-04-13 19:06:12 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [ERROR] - 2020-04-13 19:06:14 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-13 19:28:20 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-13 19:28:25 - connect: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-13 19:33:07 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2020-04-13 19:33:10 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[DEBUG] - 2020-04-13 19:33:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:16 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:17 - Completed Custom Event harvest - size: 5
+[DEBUG] - 2020-04-13 19:33:21 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:21 - Completed Custom Event harvest - size: 1
+[DEBUG] - 2020-04-13 19:33:21 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:26 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:26 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:28 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:31 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:33:32 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:36 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:36 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:33:36 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:42 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:46 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:33:47 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:51 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:33:52 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:56 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:56 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:33:57 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:01 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:01 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:34:02 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:06 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:06 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:34:06 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:11 - Completed Metric harvest - size: 9
+[DEBUG] - 2020-04-13 19:34:11 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:12 - Completed Error Trace harvest - size: 0
+[ERROR] - 2020-04-13 19:34:12 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:34:12 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:12 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:12 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:13 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:16 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:34:16 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:22 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:22 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:34:22 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:26 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:26 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:26 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:31 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:34:32 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:36 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:36 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:34:37 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:45 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:46 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:34:46 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:51 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:34:52 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:56 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:56 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:34:57 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:01 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:01 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:35:02 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:06 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:06 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:35:07 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:11 - Completed Metric harvest - size: 14
+[DEBUG] - 2020-04-13 19:35:11 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:11 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:12 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:12 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:12 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:12 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:16 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:35:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:17 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:21 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:21 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:35:21 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:26 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:26 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:27 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:31 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:35:31 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:36 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:36 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:35:36 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:41 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:46 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:35:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:49 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:51 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:35:52 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:56 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:56 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:35:56 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:01 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:01 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:36:01 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:06 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:06 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:36:06 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:11 - Completed Metric harvest - size: 14
+[DEBUG] - 2020-04-13 19:36:11 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:11 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:11 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:11 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:11 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:12 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:16 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:36:16 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:21 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:21 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:22 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:36:26 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:26 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:29 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:31 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:34 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:36:36 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:36:36 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:36 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:41 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:46 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:49 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:36:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:51 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:54 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:36:56 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:56 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:36:59 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:01 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:37:02 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:03 - analytic_event_data: (failed_request) :socket_closed_remotely
+[DEBUG] - 2020-04-13 19:37:03 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:07 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[ERROR] - 2020-04-13 19:37:07 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:07 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:07 - Completed Custom Event harvest - size: 2
+[ERROR] - 2020-04-13 19:37:07 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:07 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:12 - metric_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:12 - Completed Metric harvest - size: 14
+[ERROR] - 2020-04-13 19:37:12 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:12 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:12 - span_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:12 - Completed Span Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:12 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:12 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:12 - error_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[ERROR] - 2020-04-13 19:37:12 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:12 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:12 - Completed Custom Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:12 - transaction_sample_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:12 - Completed Transaction Trace harvest - size: 0
+[ERROR] - 2020-04-13 19:37:17 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:17 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:17 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:17 - Completed Custom Event harvest - size: 9
+[ERROR] - 2020-04-13 19:37:17 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:17 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:22 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:22 - Completed Custom Event harvest - size: 2
+[ERROR] - 2020-04-13 19:37:22 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:22 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:22 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:22 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-13 19:37:27 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:37:27 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:27 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:27 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:31 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:37:31 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:36 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:36 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:37:36 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:41 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:46 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:37:46 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:51 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:37:51 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:56 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:56 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:37:56 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:01 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:01 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:38:01 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:06 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:06 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:38:07 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:11 - Completed Metric harvest - size: 14
+[DEBUG] - 2020-04-13 19:38:11 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:11 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:11 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:11 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:11 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:12 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:16 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:38:16 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:21 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:38:21 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:21 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:26 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:26 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:26 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:31 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:38:31 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:36 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:36 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:38:37 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:41 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:46 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:47 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:38:51 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:38:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:51 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:56 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:57 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:38:57 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:01 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:01 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:01 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:39:06 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:06 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:06 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:39:11 - Completed Metric harvest - size: 14
+[DEBUG] - 2020-04-13 19:39:11 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:11 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:11 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:11 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:11 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:12 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:16 - Completed Custom Event harvest - size: 8
+[DEBUG] - 2020-04-13 19:39:16 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:21 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:21 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:39:21 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:26 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:26 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:26 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:31 - Completed Custom Event harvest - size: 9
+[DEBUG] - 2020-04-13 19:39:31 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:36 - Completed Custom Event harvest - size: 2
+[DEBUG] - 2020-04-13 19:39:37 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:37 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:42 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:46 - Completed Custom Event harvest - size: 8
+[DEBUG] - 2020-04-13 19:39:46 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:51 - Completed Custom Event harvest - size: 3
+[DEBUG] - 2020-04-13 19:39:51 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:56 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:56 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:39:56 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:01 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:01 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:40:01 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:06 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:06 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:40:06 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:11 - Completed Metric harvest - size: 14
+[DEBUG] - 2020-04-13 19:40:11 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:11 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:11 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:11 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:11 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:12 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:16 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:40:16 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:21 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:21 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:40:21 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:26 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:26 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:27 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:31 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:40:31 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:36 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:36 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:40:36 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:41 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:46 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:40:47 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:52 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:40:52 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:56 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:56 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:40:57 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:01 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:01 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:41:02 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:06 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:06 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:41:08 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:11 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:11 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:12 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:12 - Completed Metric harvest - size: 14
+[DEBUG] - 2020-04-13 19:41:12 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:13 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:13 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:16 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:41:16 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:21 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:21 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:41:23 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:26 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:26 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:27 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:31 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:41:31 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:32 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:36 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:41:36 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:36 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:41 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:41 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:41 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:46 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:46 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:41:46 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:51 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:41:51 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:51 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:56 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:56 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:41:57 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:01 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:42:01 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:01 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:06 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:06 - Completed Custom Event harvest - size: 7
+[DEBUG] - 2020-04-13 19:42:06 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:11 - Completed Metric harvest - size: 14
+[DEBUG] - 2020-04-13 19:42:11 - Completed Transaction Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:11 - Completed Span Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:12 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:12 - Completed Error Trace harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:12 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:13 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:16 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:16 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:42:16 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-13 19:42:21 - error_event_data: (failed_request) :socket_closed_remotely
+[DEBUG] - 2020-04-13 19:42:21 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-13 19:42:21 - custom_event_data: (failed_request) :socket_closed_remotely
+[DEBUG] - 2020-04-13 19:42:21 - Completed Custom Event harvest - size: 7
+[ERROR] - 2020-04-13 19:42:22 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:42:22 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:27 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:27 - Completed Custom Event harvest - size: 0
+[ERROR] - 2020-04-13 19:42:27 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-13 19:42:27 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:32 - Completed Custom Event harvest - size: 4
+[DEBUG] - 2020-04-13 19:42:34 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-13 19:42:34 - Completed Error Event harvest - size: 0
