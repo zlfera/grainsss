@@ -16,8 +16,9 @@ defmodule Grain.Grains.Grain do
     field :variety, :string
     field :year, :string
     field :request_no, :string
-    field :storage_depot_name, :string
-    field :store_no, :string
+
+    # field :storage_depot_name, :string
+    # field :store_no, :string
 
     timestamps()
   end
