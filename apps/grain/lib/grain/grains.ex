@@ -17,7 +17,7 @@ defmodule Grain.Grains do
   end
 
   def city(g, city) do
-    if city == "" do
+    if String.trim(city) == "" do
       g
     else
       city = "%#{city}%"

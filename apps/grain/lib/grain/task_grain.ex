@@ -2,7 +2,7 @@ defmodule Grain.TaskGrain do
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
 
-  def get_list(special_no, id, size) do
+  def get_list(special_no, id \\ "1", size \\ "10") do
     params = [
       params: %{
         param:
@@ -44,7 +44,8 @@ defmodule Grain.TaskGrain do
         get_data.body
         |> Jason.decode!()
 
-      get_data["data"]["prodDate"]
+      # get_data["data"]["prodDate"]
+      get_data
     else
       "00"
     end
@@ -53,9 +54,8 @@ defmodule Grain.TaskGrain do
   def a(dqqq) do
     uu = "http://123.127.88.167:8888/tradeClient/observe/requestList?specialNo="
     u = uu <> dqqq
-    {o, url} = HTTPoison.get(u)
 
-    if o == :ok do
+    if {:ok, url} = HTTPoison.get(u) do
       url.body |> Jason.decode!()
     else
       a(dqqq)
@@ -63,7 +63,7 @@ defmodule Grain.TaskGrain do
   end
 
   def s(d, dd, pid) do
-    task = Task.async(Grain.TaskGrain, :get_year, [d["request_no"]])
+    task = Task.async(Grain.TaskGrain, :get_year, [d["requestNo"]])
 
     trantype =
       case Regex.match?(~r/采购/, dd) do
