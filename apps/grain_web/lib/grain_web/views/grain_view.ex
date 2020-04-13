@@ -3,7 +3,7 @@ defmodule GrainWeb.GrainView do
 
   def fenye(pid, params) do
     fenye =
-      if params["fenye"] == "" do
+      if params["fenye"] in ["", nil] do
         0
       else
         params["fenye"] |> String.to_integer()
@@ -14,7 +14,7 @@ defmodule GrainWeb.GrainView do
   end
 
   def fenyeend(params) do
-    if params["fenye"] == "" do
+    if params["fenye"] in ["", nil] do
       0
     else
       params["fenye"] |> String.to_integer()
