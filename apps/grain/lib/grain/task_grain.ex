@@ -47,9 +47,10 @@ defmodule Grain.TaskGrain do
       year = get_data["prodDate"]
       store_no = get_data["storeNo"]
       storage_depot_name = get_data["storageDepotName"]
-      {year, store_no, storage_depot_name}
+      grade_name = get_data["gradeName"]
+      {year, store_no, storage_depot_name, grade_name}
     else
-      {"00", "00", "00"}
+      {"00", "00", "00", "00"}
     end
   end
 
