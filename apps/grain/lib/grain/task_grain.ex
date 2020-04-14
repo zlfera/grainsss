@@ -20,7 +20,6 @@ defmodule Grain.TaskGrain do
       HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params).body
       |> Jason.decode!()
 
-    # get_data["data"]["prodDate"]
     get_data
   end
 
@@ -136,7 +135,7 @@ defmodule Grain.TaskGrain do
 
         if !Enum.empty?(rows) do
           Enum.each(rows, fn attr ->
-            {year, store_no, storage_depot_name} = get_year(attr["requestNo"])
+            {year, store_no, storage_depot_name} = get_year(attr["request_no"])
 
             attr = Map.put(attr, :year, year)
             attr = Map.put(attr, :store_no, store_no)

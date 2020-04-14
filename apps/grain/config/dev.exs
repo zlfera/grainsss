@@ -11,7 +11,7 @@ config :grain, Grain.Repo,
   # database: "wecwjsnz",
   # hostname: "baasu.db.elephantsql.com",
   # pool_size: 4,
-  # url: "postgres://wecwjsnz:rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve@baasu.db.elephantsql.com:5432/wecwjsnz"
+  # url:"postgres://wecwjsnz:rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve@baasu.db.elephantsql.com:5432/wecwjsnz"
 
   pool_size: 10,
   username: "postgres",
