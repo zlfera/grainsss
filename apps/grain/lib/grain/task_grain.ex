@@ -132,11 +132,12 @@ defmodule Grain.TaskGrain do
     cond do
       x > 3 ->
         task_time = Task.async(Process, :sleep, [x * 1000 - 3000])
-        {year, store_no, storage_depot_name} = get_year(j["requestNo"])
         rows = Agent.get(pid, & &1)
 
         if !Enum.empty?(rows) do
           Enum.each(rows, fn attr ->
+            {year, store_no, storage_depot_name} = get_year(attr["requestNo"])
+
             attr = Map.put(attr, :year, year)
             attr = Map.put(attr, :store_no, store_no)
             attr = Map.put(attr, :storage_depot_name, storage_depot_name)

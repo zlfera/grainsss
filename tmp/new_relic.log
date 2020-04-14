@@ -8379,3 +8379,5 @@
 [ERROR] - 2020-04-13 22:17:43 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
 [INFO] - 2020-04-14 09:20:32 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [ERROR] - 2020-04-14 09:20:33 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-14 10:34:54 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-14 10:34:57 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
