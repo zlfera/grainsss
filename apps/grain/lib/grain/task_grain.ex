@@ -43,11 +43,14 @@ defmodule Grain.TaskGrain do
       get_data =
         get_data.body
         |> Jason.decode!()
+        |> Map.get("data")
 
-      get_data["data"]["prodDate"]
-      # get_data
+      year = get_data["prodDate"]
+      store_no = get_data["storeNo"]
+      storage_depot_name = get_data["storageDepotName"]
+      {year, store_no, storage_depot_name}
     else
-      "00"
+      {"00", "00", "00"}
     end
   end
 
@@ -63,8 +66,6 @@ defmodule Grain.TaskGrain do
   end
 
   def s(d, dd, pid) do
-    task = Task.async(Grain.TaskGrain, :get_year, [d["requestNo"]])
-
     trantype =
       case Regex.match?(~r/采购/, dd) do
         true -> "采购"
@@ -81,7 +82,7 @@ defmodule Grain.TaskGrain do
       market_name: "guojia",
       mark_number: d["requestAlias"],
       request_no: d["requestNo"],
-      year: Task.await(task),
+      year: "00",
       variety: d["varietyName"],
       grade: d["gradeName"],
       trade_amount: d["num"],
@@ -89,7 +90,9 @@ defmodule Grain.TaskGrain do
       latest_price: d["currentPrice"],
       address: d["requestBuyDepotName"],
       status: status_name,
-      trantype: trantype
+      trantype: trantype,
+      store_no: "00",
+      storage_depot_name: "00"
     }
 
     rows = Agent.get(pid, & &1)
@@ -97,8 +100,6 @@ defmodule Grain.TaskGrain do
     i = Enum.empty?(rows)
     j = Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number))
     row = Enum.find(rows, &(&1.mark_number == attr.mark_number))
-
-    # d["remainSeconds"] == "0"
 
     case {i, j, trantype} do
       {true, _, _} ->
@@ -130,17 +131,22 @@ defmodule Grain.TaskGrain do
 
     cond do
       x > 3 ->
+        task_time = Task.async(Process, :sleep, [x * 1000 - 3000])
+        {year, store_no, storage_depot_name} = get_year(j["requestNo"])
         rows = Agent.get(pid, & &1)
 
         if !Enum.empty?(rows) do
           Enum.each(rows, fn attr ->
+            attr = Map.put(attr, :year, year)
+            attr = Map.put(attr, :store_no, store_no)
+            attr = Map.put(attr, :storage_depot_name, storage_depot_name)
             changeset = G.changeset(%G{}, attr)
             Repo.insert(changeset)
             Agent.update(pid, &Enum.drop_every(&1, 1))
           end)
         end
 
-        Process.sleep(x * 1000 - 3000)
+        Task.await(task_time, x * 1000)
         grain(d["specialNo"], pid)
 
       x <= 3 ->
