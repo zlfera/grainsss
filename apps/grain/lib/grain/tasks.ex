@@ -1,10 +1,15 @@
 defmodule Grain.Tasks do
   @moduledoc false
   alias Grain.TaskGrain, as: Gt
+  import Ecto.Query
 
   def run(pid) do
     # {:ok, _} = Application.ensure_all_started(:grain)
-    a = Grain.Repo.all(Grain.Grains.Grain)
+    a =
+      Grain.Grains.Grain
+      |> order_by(desc: :inserted_at)
+      |> limit(500)
+      |> Grain.Repo.all()
 
     aa =
       Enum.reject(a, fn x ->
@@ -21,12 +26,13 @@ defmodule Grain.Tasks do
       Enum.reject(aa, fn x ->
         x.request_no == nil
       end)
-      |> Enum.reject(fn x ->
-        x.store_no == nil
-      end)
-      |> Enum.reject(fn x ->
-        x.storage_depot_name == nil
-      end)
+
+    # |> Enum.reject(fn x ->
+    #  x.store_no == nil
+    # end)
+    # |> Enum.reject(fn x ->
+    #  x.storage_depot_name == nil
+    # end)
 
     Enum.each(aaa, fn x ->
       {year, store_no, storage_depot_name} = Grain.TaskGrain.get_year(x.request_no)
