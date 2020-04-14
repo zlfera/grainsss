@@ -26,6 +26,8 @@ defmodule Grain.Grains.Grain do
   def changeset(grain, attrs) do
     grain
     |> cast(attrs, [
+      :store_no,
+      :storage_depot_name,
       :request_no,
       :address,
       :mark_number,
