@@ -11,29 +11,29 @@ defmodule Grain.Tasks do
       |> limit(50)
       |> Grain.Repo.all()
 
-    aa =
-      Enum.reject(a, fn x ->
-        Map.has_key?(x, :request_no) == false
-      end)
-      |> Enum.reject(fn x ->
-        Map.has_key?(x, :store_no) == false
-      end)
-      |> Enum.reject(fn x ->
-        Map.has_key?(x, :storage_depot_name) == false
-      end)
+    # aa =
+    # Enum.reject(a, fn x ->
+    #   Map.has_key?(x, :request_no) == false
+    # end)
+    # |> Enum.reject(fn x ->
+    # Map.has_key?(x, :store_no) == false
+    # end)
+    # |> Enum.reject(fn x ->
+    # Map.has_key?(x, :storage_depot_name) == false
+    # end)
 
-    aaa =
-      Enum.reject(aa, fn x ->
-        x.request_no == nil
-      end)
-      |> Enum.reject(fn x ->
-        x.store_no == nil
-      end)
-      |> Enum.reject(fn x ->
-        x.storage_depot_name == nil
-      end)
+    # aaa =
+    # Enum.reject(aa, fn x ->
+    #  x.request_no == nil
+    # end)
+    # |> Enum.reject(fn x ->
+    # x.store_no == nil
+    # end)
+    # |> Enum.reject(fn x ->
+    #  x.storage_depot_name == nil
+    # end)
 
-    Enum.each(aaa, fn x ->
+    Enum.each(a, fn x ->
       {_year, _store_no, _storage_depot_name, grade_name} = Grain.TaskGrain.get_year(x.request_no)
 
       p = Ecto.Changeset.change(x, grade: grade_name)
