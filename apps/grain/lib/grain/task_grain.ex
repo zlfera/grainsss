@@ -135,7 +135,7 @@ defmodule Grain.TaskGrain do
 
         if !Enum.empty?(rows) do
           Enum.each(rows, fn attr ->
-            {year, store_no, storage_depot_name} = get_year(attr["request_no"])
+            {year, store_no, storage_depot_name} = get_year(attr[:request_no])
 
             attr = Map.put(attr, :year, year)
             attr = Map.put(attr, :store_no, store_no)
