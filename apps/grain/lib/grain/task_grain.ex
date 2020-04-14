@@ -81,7 +81,7 @@ defmodule Grain.TaskGrain do
       market_name: "guojia",
       mark_number: d["requestAlias"],
       request_no: d["requestNo"],
-      year: "00",
+      year: "0",
       variety: d["varietyName"],
       grade: d["gradeName"],
       trade_amount: d["num"],
@@ -90,8 +90,8 @@ defmodule Grain.TaskGrain do
       address: d["requestBuyDepotName"],
       status: status_name,
       trantype: trantype,
-      store_no: "00",
-      storage_depot_name: "00"
+      store_no: "0",
+      storage_depot_name: "0"
     }
 
     rows = Agent.get(pid, & &1)
