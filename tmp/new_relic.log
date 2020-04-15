@@ -12616,3 +12616,5 @@
 [DEBUG] - 2020-04-15 13:44:18 - Completed Transaction Event harvest - size: 0
 [INFO] - 2020-04-15 16:25:16 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [ERROR] - 2020-04-15 16:25:17 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[INFO] - 2020-04-15 17:35:11 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-15 17:35:12 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
