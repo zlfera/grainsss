@@ -182,6 +182,14 @@ defmodule Grain.TaskGrain do
 
         if !Enum.empty?(rows) do
           Enum.each(rows, fn attr ->
+            {year, store_no, storage_depot_name} = get_year(attr[:request_no])
+
+            attr =
+              attr
+              |> Map.put(:year, year)
+              |> Map.put(:store_no, store_no)
+              |> Map.put(:storage_depot_name, storage_depot_name)
+
             changeset = G.changeset(%G{}, attr)
             Repo.insert(changeset)
             Agent.update(pid, &Enum.drop_every(&1, 1))
