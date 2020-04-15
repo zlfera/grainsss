@@ -11750,3 +11750,39 @@
 [ERROR] - 2020-04-15 08:48:34 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
 [INFO] - 2020-04-15 08:53:48 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [ERROR] - 2020-04-15 08:53:51 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-15 09:00:36 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-15 09:00:38 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-15 09:01:20 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-15 09:01:22 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-15 09:12:34 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2020-04-15 09:12:39 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[DEBUG] - 2020-04-15 09:12:44 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:45 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:45 - Completed Custom Event harvest - size: 6
+[DEBUG] - 2020-04-15 09:12:49 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:50 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:50 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:54 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:55 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:55 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:59 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:12:59 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:00 - Completed Custom Event harvest - size: 11
+[DEBUG] - 2020-04-15 09:13:04 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:05 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:05 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:09 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:10 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:10 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-15 09:13:25 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-15 09:13:25 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-15 09:13:25 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-15 09:13:25 - Completed Custom Event harvest - size: 0
+[ERROR] - 2020-04-15 09:13:25 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[DEBUG] - 2020-04-15 09:13:25 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:28 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:28 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:29 - Completed Custom Event harvest - size: 11
+[DEBUG] - 2020-04-15 09:13:29 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:29 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-15 09:13:30 - Completed Transaction Event harvest - size: 0

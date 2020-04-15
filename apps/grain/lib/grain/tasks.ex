@@ -48,17 +48,18 @@ defmodule Grain.Tasks do
     IO.inspect(b())
 
     case {b(), Enum.empty?(p)} do
-      {[], false} ->
+      {[], true} ->
         IO.puts("当前没有任务")
 
       {_, true} ->
         IO.puts("启动新任务")
         u1(b(), pid)
 
-      _ ->
+      {_, false} ->
         Map.keys(p)
-        |> Enum.each(&Process.alive?(p[&1]))
-        |> IO.puts("当前任务正在进行中")
+        |> Enum.each(IO.puts(&Process.alive?(p[&1])))
+
+        IO.puts("当前任务正在进行中")
     end
 
     spawn(HTTPoison, :get, ["https://youmilegg.herokuapp.com/home/grain_home"])
