@@ -57,10 +57,12 @@ defmodule Grain.TaskGrain do
     uu = "http://123.127.88.167:8888/tradeClient/observe/requestList?specialNo="
     u = uu <> dqqq
 
-    if {:ok, url} = HTTPoison.get(u) do
-      url.body |> Jason.decode!()
-    else
-      a(dqqq)
+    case HTTPoison.get(u) do
+      {:ok, url} ->
+        url.body |> Jason.decode!()
+
+      {:error, _} ->
+        a(dqqq)
     end
   end
 
@@ -132,7 +134,7 @@ defmodule Grain.TaskGrain do
     x = String.to_integer(j["remainSeconds"])
 
     cond do
-      x > 3 ->
+      x > 2 ->
         task_time = Task.async(Process, :sleep, [x * 1000 - 3000])
         rows = Agent.get(pid, & &1)
 
@@ -155,7 +157,7 @@ defmodule Grain.TaskGrain do
         Task.await(task_time, x * 1000)
         grain(d["specialNo"], pid)
 
-      x <= 3 ->
+      x <= 2 ->
         s(j, d["specialName"], pid)
     end
   end
