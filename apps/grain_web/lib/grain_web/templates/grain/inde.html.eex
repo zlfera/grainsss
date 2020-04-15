@@ -3,19 +3,19 @@
   <h3>稻谷历史交易记录</h3>
   <%= form_for @conn,Routes.grain_path(@conn, :inde),[method: :get] ,fn f -> %>
     <div>
-    <label for="">查询已交易粮库（例如“九江”）</label>
+    <label for="">查询已交易粮库1（例如“九江”）</label>
     <%= text_input f, :city1 %>
-    <%= label f,:city2 %>
+    <%= label f,"城市2" %>
     <%= text_input f, :city2 %>
-    <%= label f,:year%>
+    <%= label f, "年份"%>
     <%= text_input f, :year %>
-    <%= label f,:limit %>
+    <%= label f, "每页显示行数" %>
     <%= text_input f, :limit %>
-    <%= label f,:city3%>
+    <%= label f,"城市" %>
     <%= text_input f, :city3 %>
 
 
-    <%= submit "Search Grains"%>
+    <%= submit "查询"%>
     </div>
     <table class="qgg-table">
     <thead>
