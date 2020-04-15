@@ -47,17 +47,17 @@ defmodule Grain.Tasks do
     IO.inspect(p)
     IO.inspect(b())
 
-    case {b(), Enum.empty?(p)} do
-      {[], true} ->
+    case {Enum.empty?(b()), Enum.empty?(p)} do
+      {true, _} ->
         IO.puts("当前没有任务")
 
-      {_, true} ->
+      {false, true} ->
         IO.puts("启动新任务")
         u1(b(), pid)
 
-      {_, false} ->
-        Map.keys(p)
-        |> Enum.each(IO.puts(&Process.alive?(p[&1])))
+      {false, false} ->
+        # Map.keys(p)
+        # |> Enum.each(IO.puts(&Process.alive?(p[&1])))
 
         IO.puts("当前任务正在进行中")
     end
