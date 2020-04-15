@@ -2,13 +2,6 @@ defmodule Grain.Tasks do
   @moduledoc false
   alias Grain.TaskGrain, as: Gt
 
-  defmodule Tasks do
-    def run do
-      {:ok, pid} = Agent.start_link(fn -> %{} end)
-      Grain.Tasks.run(pid)
-    end
-  end
-
   def run(pid) do
     # {:ok, _} = Application.ensure_all_started(:grain)
     # a =
@@ -52,12 +45,13 @@ defmodule Grain.Tasks do
 
     p = Agent.get(pid, & &1)
     IO.inspect(p)
+    IO.inspect(b())
 
-    case {b(), p} do
-      {[], _} ->
-        IO.puts("当前没有拍卖信息")
+    case {b(), Enum.empty?(p)} do
+      {[], false} ->
+        IO.puts("当前没有任务")
 
-      {_, %{}} ->
+      {_, true} ->
         IO.puts("启动新任务")
         u1(b(), pid)
 
