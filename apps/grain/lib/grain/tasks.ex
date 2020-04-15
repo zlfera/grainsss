@@ -2,6 +2,13 @@ defmodule Grain.Tasks do
   @moduledoc false
   alias Grain.TaskGrain, as: Gt
 
+  defmodule Tasks do
+    def run do
+      {:ok, pid} = Agent.start_link(fn -> %{} end)
+      Grain.Tasks.run(pid)
+    end
+  end
+
   def run(pid) do
     # {:ok, _} = Application.ensure_all_started(:grain)
     # a =
@@ -46,14 +53,18 @@ defmodule Grain.Tasks do
     p = Agent.get(pid, & &1)
     IO.inspect(p)
 
-    if b() != [] do
-      if p != %{} do
-        Map.keys(p) |> Enum.each(&(Process.alive?(p[&1]) |> IO.puts()))
-        IO.puts("当前任务正在进行中")
-      else
-        "启动新任务" |> IO.puts()
+    case {b(), p} do
+      {[], _} ->
+        IO.puts("当前没有拍卖信息")
+
+      {_, %{}} ->
+        IO.puts("启动新任务")
         u1(b(), pid)
-      end
+
+      _ ->
+        Map.keys(p)
+        |> Enum.each(&Process.alive?(p[&1]))
+        |> IO.puts("当前任务正在进行中")
     end
 
     spawn(HTTPoison, :get, ["https://youmilegg.herokuapp.com/home/grain_home"])

@@ -98,7 +98,6 @@ defmodule Grain.TaskGrain do
 
     i = Enum.empty?(rows)
     j = Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number))
-    row = Enum.find(rows, &(&1.mark_number == attr.mark_number))
 
     case {i, j, trantype} do
       {true, _, _} ->
@@ -108,6 +107,8 @@ defmodule Grain.TaskGrain do
         Agent.update(pid, &[attr | &1])
 
       {false, true, "拍卖"} ->
+        row = Enum.find(rows, &(&1.mark_number == attr.mark_number))
+
         if String.to_integer(attr.latest_price) > String.to_integer(row.latest_price) do
           Agent.update(pid, fn rows ->
             index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
@@ -116,6 +117,8 @@ defmodule Grain.TaskGrain do
         end
 
       {false, true, "采购"} ->
+        row = Enum.find(rows, &(&1.mark_number == attr.mark_number))
+
         if String.to_integer(attr.latest_price) < String.to_integer(row.latest_price) do
           Agent.update(pid, fn rows ->
             index = Enum.find_index(rows, &(&1.mark_number == attr.mark_number))
