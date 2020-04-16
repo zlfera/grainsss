@@ -18905,3 +18905,27 @@
 [DEBUG] - 2020-04-16 16:47:12 - Completed Span Event harvest - size: 0
 [ERROR] - 2020-04-16 16:47:12 - transaction_sample_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
 [DEBUG] - 2020-04-16 16:47:12 - Completed Transaction Trace harvest - size: 0
+[ERROR] - 2020-04-16 16:47:13 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:13 - Completed Custom Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:13 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:13 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:13 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:13 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:18 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:18 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:18 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:18 - Completed Custom Event harvest - size: 6
+[ERROR] - 2020-04-16 16:47:18 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:18 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:23 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:23 - Completed Custom Event harvest - size: 8
+[ERROR] - 2020-04-16 16:47:23 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:23 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:23 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:23 - Completed Transaction Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:28 - custom_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:28 - Completed Custom Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:28 - error_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:28 - Completed Error Event harvest - size: 0
+[ERROR] - 2020-04-16 16:47:28 - analytic_event_data: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :nxdomain}]}
+[DEBUG] - 2020-04-16 16:47:28 - Completed Transaction Event harvest - size: 0
