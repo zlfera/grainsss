@@ -1,5 +1,43 @@
 defmodule GrainWeb.GrainView do
   use GrainWeb, :view
+  import Phoenix.HTML.Tag
+
+  def the_up_page(params) do
+    "/grain?page=#{params["page"]}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{
+      params["city3"]
+    }&year=#{params["year"]}&page_num=#{params["page_num"]}"
+  end
+
+  def page_nav(params) do
+    ~E"""
+    <nav>
+    <a href=<%= the_up_page(params) %>>the up page</a>
+    </nav>
+    <nav>
+    <a href="#">fenye</a>
+    </nav>
+    <nav>
+    <a href="#">the next page</a>
+    </nav>
+    """
+  end
+
+  def name(redis) do
+    a =
+      if redis.store_no != nil do
+        if String.match?(redis.store_no, ~r/仓/) do
+          ""
+        else
+          "仓"
+        end
+      end
+
+    raw(
+      "#{redis.address}<br>#{redis.mark_number}<br/>#{redis.request_no}<br/>#{
+        redis.storage_depot_name
+      }<br/>#{redis.store_no}#{a}"
+    )
+  end
 
   def fenye(pid, params) do
     fenye =

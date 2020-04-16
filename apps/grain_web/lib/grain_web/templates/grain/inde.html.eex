@@ -9,8 +9,8 @@
     <%= text_input f, :city2 %>
     <%= label f, "年份"%>
     <%= text_input f, :year %>
-    <%= label f, "每页显示行数" %>
-    <%= text_input f, :limit %>
+    <!--<%= label f, "每页显示行数" %>
+      <%= text_input f, :limit %>--!>
     <%= label f,"城市3" %>
     <%= text_input f, :city3 %>
 
@@ -38,7 +38,7 @@
         <tr>
           <td><%= dizeng(@pid) %></td>
           <td><%= redis.inserted_at |> Timex.to_datetime("Etc/UTC") |> Timex.to_datetime("Asia/Shanghai") |> DateTime.to_naive %></td>
-          <td><%= redis.address <> "(#{redis.mark_number})" %></td>
+          <td><%= name(redis) %></td>
           <td><%= redis.trantype %></td>
           <td><%= redis.variety %></td>
           <td><%= redis.grade %></td>
@@ -51,11 +51,11 @@
     </tbody>
   </table>
 <% end %>
-<ul class="pagination">
+<nav class="pagination">
    <%= for x <- (fenye(@fenye,@params))..(fenyeend(@params)+9) do %>
 
-    <li class="active"><a href= <%= page(x,@params) %>><%= x+1 %></a></li>
+     <a href= <%= page(x,@params) %>><%= x+1 %></a>
   <% end %>
-  <li><a href=<%= fenyeurl(@fenye,@params) %>>the next page</a></li>
-</ul>
+  <nav><a href=<%= fenyeurl(@fenye,@params) %>>下一页</a></nav>
+</nav>
 </div>

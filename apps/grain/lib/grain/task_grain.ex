@@ -35,21 +35,23 @@ defmodule Grain.TaskGrain do
       }
     ]
 
-    {ok, get_data} =
+    get_data =
       HTTPoison.request(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params)
 
-    if ok == :ok do
-      get_data =
-        get_data.body
-        |> Jason.decode!()
-        |> Map.get("data")
+    case get_data do
+      {:ok, get_data} ->
+        get_data =
+          get_data.body
+          |> Jason.decode!()
+          |> Map.get("data")
 
-      year = get_data["prodDate"]
-      store_no = get_data["storeNo"]
-      storage_depot_name = get_data["storageDepotName"]
-      {year, store_no, storage_depot_name}
-    else
-      {"00", "00", "00"}
+        year = get_data["prodDate"]
+        store_no = get_data["storeNo"]
+        storage_depot_name = get_data["storageDepotName"]
+        {year, store_no, storage_depot_name}
+
+      _ ->
+        {"00", "00", "00"}
     end
   end
 
@@ -135,7 +137,7 @@ defmodule Grain.TaskGrain do
 
     cond do
       x > 2 ->
-        task_time = Task.async(Process, :sleep, [x * 1000 - 3000])
+        task_time = Task.async(Process, :sleep, [x * 1000 - 2000])
         rows = Agent.get(pid, & &1)
 
         if !Enum.empty?(rows) do

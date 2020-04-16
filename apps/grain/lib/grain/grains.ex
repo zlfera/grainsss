@@ -21,7 +21,9 @@ defmodule Grain.Grains do
       g
     else
       city = "%#{city}%"
+
       or_where(g, [a], like(a.address, ^city))
+      |> or_where([a], like(a.storage_depot_name, ^city))
     end
   end
 
