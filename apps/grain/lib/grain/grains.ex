@@ -9,7 +9,7 @@ defmodule Grain.Grains do
   alias Grain.Repo, as: Gr
 
   def year(g, year) do
-    if year == "" do
+    if year in ["", nil] do
       g
     else
       where(g, [a], a.year == ^year)
@@ -17,7 +17,7 @@ defmodule Grain.Grains do
   end
 
   def city(g, city) do
-    if String.trim(city) == "" do
+    if String.trim(city) in ["", nil] do
       g
     else
       city = "%#{city}%"
@@ -28,8 +28,8 @@ defmodule Grain.Grains do
   end
 
   def limit_num(g, l) do
-    if l == "" do
-      limit(g, 50)
+    if l in ["", nil] do
+      limit(g, 100)
     else
       l = String.to_integer(l)
       limit(g, ^l)
@@ -38,7 +38,7 @@ defmodule Grain.Grains do
 
   def page(g, params) do
     l =
-      if params["limit"] == "" do
+      if params["limit"] in ["", nil] do
         50
       else
         String.to_integer(params["limit"])

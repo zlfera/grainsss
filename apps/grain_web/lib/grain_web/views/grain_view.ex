@@ -83,7 +83,7 @@ defmodule GrainWeb.GrainView do
 
   def limit_num(num, params) do
     if params["limit"] == "" do
-      ceil(num / 50)
+      ceil(num / 100)
     else
       ceil(num / String.to_integer(params["limit"]))
     end
