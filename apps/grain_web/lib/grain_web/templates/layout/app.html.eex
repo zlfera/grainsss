@@ -11,7 +11,7 @@ var _hmt = _hmt || [];
 </script>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>黄梅县长虹米厂（优米乐生态农业）</title>
+    <!--<title>黄梅县长虹米厂（优米乐生态农业）</title>--!>
     <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
@@ -20,7 +20,7 @@ var _hmt = _hmt || [];
     <%= render @view_module, @view_template, assigns %>
     </main>
     <footer>
-      <p>copyright <a href="https://youmile.youhaovip.com" target="_blank">长虹米厂</a> <%= DateTime.utc_now.year %></p>
+      <p>copyright <a href="https://youmile.youhaovip.com" target="_blank">Zeng</a> <%= DateTime.utc_now.year %></p>
       <!--<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>-->
     </footer>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
