@@ -3,7 +3,7 @@ defmodule GrainWeb.GrainView do
   import Phoenix.HTML.Tag
 
   def the_up_page(params) do
-    "/grain?page=#{params["page"]}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{
+    "/grains?page=#{params["page"]}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{
       params["city3"]
     }&year=#{params["year"]}&page_num=#{params["page_num"]}"
   end
@@ -65,7 +65,7 @@ defmodule GrainWeb.GrainView do
     Agent.update(fenye, fn x -> x + 10 end)
     f = Agent.get(fenye, fn x -> x end)
 
-    "/grain?page=#{params["page"]}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{
+    "/grains?page=#{params["page"]}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{
       params["city3"]
     }&year=#{params["year"]}&limit=#{params["limit"]}&fenye=#{f}"
   end
@@ -76,7 +76,7 @@ defmodule GrainWeb.GrainView do
   end
 
   def page(num, params) do
-    "/grain?page=#{num}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{params["city3"]}&year=#{
+    "/grains?page=#{num}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{params["city3"]}&year=#{
       params["year"]
     }&limit=#{params["limit"]}&fenye=#{params["fenye"]}"
   end
