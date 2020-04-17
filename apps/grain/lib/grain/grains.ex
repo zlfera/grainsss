@@ -61,11 +61,11 @@ defmodule Grain.Grains do
   def search_grain(params) do
     gg =
       Ggg
+      |> order_by(desc: :inserted_at)
       |> city(params["city1"])
       |> city(params["city2"])
       |> city(params["city3"])
       |> year(params["year"])
-      |> order_by(desc: :inserted_at)
 
     ggg = page(gg, params)
     {length(Gr.all(gg)), Gr.all(ggg)}
