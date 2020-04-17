@@ -33,9 +33,9 @@ defmodule GrainWeb.GrainView do
       end
 
     raw(
-      "#{redis.address}<br>#{redis.mark_number}<br/>#{redis.request_no}<br/>#{
-        redis.storage_depot_name
-      }<br/>#{redis.store_no}#{a}"
+      "#{redis.mark_number}</br>#{redis.storage_depot_name}</br>#{redis.store_no}#{a}</br>#{
+        redis.request_no
+      }"
     )
   end
 

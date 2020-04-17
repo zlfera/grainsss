@@ -51,7 +51,8 @@ defmodule Grain.TaskGrain do
         {year, store_no, storage_depot_name}
 
       _ ->
-        {"00", "00", "00"}
+        get_year(request_no)
+        # {"00", "00", "00"}
     end
   end
 
@@ -100,17 +101,13 @@ defmodule Grain.TaskGrain do
 
     rows = Agent.get(pid, & &1)
 
-    i = Enum.empty?(rows)
     j = Enum.find_value(rows, false, &(&1.mark_number == attr.mark_number))
 
-    case {i, j, trantype} do
-      {true, _, _} ->
+    case {j, trantype} do
+      {false, _} ->
         Agent.update(pid, &[attr | &1])
 
-      {false, false, _} ->
-        Agent.update(pid, &[attr | &1])
-
-      {false, true, "拍卖"} ->
+      {true, "拍卖"} ->
         row = Enum.find(rows, &(&1.mark_number == attr.mark_number))
 
         if String.to_integer(attr.latest_price) > String.to_integer(row.latest_price) do
@@ -120,7 +117,7 @@ defmodule Grain.TaskGrain do
           end)
         end
 
-      {false, true, "采购"} ->
+      {true, "采购"} ->
         row = Enum.find(rows, &(&1.mark_number == attr.mark_number))
 
         if String.to_integer(attr.latest_price) < String.to_integer(row.latest_price) do
@@ -140,22 +137,7 @@ defmodule Grain.TaskGrain do
         task_time = Task.async(Process, :sleep, [x * 1000 - 2000])
         rows = Agent.get(pid, & &1)
 
-        if !Enum.empty?(rows) do
-          Enum.each(rows, fn attr ->
-            {year, store_no, storage_depot_name} = get_year(attr[:request_no])
-
-            attr =
-              attr
-              |> Map.put(:year, year)
-              |> Map.put(:store_no, store_no)
-              |> Map.put(:storage_depot_name, storage_depot_name)
-
-            changeset = G.changeset(%G{}, attr)
-            Repo.insert(changeset)
-            Agent.update(pid, &Enum.drop_every(&1, 1))
-          end)
-        end
-
+        IO.inspect(rows)
         Task.await(task_time, x * 1000)
         grain(d["specialNo"], pid)
 
@@ -180,6 +162,9 @@ defmodule Grain.TaskGrain do
         grain(y, pid)
 
       "end" == i || "no" == i ->
+        "ren wu jie shu"
+
+      true ->
         rows = Agent.get(pid, & &1)
 
         if !Enum.empty?(rows) do
@@ -194,11 +179,11 @@ defmodule Grain.TaskGrain do
 
             changeset = G.changeset(%G{}, attr)
             Repo.insert(changeset)
-            Agent.update(pid, &Enum.drop_every(&1, 1))
           end)
         end
 
-      true ->
+        Agent.update(pid, &Enum.drop_every(&1, 1))
+
         Process.sleep(5000)
         grain(y, pid)
     end
