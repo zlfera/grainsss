@@ -7,11 +7,11 @@ defmodule Grain.Tasks do
   def run(pid) do
     # {:ok, _} = Application.ensure_all_started(:grain)
 
-    a =
-      Grain.Grains.Grain
-      |> order_by(desc: :inserted_at)
-      |> limit(20000)
-      |> Grain.Repo.all()
+    # a =
+    #  Grain.Grains.Grain
+    #  |> order_by(desc: :inserted_at)
+    #  |> limit(20000)
+    #  |> Grain.Repo.all()
 
     # aa =
     #  Enum.reject(a, fn x ->
@@ -24,10 +24,10 @@ defmodule Grain.Tasks do
     #  Map.has_key?(x, :storage_depot_name) == false
     # end)
 
-    aaa =
-      Enum.reject(a, fn x ->
-        x.request_no == nil
-      end)
+    # aaa =
+    #  Enum.reject(a, fn x ->
+    #    x.request_no == nil
+    #  end)
 
     # |> Enum.reject(fn x ->
     #  x.store_no == nil
@@ -36,16 +36,16 @@ defmodule Grain.Tasks do
     #  x.storage_depot_name == nil
     # end)
 
-    Enum.each(aaa, fn x ->
-      {year, store_no, storage_depot_name} = Grain.TaskGrain.get_year(x.request_no)
+    # Enum.each(aaa, fn x ->
+    #  {year, store_no, storage_depot_name} = Grain.TaskGrain.get_year(x.request_no)
 
-      p =
-        Ecto.Changeset.change(x, year: year)
-        |> Ecto.Changeset.change(store_no: store_no)
-        |> Ecto.Changeset.change(storage_depot_name: storage_depot_name)
+    #  p =
+    #    Ecto.Changeset.change(x, year: year)
+    #    |> Ecto.Changeset.change(store_no: store_no)
+    #    |> Ecto.Changeset.change(storage_depot_name: storage_depot_name)
 
-      Grain.Repo.update!(p)
-    end)
+    #  Grain.Repo.update!(p)
+    # end)
 
     p = Agent.get(pid, & &1)
 
