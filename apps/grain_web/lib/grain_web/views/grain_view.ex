@@ -53,7 +53,7 @@ defmodule GrainWeb.GrainView do
 
   def fenyeend(params) do
     if params["fenye"] in ["", nil] do
-      0
+      1
     else
       params["fenye"] |> String.to_integer()
     end
