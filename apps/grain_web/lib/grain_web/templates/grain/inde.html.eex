@@ -53,7 +53,7 @@
   </table>
 <% end %>
 <nav class="pagination">
-   <%= for x <- (fenye(@fenye,@params))..(fenyeend(@params)+9) do %>
+   <%= for x <- (fenye(@fenye,@params))..(fenyeend(@params))+9 do %>
 
      <a href= <%= page(x,@params) %>><%= x+1 %></a>
   <% end %>
