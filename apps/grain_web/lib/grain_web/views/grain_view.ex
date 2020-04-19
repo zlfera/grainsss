@@ -42,7 +42,7 @@ defmodule GrainWeb.GrainView do
   def fenye(pid, params) do
     fenye =
       if params["fenye"] in ["", nil] do
-        0
+        1
       else
         params["fenye"] |> String.to_integer()
       end
@@ -76,9 +76,9 @@ defmodule GrainWeb.GrainView do
   end
 
   def page(num, params) do
-    "/grains?page=#{num}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{params["city3"]}&year=#{
-      params["year"]
-    }&limit=#{params["limit"]}&fenye=#{params["fenye"]}"
+    "/grains?page=#{num}&city1=#{params["city1"]}&city2=#{params["city2"]}&city3=#{
+      params["city3"]
+    }&year=#{params["year"]}&limit=#{params["limit"]}&fenye=#{params["fenye"]}"
   end
 
   def limit_num(num, params) do

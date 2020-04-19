@@ -60,7 +60,7 @@ defmodule Grain.Grains do
       page = String.to_integer(page) * l
 
       g
-      |> offset(^page)
+      |> offset(^page + 1)
       |> limit_num(params["limit"])
     end
   end

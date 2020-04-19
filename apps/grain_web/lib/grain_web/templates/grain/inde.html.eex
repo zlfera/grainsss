@@ -55,7 +55,7 @@
 <nav class="pagination">
    <%= for x <- (fenye(@fenye,@params))..(fenyeend(@params))+9 do %>
 
-     <a href= <%= page(x,@params) %>><%= x+1 %></a>
+     <a href= <%= page(x,@params) %>><%= x %></a>
   <% end %>
   <nav><a href=<%= fenyeurl(@fenye,@params) %>>下一页</a></nav>
 </nav>
