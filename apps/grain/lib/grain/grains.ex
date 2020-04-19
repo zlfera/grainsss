@@ -48,7 +48,7 @@ defmodule Grain.Grains do
       if params["fenye"] in ["", nil] do
         0
       else
-        String.to_integer(params["fenye"])
+        String.to_integer(params["fenye"] + 1)
       end
 
     if params["page"] == "" || !Map.has_key?(params, "page") do
