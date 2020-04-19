@@ -39,14 +39,21 @@ defmodule Grain.Grains do
   def page(g, params) do
     l =
       if params["limit"] in ["", nil] do
-        50
+        100
       else
         String.to_integer(params["limit"])
       end
 
+    fenye =
+      if params["fenye"] in ["", nil] do
+        0
+      else
+        String.to_integer(params["fenye"])
+      end
+
     if params["page"] == "" || !Map.has_key?(params, "page") do
       g
-      |> offset(0)
+      |> offset(^fenye)
       |> limit_num(params["limit"])
     else
       page = params["page"]
