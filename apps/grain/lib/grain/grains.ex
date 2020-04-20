@@ -46,7 +46,7 @@ defmodule Grain.Grains do
 
     fenye =
       if params["fenye"] in ["", nil] do
-        0
+        1
       else
         String.to_integer(params["fenye"])
       end
@@ -57,7 +57,7 @@ defmodule Grain.Grains do
       |> limit_num(params["limit"])
     else
       page = params["page"]
-      page = String.to_integer(page) * l
+      page = String.to_integer(page) * l - 1
 
       g
       |> offset(^page - 1)

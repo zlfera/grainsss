@@ -165,27 +165,50 @@ defmodule Grain.TaskGrain do
         "ren wu jie shu"
 
       true ->
-        rows = Agent.get(pid, & &1)
+        # rows = Agent.get(pid, & &1)
 
-        if !Enum.empty?(rows) do
-          Enum.each(rows, fn attr ->
-            {year, store_no, storage_depot_name} = get_year(attr[:request_no])
+        # if !Enum.empty?(rows) do
+        #  Enum.each(rows, fn attr ->
+        #    {year, store_no, storage_depot_name} = get_year(attr[:request_no])
 
-            attr =
-              attr
-              |> Map.put(:year, year)
-              |> Map.put(:store_no, store_no)
-              |> Map.put(:storage_depot_name, storage_depot_name)
+        #    attr =
+        #      attr
+        #      |> Map.put(:year, year)
+        #      |> Map.put(:store_no, store_no)
+        #      |> Map.put(:storage_depot_name, storage_depot_name)
 
-            changeset = G.changeset(%G{}, attr)
-            Repo.insert(changeset)
-          end)
-        end
+        #    changeset = G.changeset(%G{}, attr)
+        #    Repo.insert(changeset)
+        #  end)
 
-        Agent.update(pid, &Enum.drop_every(&1, 1))
+        #  Agent.update(pid, &Enum.drop_every(&1, 1))
+        # end
+
+        spawn(Grain.TaskGrain, :push, [pid])
 
         Process.sleep(5000)
         grain(y, pid)
+    end
+  end
+
+  def push(pid) do
+    rows = Agent.get(pid, & &1)
+
+    if !Enum.empty?(rows) do
+      Enum.each(rows, fn attr ->
+        {year, store_no, storage_depot_name} = get_year(attr[:request_no])
+
+        attr =
+          attr
+          |> Map.put(:year, year)
+          |> Map.put(:store_no, store_no)
+          |> Map.put(:storage_depot_name, storage_depot_name)
+
+        changeset = G.changeset(%G{}, attr)
+        Repo.insert(changeset)
+      end)
+
+      Agent.update(pid, &Enum.drop_every(&1, 1))
     end
   end
 end
