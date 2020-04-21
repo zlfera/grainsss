@@ -57,6 +57,9 @@
 
      <a href= <%= url(x,@params) %>><%= x %></a>
   <% end %>
+  <%= if Agent.get(@pid_num,fn x ->x end)>10 do %>
+  <nav><a href=<%= the_up_page(@pid_num,@params) %>>上一页</a></nav>
+  <% end %>
     <nav><a href=<%= the_next_page(@pid_num,@params) %>>下一页</a></nav>
 </nav>
 </div>

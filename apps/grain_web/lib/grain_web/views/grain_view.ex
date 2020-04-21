@@ -12,6 +12,15 @@ defmodule GrainWeb.GrainView do
     }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{params["page_num"]}"
   end
 
+  def the_up_page(pid_num, params) do
+    Agent.update(pid_num, fn x -> x - 10 end)
+    page_num = Agent.get(pid_num, fn x -> x end)
+
+    "/grains?page=#{page_num}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
+      params["city2"]
+    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num}"
+  end
+
   def the_next_page(pid_num, params) do
     Agent.update(pid_num, fn x -> x + 10 end)
     page_num = Agent.get(pid_num, fn x -> x end)
