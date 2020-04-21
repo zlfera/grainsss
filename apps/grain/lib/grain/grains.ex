@@ -45,7 +45,7 @@ defmodule Grain.Grains do
       end
 
     g
-    |> offset((^page - 1) * 10)
+    |> offset((^page - 1) * 100)
     |> limit_num(params["limit"])
   end
 
