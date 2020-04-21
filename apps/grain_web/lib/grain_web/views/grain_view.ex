@@ -2,8 +2,8 @@ defmodule GrainWeb.GrainView do
   use GrainWeb, :view
   import Phoenix.HTML.Tag
 
-  def the_next_page(pid_num) do
-    Agent.get(pid_num, fn x -> x end)
+  def the_next_pag(params) do
+    String.to_integer(params["page_num"])
   end
 
   def url(num, params) do
@@ -20,13 +20,10 @@ defmodule GrainWeb.GrainView do
     }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num - 10}"
   end
 
-  def the_next_page(pid_num, params) do
-    Agent.update(pid_num, fn x -> x + 10 end)
-    page_num = Agent.get(pid_num, fn x -> x end)
-
+  def the_next_page(page_num, params) do
     "/grains?page=#{page_num}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
       params["city2"]
-    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num}"
+    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num + 10}"
   end
 
   def name(redis) do

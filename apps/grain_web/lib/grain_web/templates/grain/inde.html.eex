@@ -53,13 +53,13 @@
   </table>
 <% end %>
 <nav class="pagination">
-   <%= for x <- the_next_page(@pid_num)..(the_next_page(@pid_num) + 9) do %>
+   <%= for x <- the_next_pag(@params)..(the_next_pag(@params) + 9) do %>
 
      <a href= <%= url(x,@params) %>><%= x %></a>
   <% end %>
-  <%= if Agent.get(@pid_num,fn x ->x end)>10 do %>
+  <%= if @page_num > 10 do %>
   <nav><a href=<%= the_up_page(@params) %>>上一页</a></nav>
   <% end %>
-    <nav><a href=<%= the_next_page(@pid_num,@params) %>>下一页</a></nav>
+    <nav><a href=<%= the_next_page(@page_num,@params) %>>下一页</a></nav>
 </nav>
 </div>
