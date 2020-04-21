@@ -16,13 +16,13 @@ defmodule GrainWeb.GrainView do
   def the_up_page(params) do
     page_num = String.to_integer(params["page_num"])
 
-    "/grains?page=#{page_num}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
+    "/grains?page=#{page_num-10}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
       params["city2"]
     }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num - 10}"
   end
 
   def the_next_page(page_num, params) do
-    "/grains?page=#{page_num}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
+    "/grains?page=#{page_num+10}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
       params["city2"]
     }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num + 10}"
   end
