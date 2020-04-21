@@ -2,8 +2,9 @@ defmodule GrainWeb.GrainView do
   use GrainWeb, :view
   import Phoenix.HTML.Tag
 
-  def the_next_pag(params) do
-    String.to_integer(params["page_num"])
+  def the_begin_page(page_num) do
+    page_num
+    # String.to_integer(params["page_num"])
   end
 
   def url(num, params) do

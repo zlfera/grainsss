@@ -53,7 +53,7 @@
   </table>
 <% end %>
 <nav class="pagination">
-   <%= for x <- the_next_pag(@params)..(the_next_pag(@params) + 9) do %>
+   <%= for x <- the_begin_page(@page_num)..(the_begin_page(@page_num) + 9) do %>
 
      <a href= <%= url(x,@params) %>><%= x %></a>
   <% end %>

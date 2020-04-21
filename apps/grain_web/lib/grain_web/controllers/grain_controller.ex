@@ -20,15 +20,12 @@ defmodule GrainWeb.GrainController do
 
     {:ok, pid} = Agent.start_link(fn -> 0 end)
 
-    # {:ok, pid_num} =
-    #  Agent.start_link(fn ->
-    #    if params["page_num"] in ["", nil] do
-    #      1
-    #    else
-    #      String.to_integer(params["page_num"])
-    #    end
-    #  end)
-    page_num = String.to_integer(params["page_num"])
+    page_num =
+      if params["page_num"] in ["", nil] do
+        1
+      else
+        String.to_integer(params["page_num"])
+      end
 
     {g, grains} = Gg.search_grain(params)
     render(conn, "inde.html", g: g, grains: grains, params: params, pid: pid, page_num: page_num)
