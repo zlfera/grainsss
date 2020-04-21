@@ -37,24 +37,25 @@ defmodule Grain.Grains do
   end
 
   def page(g, params) do
-    page_num =
-      if params["page_num"] in ["", nil] do
+    page =
+      if params["page"] in ["", nil] do
         1
       else
-        String.to_integer(params["page_num"])
+        String.to_integer(params["page"])
       end
 
-    if params["page"] in ["", nil] do
-      g
-      |> offset(^page_num - 1)
-      |> limit_num(params["limit"])
-    else
-      page = String.to_integer(params["page"])
+    # if params["page"] in ["", nil] do
+    g
+    |> offset(^page * 10 - 1)
+    |> limit_num(params["limit"])
 
-      g
-      |> offset(^page - 1)
-      |> limit_num(params["limit"])
-    end
+    # else
+    #  page = String.to_integer(params["page"])
+
+    #  g
+    #  |> offset(^page - 1)
+    #  |> limit_num(params["limit"])
+    # end
   end
 
   def search_grain(params) do

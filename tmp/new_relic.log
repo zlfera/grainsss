@@ -42203,3 +42203,7 @@
 [DEBUG] - 2020-04-21 20:00:54 - Completed Transaction Event harvest - size: 8
 [DEBUG] - 2020-04-21 20:00:58 - Completed Transaction Event harvest - size: 0
 [DEBUG] - 2020-04-21 20:00:59 - Completed Custom Event harvest - size: 7
+[INFO] - 2020-04-21 21:05:48 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-21 21:05:50 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-21 21:06:02 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-21 21:06:06 - connect: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
