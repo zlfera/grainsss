@@ -12,16 +12,25 @@ defmodule GrainWeb.GrainController do
           "city2" => "",
           "city3" => "",
           "limit" => "",
-          "fenye" => ""
+          "page_num" => ""
         }
       else
         params
       end
 
     {:ok, pid} = Agent.start_link(fn -> 0 end)
-    {:ok, fenyepid} = Agent.start_link(fn -> 0 end)
+
+    {:ok, pid_num} =
+      Agent.start_link(fn ->
+        if params["page_num"] in ["", nil] do
+          1
+        else
+          String.to_integer(params["page_num"])
+        end
+      end)
+
     {g, grains} = Gg.search_grain(params)
-    render(conn, "inde.html", g: g, grains: grains, params: params, pid: pid, fenye: fenyepid)
+    render(conn, "inde.html", g: g, grains: grains, params: params, pid: pid, pid_num: pid_num)
   end
 
   def index(conn, params) do

@@ -53,10 +53,10 @@
   </table>
 <% end %>
 <nav class="pagination">
-   <%= for x <- (fenye(@fenye,@params))..(fenyeend(@params))+9 do %>
+   <%= for x <- the_next_page(@pid_num)..(the_next_page(@pid_num) + 9) do %>
 
-     <a href= <%= page(x,@params) %>><%= x %></a>
+     <a href= <%= url(x,@params) %>><%= x %></a>
   <% end %>
-  <nav><a href=<%= fenyeurl(@fenye,@params) %>>下一页</a></nav>
+    <nav><a href=<%= the_next_page(@pid_num,@params) %>>下一页</a></nav>
 </nav>
 </div>
