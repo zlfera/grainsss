@@ -44,18 +44,9 @@ defmodule Grain.Grains do
         String.to_integer(params["page"])
       end
 
-    # if params["page"] in ["", nil] do
     g
-    |> offset(^page * 10 - 1)
+    |> offset((^page - 1) * 10)
     |> limit_num(params["limit"])
-
-    # else
-    #  page = String.to_integer(params["page"])
-
-    #  g
-    #  |> offset(^page - 1)
-    #  |> limit_num(params["limit"])
-    # end
   end
 
   def search_grain(params) do
