@@ -44,8 +44,15 @@ defmodule Grain.Grains do
         String.to_integer(params["page"])
       end
 
+    l =
+      if params["limit"] in ["", nil] do
+        100
+      else
+        String.to_integer(params["limit"])
+      end
+
     g
-    |> offset((^page - 1) * 100)
+    |> offset((^page - 1) * ^l)
     |> limit_num(params["limit"])
   end
 
