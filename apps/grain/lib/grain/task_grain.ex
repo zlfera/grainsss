@@ -134,11 +134,7 @@ defmodule Grain.TaskGrain do
 
     cond do
       x > 2 ->
-        task_time = Task.async(Process, :sleep, [x * 1000 - 2000])
-        rows = Agent.get(pid, & &1)
-
-        IO.inspect(rows)
-        Task.await(task_time, x * 1000)
+        Process.sleep(x * 1000 - 2000)
         grain(d["specialNo"], pid)
 
       x <= 2 ->
