@@ -204,6 +204,7 @@ defmodule Grain.TaskGrain do
         Repo.insert(changeset)
       end)
 
+      IO.inspect(rows)
       Agent.update(pid, &Enum.drop_every(&1, 1))
     end
   end
