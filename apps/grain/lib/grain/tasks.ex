@@ -2,7 +2,7 @@ defmodule Grain.Tasks do
   @moduledoc false
   alias Grain.TaskGrain, as: Gt
 
-  import Ecto.Query
+  # import Ecto.Query
 
   def run(pid) do
     # {:ok, _} = Application.ensure_all_started(:grain)
