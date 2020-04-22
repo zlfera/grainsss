@@ -180,8 +180,8 @@ defmodule Grain.TaskGrain do
         #  Agent.update(pid, &Enum.drop_every(&1, 1))
         # end
 
-        spawn(Grain.TaskGrain, :push, [pid])
-
+        # spawn(Grain.TaskGrain, :push, [pid])
+        push(pid)
         Process.sleep(5000)
         grain(y, pid)
     end

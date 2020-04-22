@@ -42632,3 +42632,16 @@
 [DEBUG] - 2020-04-22 07:55:54 - Completed Error Event harvest - size: 0
 [INFO] - 2020-04-22 09:29:45 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [ERROR] - 2020-04-22 09:29:47 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-22 09:42:17 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-22 09:42:20 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-22 09:51:31 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2020-04-22 09:51:36 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[DEBUG] - 2020-04-22 09:51:42 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-22 09:51:43 - Completed Custom Event harvest - size: 6
+[DEBUG] - 2020-04-22 09:51:43 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-22 09:51:47 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-22 09:51:47 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-22 09:51:48 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-22 09:51:52 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-22 09:51:52 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-22 09:51:53 - Completed Transaction Event harvest - size: 0
