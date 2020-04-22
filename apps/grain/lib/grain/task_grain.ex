@@ -146,6 +146,7 @@ defmodule Grain.TaskGrain do
     dd = a(y)
 
     i = dd["status"]
+    IO.inspect(i)
 
     cond do
       "yes" == i ->
