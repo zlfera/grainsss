@@ -98,12 +98,12 @@ defmodule Grain.Tasks do
       end
     end)
 
-    Process.sleep(15000)
+    Process.sleep(5000)
     u1(b(), pid)
   end
 
   def u1(c, pid) when c == [] do
-    Process.sleep(10000)
+    Process.sleep(5000)
     IO.puts("交易已经结束")
     Agent.update(pid, &Map.drop(&1, Map.keys(&1)))
   end
