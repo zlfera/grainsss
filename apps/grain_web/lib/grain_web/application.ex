@@ -9,6 +9,7 @@ defmodule GrainWeb.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
+      {Phoenix.PubSub, name: GrainWeb.PubSub},
       GrainWeb.Endpoint
       # Starts a worker by calling: GrainWeb.Worker.start_link(arg)
       # {GrainWeb.Worker, arg},

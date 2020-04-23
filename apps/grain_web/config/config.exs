@@ -15,7 +15,8 @@ config :grain_web, GrainWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "J1yC9GgAwF/xY/ql9RVS8JNvE2Ggq4d8hrVhcumk9mFl4KrAXtOpQ4Au6GA+T6fq",
   render_errors: [view: GrainWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: GrainWeb.PubSub, adapter: Phoenix.PubSub.PG2]
+  # pubsub: [name: GrainWeb.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub_server: GrainWeb.PubSub
 
 # Import environment specific config. This must remain at the bottom
 # of thisname file so it overrides the configuration defined above.

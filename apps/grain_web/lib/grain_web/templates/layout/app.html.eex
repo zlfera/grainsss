@@ -17,7 +17,7 @@ var _hmt = _hmt || [];
   </head>
   <body>
     <main role="main" class="container">
-    <%= render @view_module, @view_template, assigns %>
+    <%= @inner_content %>
     </main>
     <footer>
       <p>copyright <a href="https://youmile.youhaovip.com" target="_blank">Zeng</a> <%= DateTime.utc_now.year %></p>
