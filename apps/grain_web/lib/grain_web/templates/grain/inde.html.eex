@@ -15,7 +15,7 @@
     <%= text_input f, :city3 %>
 
 
-    <%= submit "查询"%>
+    <%= submit "查询", class: "submit" %>
     </div>
     <table class="qgg-table">
     <thead>

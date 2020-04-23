@@ -1,43 +1,43 @@
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 body {
-  width:100%;
-  margin:0,50px;
-  background-color:#CCE8CF;
+  width: 100%;
+  margin: 0, 50px;
+  background-color: #cce8cf;
   font-size: 35px;
 }
-.qgg-table{
-    border-collapse: collapse;
-    width:100%;
-    border:1px solid #c6c6c6 !important;
-    margin-bottom:20px;
+.qgg-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #c6c6c6 !important;
+  margin-bottom: 20px;
 }
-.qgg-table th{
-    border-collapse: collapse;
-    border-right:1px solid #c6c6c6 !important;
-    border-bottom:1px solid #c6c6c6 !important;
-    background-color:#ddeeff !important; 
-    padding:5px 9px;
-    font-size:14px;
-    font-weight:normal;
-    text-align:center;
+.qgg-table th {
+  border-collapse: collapse;
+  border-right: 1px solid #c6c6c6 !important;
+  border-bottom: 1px solid #c6c6c6 !important;
+  background-color: #ddeeff !important;
+  padding: 5px 9px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
 }
-.qgg-table td{
-    border-collapse: collapse;
-    border-right:1px solid #c6c6c6 !important;
-    border-bottom:1px solid #c6c6c6 !important; 
-    padding:5px 9px;
-    font-size:12px;
-    font-weight:normal;
-    text-align:center;
-    word-break: break-all;
+.qgg-table td {
+  border-collapse: collapse;
+  border-right: 1px solid #c6c6c6 !important;
+  border-bottom: 1px solid #c6c6c6 !important;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+  word-break: break-all;
 }
-.qgg-table tr:nth-child(odd){
-    background-color:#fff !important; 
+.qgg-table tr:nth-child(odd) {
+  background-color: #fff !important;
 }
-.qgg-table tr:nth-child(even){
-    background-color: #f8f8f8 !important;
+.qgg-table tr:nth-child(even) {
+  background-color: #f8f8f8 !important;
 }
 /*nav,footer p,form {
   display:flex;
@@ -46,12 +46,27 @@ body {
   margin-bottom:3%;
 }*/
 nav a {
-  text-decoration:none;
-  margin:0.5%;
-  width:100%;
+  text-decoration: none;
+  margin: 0.5%;
+  width: 100%;
 }
-a:link {color:green;}
-a:visited {color:black;}
-a:hover {color:#FF00FF;}
-a:active {color:blue;}
-#a_red,#q_red,#w_red {color:red;}
+a:link {
+  color: green;
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  color: #ff00ff;
+}
+a:active {
+  color: blue;
+}
+#a_red,
+#q_red,
+#w_red {
+  color: red;
+}
+.submit {
+  font-size: 25px;
+}
