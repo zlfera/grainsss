@@ -205,10 +205,10 @@ defmodule Grain.TaskGrain do
           |> Map.put(:storage_depot_name, storage_depot_name)
 
         changeset = G.changeset(%G{}, attr)
-        Repo.insert(changeset)
+        zzz = Repo.insert(changeset)
+        IO.inspect(zzz)
       end)
 
-      IO.inspect(rows)
       Agent.update(pid, &Enum.drop_every(&1, 1))
     end
   end
