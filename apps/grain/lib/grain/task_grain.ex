@@ -161,6 +161,11 @@ defmodule Grain.TaskGrain do
       "end" == i || "no" == i ->
         "ren wu jie shu"
 
+      "intervar" == i ->
+        push(pid)
+        Process.sleep(5000)
+        grain(y, pid)
+
       true ->
         # rows = Agent.get(pid, & &1)
 
@@ -182,8 +187,6 @@ defmodule Grain.TaskGrain do
         # end
 
         # spawn(Grain.TaskGrain, :push, [pid])
-        push(pid)
-        Process.sleep(5000)
         grain(y, pid)
     end
   end
