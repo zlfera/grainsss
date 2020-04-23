@@ -161,7 +161,7 @@ defmodule Grain.TaskGrain do
       "end" == i || "no" == i ->
         "ren wu jie shu"
 
-      "intervar" == i ->
+      "interval" == i || "" == i ->
         push(pid)
         Process.sleep(5000)
         grain(y, pid)
