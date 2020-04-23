@@ -61,6 +61,8 @@
   <%= if @page_num > 10 do %>
   <nav><a href=<%= the_up_page(@params) %>>上一页</a></nav>
   <% end %>
+  <%= if ((the_begin_page(@page_num) + 9) * limit(@params)) < @g do %>
     <nav><a href=<%= the_next_page(@page_num,@params) %>>下一页</a></nav>
+  <% end %>
 </nav>
 </div>
