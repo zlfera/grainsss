@@ -50786,3 +50786,29 @@
 [DEBUG] - 2020-04-24 12:59:11 - Completed Custom Event harvest - size: 0
 [INFO] - 2020-04-24 12:59:24 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
 [ERROR] - 2020-04-24 12:59:27 - preconnect: (failed_request) {:failed_connect, [{:to_address, {'collector.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
+[INFO] - 2020-04-24 13:11:24 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[INFO] - 2020-04-24 13:11:28 - Reporting to: https://rpm.newrelic.com/accounts/362387/applications/185352064
+[DEBUG] - 2020-04-24 13:11:33 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:33 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:35 - Completed Custom Event harvest - size: 6
+[DEBUG] - 2020-04-24 13:11:38 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:38 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:39 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:44 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:44 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:45 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:48 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:48 - Completed Custom Event harvest - size: 11
+[DEBUG] - 2020-04-24 13:11:49 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:53 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:53 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:54 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:58 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:58 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:11:59 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:12:03 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:12:03 - Completed Custom Event harvest - size: 11
+[DEBUG] - 2020-04-24 13:12:04 - Completed Transaction Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:12:08 - Completed Error Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:12:08 - Completed Custom Event harvest - size: 0
+[DEBUG] - 2020-04-24 13:12:09 - Completed Transaction Event harvest - size: 0
