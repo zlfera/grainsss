@@ -80,7 +80,7 @@ defmodule Grain.TaskGrain do
 
   def j(j, y, pid) do
     s(j, pid)
-    Process.sleep(3000)
+    Process.sleep(1000)
     grain(y, pid)
   end
 
