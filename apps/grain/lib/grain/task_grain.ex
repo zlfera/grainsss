@@ -76,14 +76,11 @@ defmodule Grain.TaskGrain do
       true ->
         nil
     end
-
-    IO.puts(11_121_112_112_121_111_111)
-    rows = Agent.get(pid, & &1)
-    IO.inspect(rows)
   end
 
   def j(j, y, pid) do
     s(j, pid)
+    Process.sleep(1000)
     grain(y, pid)
   end
 
@@ -110,9 +107,6 @@ defmodule Grain.TaskGrain do
         "ren wu jie shu"
 
       "interval" == i ->
-        IO.puts(22_222_222_222_222_222_222)
-        rows = Agent.get(pid, & &1)
-        IO.inspect(rows)
         push(pid)
         Process.sleep(5000)
         grain(y, pid)
@@ -123,9 +117,7 @@ defmodule Grain.TaskGrain do
   end
 
   def push(pid) do
-    IO.puts(9_999_999_999_999_999_999_999_999)
     rows = Agent.get(pid, & &1)
-    IO.inspect(rows)
 
     if !Enum.empty?(rows) do
       Enum.each(rows, fn attr ->
