@@ -88,12 +88,12 @@ defmodule Grain.TaskGrain do
 
     cond do
       "yes" == i ->
-        sort_rows =
-          Enum.sort(dd["rows"], fn x, y ->
-            String.to_integer(x["remainSeconds"]) > String.to_integer(y["remainSeconds"])
-          end)
+        # sort_rows =
+        #  Enum.sort(dd["rows"], fn x, y ->
+        #    String.to_integer(x["remainSeconds"]) > String.to_integer(y["remainSeconds"])
+        #  end)
 
-        Enum.each(sort_rows, fn jj ->
+        Enum.each(dd["rows"], fn jj ->
           if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆|肉/) do
             j(jj, pid)
           end
