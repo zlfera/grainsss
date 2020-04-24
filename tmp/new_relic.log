@@ -47542,3 +47542,5 @@
 [DEBUG] - 2020-04-23 10:33:58 - Completed Error Event harvest - size: 0
 [DEBUG] - 2020-04-23 10:33:58 - Completed Custom Event harvest - size: 0
 [DEBUG] - 2020-04-23 10:33:58 - Completed Transaction Event harvest - size: 0
+[INFO] - 2020-04-23 21:12:55 - Log File: /data/data/com.termux/files/home/grain/tmp/new_relic.log
+[ERROR] - 2020-04-23 21:13:00 - connect: (failed_request) {:failed_connect, [{:to_address, {'collector-002.newrelic.com', 443}}, {:inet, [:inet], :timeout}]}
