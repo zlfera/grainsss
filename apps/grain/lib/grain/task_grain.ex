@@ -144,7 +144,7 @@ defmodule Grain.TaskGrain do
           end
 
         attr = %{
-          market_name: "guojia",
+          market_name: get_data["marketName"],
           mark_number: get_data["requestAlias"],
           request_no: get_data["requestNo"],
           year: get_data["prodDate"],
