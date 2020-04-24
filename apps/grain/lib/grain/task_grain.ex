@@ -133,11 +133,11 @@ defmodule Grain.TaskGrain do
     x = String.to_integer(j["remainSeconds"])
 
     cond do
-      x > 2 ->
-        Process.sleep(x * 1000 - 2000)
+      x > 3 ->
+        Process.sleep(x * 1000 - 3000)
         grain(d["specialNo"], pid)
 
-      x <= 2 ->
+      x <= 3 ->
         s(j, d["specialName"], pid)
     end
   end
@@ -146,6 +146,7 @@ defmodule Grain.TaskGrain do
     dd = a(y)
 
     i = dd["status"]
+
     IO.inspect(i)
 
     cond do
