@@ -79,16 +79,17 @@ defmodule Grain.TaskGrain do
   end
 
   def j(j, y, pid) do
-    x = String.to_integer(j["remainSeconds"])
+    # x = String.to_integer(j["remainSeconds"])
 
-    cond do
-      x > 3 ->
-        Process.sleep(x * 1000 - 3000)
-        grain(y, pid)
+    # cond do
+    #  x > 3 ->
+    #    Process.sleep(x * 1000 - 3000)
+    #    grain(y, pid)
 
-      x <= 3 ->
-        s(j, pid)
-    end
+    #  x <= 3 ->
+    s(j, pid)
+
+    grain(y, pid)
   end
 
   def grain(y, pid) do
