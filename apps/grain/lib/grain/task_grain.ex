@@ -2,26 +2,26 @@ defmodule Grain.TaskGrain do
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
 
-  def get_list(special_no, id \\ "1", size \\ "10") do
-    params = [
-      params: %{
-        param:
-          Jason.encode!(%{
-            indexid: id,
-            pagesize: size,
-            m: "tradeCenterPlanList",
-            specialNo: special_no,
-            flag: "G"
-          })
-      }
-    ]
+  # def get_list(special_no, id \\ "1", size \\ "10") do
+  #  params = [
+  #    params: %{
+  #      param:
+  #        Jason.encode!(%{
+  #          indexid: id,
+  #          pagesize: size,
+  #          m: "tradeCenterPlanList",
+  #          specialNo: special_no,
+  #          flag: "G"
+  #        })
+  #    }
+  #  ]
 
-    get_data =
-      HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params).body
-      |> Jason.decode!()
+  #  get_data =
+  #    HTTPoison.request!(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params).body
+  #    |> Jason.decode!()
 
-    get_data
-  end
+  #  get_data
+  # end
 
   def get_year(request_no) do
     params = [
@@ -57,7 +57,7 @@ defmodule Grain.TaskGrain do
       {:ok, url} ->
         url.body |> Jason.decode!()
 
-      {:error, _} ->
+      _ ->
         a(dqqq)
     end
   end
@@ -78,10 +78,8 @@ defmodule Grain.TaskGrain do
     end
   end
 
-  def j(j, y, pid) do
+  def j(j, pid) do
     s(j, pid)
-    Process.sleep(1000)
-    grain(y, pid)
   end
 
   def grain(y, pid) do
@@ -97,10 +95,11 @@ defmodule Grain.TaskGrain do
 
         Enum.each(sort_rows, fn jj ->
           if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆|肉/) do
-            j(jj, y, pid)
+            j(jj, pid)
           end
         end)
 
+        Process.sleep(2000)
         grain(y, pid)
 
       "end" == i || "no" == i ->
@@ -109,9 +108,11 @@ defmodule Grain.TaskGrain do
       "interval" == i ->
         push(pid)
         Process.sleep(5000)
+
         grain(y, pid)
 
       true ->
+        Process.sleep(1000)
         grain(y, pid)
     end
   end
