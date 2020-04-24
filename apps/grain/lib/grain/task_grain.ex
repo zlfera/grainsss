@@ -133,6 +133,13 @@ defmodule Grain.TaskGrain do
               "采购"
           end
 
+        current_price =
+          if get_data["currentPrice"] == "" do
+            "0"
+          else
+            get_data["currentPrice"]
+          end
+
         attr = %{
           market_name: "guojia",
           mark_number: get_data["requestAlias"],
@@ -142,7 +149,7 @@ defmodule Grain.TaskGrain do
           grade: get_data["gradeName"],
           trade_amount: get_data["num"],
           starting_price: get_data["basePrice"],
-          latest_price: get_data["currentPrice"],
+          latest_price: current_price,
           address: get_data["buyDepotName"],
           status: get_data["statusName"],
           trantype: bs,
