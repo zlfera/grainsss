@@ -76,17 +76,19 @@ defmodule Grain.TaskGrain do
       true ->
         nil
     end
+
+    IO.puts(11_121_112_112_121_111_111)
+    rows = Agent.get(pid, & &1)
+    IO.inspect(rows)
   end
 
   def j(j, y, pid) do
     s(j, pid)
-    Process.sleep(1000)
     grain(y, pid)
   end
 
   def grain(y, pid) do
     dd = a(y)
-
     i = dd["status"]
 
     cond do
@@ -108,7 +110,11 @@ defmodule Grain.TaskGrain do
         "ren wu jie shu"
 
       "interval" == i ->
+        IO.puts(22_222_222_222_222_222_222)
+        rows = Agent.get(pid, & &1)
+        IO.inspect(rows)
         push(pid)
+        Process.sleep(5000)
         grain(y, pid)
 
       true ->
