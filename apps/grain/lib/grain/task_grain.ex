@@ -119,6 +119,7 @@ defmodule Grain.TaskGrain do
 
   def push(pid) do
     rows = Agent.get(pid, & &1)
+    IO.inspect(rows)
 
     if !Enum.empty?(rows) do
       Enum.each(rows, fn attr ->
@@ -127,6 +128,9 @@ defmodule Grain.TaskGrain do
         bs =
           case get_data["bs"] do
             "s" ->
+              "拍卖"
+
+            "S" ->
               "拍卖"
 
             _ ->
@@ -158,9 +162,7 @@ defmodule Grain.TaskGrain do
         }
 
         changeset = G.changeset(%G{}, attr)
-        zzz = Repo.insert(changeset)
-
-        IO.inspect(zzz)
+        Repo.insert(changeset)
       end)
 
       Agent.update(pid, &Enum.drop_every(&1, 1))
