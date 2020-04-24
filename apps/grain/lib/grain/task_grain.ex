@@ -45,10 +45,11 @@ defmodule Grain.TaskGrain do
           |> Jason.decode!()
           |> Map.get("data")
 
+        current_price = get_data["currentPrice"]
         year = get_data["prodDate"]
         store_no = get_data["storeNo"]
         storage_depot_name = get_data["storageDepotName"]
-        {year, store_no, storage_depot_name}
+        {year, store_no, storage_depot_name, current_price}
 
       _ ->
         get_year(request_no)
@@ -147,8 +148,6 @@ defmodule Grain.TaskGrain do
 
     i = dd["status"]
 
-    IO.inspect(i)
-
     cond do
       "yes" == i ->
         sort_rows =
@@ -202,17 +201,17 @@ defmodule Grain.TaskGrain do
 
     if !Enum.empty?(rows) do
       Enum.each(rows, fn attr ->
-        {year, store_no, storage_depot_name} = get_year(attr[:request_no])
+        {year, store_no, storage_depot_name, current_price} = get_year(attr[:request_no])
 
         attr =
           attr
           |> Map.put(:year, year)
+          |> Map.put(:latest_price, current_price)
           |> Map.put(:store_no, store_no)
           |> Map.put(:storage_depot_name, storage_depot_name)
 
         changeset = G.changeset(%G{}, attr)
-        zzz = Repo.insert(changeset)
-        IO.inspect(zzz)
+        Repo.insert(changeset)
       end)
 
       Agent.update(pid, &Enum.drop_every(&1, 1))
