@@ -79,14 +79,6 @@ defmodule Grain.TaskGrain do
   end
 
   def j(j, y, pid) do
-    # x = String.to_integer(j["remainSeconds"])
-
-    # cond do
-    #  x > 3 ->
-    #    Process.sleep(x * 1000 - 3000)
-    #    grain(y, pid)
-
-    #  x <= 3 ->
     s(j, pid)
 
     grain(y, pid)
@@ -159,8 +151,7 @@ defmodule Grain.TaskGrain do
         }
 
         changeset = G.changeset(%G{}, attr)
-        zzz = Repo.insert(changeset)
-        IO.inspect(zzz)
+        Repo.insert(changeset)
       end)
 
       Agent.update(pid, &Enum.drop_every(&1, 1))
