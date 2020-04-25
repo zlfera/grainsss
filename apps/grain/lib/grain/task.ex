@@ -6,11 +6,11 @@ defmodule Grain.Task do
   def grain_delete do
     l = Ggg |> Gr.all() |> length()
 
-    if l > 70000 do
+    if l > 40000 do
       g =
         Ggg
         |> order_by(asc: :inserted_at)
-        |> limit(30000)
+        |> limit(10000)
         |> Gr.all()
 
       Enum.each(g, fn i ->
@@ -19,6 +19,8 @@ defmodule Grain.Task do
     else
       IO.puts("数据库里面现在数据为 #{l}")
     end
+
+    IO.puts(Ggg |> Gr.all() |> length())
   end
 
   # use GenServer
