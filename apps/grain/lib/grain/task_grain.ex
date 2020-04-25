@@ -84,15 +84,9 @@ defmodule Grain.TaskGrain do
 
   def grain(y, pid) do
     dd = a(y)
-    i = dd["status"]
 
-    cond do
-      "yes" == i ->
-        # sort_rows =
-        #  Enum.sort(dd["rows"], fn x, y ->
-        #    String.to_integer(x["remainSeconds"]) > String.to_integer(y["remainSeconds"])
-        #  end)
-
+    case dd["status"] do
+      "yes" ->
         Enum.each(dd["rows"], fn jj ->
           if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆|肉/) do
             j(jj, pid)
@@ -102,16 +96,15 @@ defmodule Grain.TaskGrain do
         Process.sleep(2000)
         grain(y, pid)
 
-      "end" == i || "no" == i ->
+      x when x in ["end", "no"] ->
         "ren wu jie shu"
 
-      "interval" == i ->
+      "interval" ->
         push(pid)
         Process.sleep(5000)
-
         grain(y, pid)
 
-      true ->
+      _ ->
         Process.sleep(1000)
         grain(y, pid)
     end
@@ -126,10 +119,7 @@ defmodule Grain.TaskGrain do
 
         bs =
           case get_data["bs"] do
-            "s" ->
-              "拍卖"
-
-            "S" ->
+            x when x in ["s", "S"] ->
               "拍卖"
 
             _ ->
