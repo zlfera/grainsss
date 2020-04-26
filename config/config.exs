@@ -2,15 +2,39 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-# By default, the umbrella project as well as each child
-# application will require this configuration file, as
-# configuration and dependencies are shared in an umbrella
-# project. While one could configure all applications here,
-# we prefer to keep the configuration of each individual
-# child application in their own app, but all other
-# dependencies, regardless if they belong to one or multiple
-# apps, should be configured in the umbrella to avoid confusion.
-import_config "../apps/*/config/config.exs"
+config :grain_web,
+  ecto_repos: [Grain.Repo],
+  generators: [context_app: :grain]
+
+# Configures the endpoint
+config :grain_web, GrainWeb.Endpoint,
+  instrumenters: [NewRelic.Phoenix.Instrumenter],
+  url: [host: "localhost"],
+  secret_key_base: "J1yC9GgAwF/xY/ql9RVS8JNvE2Ggq4d8hrVhcumk9mFl4KrAXtOpQ4Au6GA+T6fq",
+  render_errors: [view: GrainWeb.ErrorView, accepts: ~w(html json)],
+  # pubsub: [name: GrainWeb.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub_server: GrainWeb.PubSub,
+  live_view: [signing_salt: "wTpJJ7JP"]
+
+# Import environment specific config. This must remain at the bottom
+# of thisname file so it overrides the configuration defined above.
+config :new_relic_agent,
+  app_name: "Grain",
+  license_key: "ee9c2eabf9a8054364cfc885b768dc549c1ee5c6"
+
+{:ok, pid} = Agent.start_link(fn -> %{} end)
+
+config :grain,
+  ecto_repos: [Grain.Repo]
+
+config :grain, Grain.Scheduler,
+  jobs: [
+    {{:extended, "5 0-59/1 0-8/1 * *"}, {Grain.Tasks, :run, [pid]}},
+    # {{:extended, "10 * * * *"}, {Grain.Tasks, :run, [pid]}},
+    # {"* * * * *", {Grain.Tasks, :run, [pid]}}
+    {"0 22 * * *", {Grain.Task, :grain_delete, []}}
+    # {"30/30 0-3/1 * * *", {Grain.Tasks, :run, [pid]}}
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,

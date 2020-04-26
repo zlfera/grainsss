@@ -8,6 +8,7 @@ defmodule Grain.Application do
   def start(_type, _args) do
     children = [
       Grain.Repo,
+      {Phoenix.PubSub, name: Grain.PubSub},
       #      Grain.Tasks,
       # worker(Grain.Scheduler, []),
       Grain.Scheduler

@@ -36,12 +36,14 @@ defmodule Grain.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:phoenix_pubsub, "~> 2.0"},
       {:postgrex, ">= 0.0.0"},
       {:ecto_sql, "~> 3.4"},
       # {:httpotion, "~> 3.1"},
       {:httpoison, "~> 1.5"},
       {:quantum, "~> 2.3"},
-      {:timex, "~> 3.4"}
+      {:timex, "~> 3.4"},
+      {:jason, "~> 1.0"}
     ]
   end
 

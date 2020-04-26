@@ -5,7 +5,8 @@ defmodule Grain.Umbrella.MixProject do
     [
       apps_path: "apps",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -28,6 +29,13 @@ defmodule Grain.Umbrella.MixProject do
       # {:new_relic_phoenix, "~> 0.1"}
       # {:distillery, "~> 2.0", runtime: false},
       # {:credo, github: "rrrene/credo", only: [:dev, :test], runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      # run `mix setup` in all child apps
+      setup: ["cmd mix setup"]
     ]
   end
 end

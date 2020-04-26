@@ -4,10 +4,13 @@ defmodule GrainWeb.Endpoint do
 
   # config :my_app, MyApp.Endpoint,
   # instrumenters: [NewRelic.Phoenix.Instrumenter]
+  @session_options [store: :cookie, key: "_grain_web_key", signing_salt: "tOPfmdHs"]
   socket("/socket", GrainWeb.UserSocket,
     websocket: true,
     longpoll: false
   )
+
+  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -26,9 +29,11 @@ defmodule GrainWeb.Endpoint do
     socket("/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket)
     plug(Phoenix.LiveReloader)
     plug(Phoenix.CodeReloader)
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :grain_web
   end
 
   plug(Plug.RequestId)
+  plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
   plug(Plug.Logger)
 
   plug(Plug.Parsers,
@@ -43,10 +48,9 @@ defmodule GrainWeb.Endpoint do
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
-  plug(Plug.Session,
-    store: :cookie,
-    key: "_grain_web_key",
-    signing_salt: "ZI1nikfi"
+  plug(
+    Plug.Session,
+    @session_options
   )
 
   plug(GrainWeb.Router)
