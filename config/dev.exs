@@ -45,7 +45,7 @@ config :grain_web, GrainWeb.Endpoint,
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/grain_web/views/.*(ex)$},
+      ~r{lib/grain_web/(live|views)/.*(ex)$},
       ~r{lib/grain_web/templates/.*(eex)$}
     ]
   ]
@@ -63,7 +63,8 @@ config :grain, Grain.Repo,
   username: "postgres",
   password: "postgres",
   database: "grain_dev",
-  hostname: "localhost"
+  hostname: "localhost",
+  show_sensitive_data_on_connection_error: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

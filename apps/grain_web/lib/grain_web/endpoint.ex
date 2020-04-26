@@ -5,6 +5,7 @@ defmodule GrainWeb.Endpoint do
   # config :my_app, MyApp.Endpoint,
   # instrumenters: [NewRelic.Phoenix.Instrumenter]
   @session_options [store: :cookie, key: "_grain_web_key", signing_salt: "tOPfmdHs"]
+
   socket("/socket", GrainWeb.UserSocket,
     websocket: true,
     longpoll: false
@@ -31,6 +32,10 @@ defmodule GrainWeb.Endpoint do
     plug(Phoenix.CodeReloader)
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :grain_web
   end
+
+  plug Phoenix.LiveDashboard.RequestLogger,
+    param_key: "request_logger",
+    cookie_key: "request_logger"
 
   plug(Plug.RequestId)
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]

@@ -1,6 +1,10 @@
 use Mix.Config
 
 config :grain_web, GrainWeb.Endpoint,
+  http: [
+    port: String.to_integer(System.get_env("PORT") || "4000"),
+    transport_options: [socket_opts: [:inet6]]
+  ],
   # secret_key_base: "HceCH+9I1+d+0xn3AUdSTWX8HIUMmEybA5WH2gjo0sa0OPn41WKywIGx9FrNCRva"
   # secret_key_base: "${SECRET_KEY_BASE}",
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
