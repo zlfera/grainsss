@@ -28,7 +28,7 @@ defmodule GrainWeb.Router do
   # scope "/api", GrainWeb do
   #   pipe_through :api
   # end
-  if Mix.env() in [:dev, :test] do
+  if Mix.env() in [:dev, :test, :pro] do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
