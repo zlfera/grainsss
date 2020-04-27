@@ -30,9 +30,14 @@ defmodule GrainWeb.Router do
   # end
   if Mix.env() in [:dev, :test, :prod] do
     import Phoenix.LiveDashboard.Router
+    import Plug.BasicAuth
+
+    pipeline :admins_only do
+      plug :basic_auth, username: "admin", password: "13579"
+    end
 
     scope "/" do
-      pipe_through :browser
+      pipe_through [:browser, :admins_only]
       live_dashboard "/dashboard", metrics: GrainWeb.Telemetry
     end
   end
