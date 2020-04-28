@@ -6,12 +6,12 @@ defmodule GrainWeb.GrainView do
     page_num
   end
 
-  def limit(params) do
-    if params["limit"] in ["", nil] do
-      100
-    else
-      String.to_integer(params["limit"])
-    end
+  def limit(_params) do
+    # if params["limit"] in ["", nil] do
+    10
+    # else
+    #  String.to_integer(params["limit"])
+    # end
   end
 
   def url(num, params) do

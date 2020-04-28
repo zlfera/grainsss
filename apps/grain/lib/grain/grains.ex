@@ -27,13 +27,13 @@ defmodule Grain.Grains do
     end
   end
 
-  def limit_num(g, l) do
-    if l in ["", nil] do
-      limit(g, 100)
-    else
-      l = String.to_integer(l)
-      limit(g, ^l)
-    end
+  def limit_num(g, _l) do
+    # if l in ["", nil] do
+    limit(g, 10)
+    # else
+    #  l = String.to_integer(l)
+    #  limit(g, ^l)
+    # end
   end
 
   def page(g, params) do
@@ -44,12 +44,12 @@ defmodule Grain.Grains do
         String.to_integer(params["page"])
       end
 
-    l =
-      if params["limit"] in ["", nil] do
-        100
-      else
-        String.to_integer(params["limit"])
-      end
+    l = 10
+    # if params["limit"] in ["", nil] do
+    #  10
+    # else
+    #  String.to_integer(params["limit"])
+    # end
 
     g
     |> offset((^page - 1) * ^l)
