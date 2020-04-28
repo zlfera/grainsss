@@ -46,7 +46,7 @@ defmodule Grain.Grains do
 
     l = 10
     # if params["limit"] in ["", nil] do
-    #  10
+    #  100
     # else
     #  String.to_integer(params["limit"])
     # end
