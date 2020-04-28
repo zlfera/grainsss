@@ -56,11 +56,11 @@ defmodule GrainWeb.GrainView do
     Agent.get(pid, fn i -> i end)
   end
 
-  def limit_num(num, params) do
-    if params["limit"] == "" do
-      ceil(num / 100)
-    else
-      ceil(num / String.to_integer(params["limit"]))
-    end
+  def limit_num(num, _params) do
+    # if params["limit"] in ["",nil] do
+    ceil(num / 10)
+    # else
+    #  ceil(num / String.to_integer(params["limit"]))
+    # end
   end
 end
