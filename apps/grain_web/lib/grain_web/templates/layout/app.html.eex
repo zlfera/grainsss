@@ -20,7 +20,7 @@ var _hmt = _hmt || [];
     <%= @inner_content %>
     </main>
     <footer>
-      <p>copyright <a href="https://youmile.youhaovip.cn" target="_blank">Zeng</a> <%= DateTime.utc_now.year %></p>
+      <p>copyright <a href="https://youmile.youhaovip.com" target="_blank">Zeng</a> <%= DateTime.utc_now.year %></p>
       <!--<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>-->
     </footer>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
