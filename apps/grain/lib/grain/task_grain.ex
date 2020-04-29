@@ -88,8 +88,6 @@ defmodule Grain.TaskGrain do
     case dd["status"] do
       "yes" ->
         Enum.each(dd["rows"], fn jj ->
-          IO.inspect(jj)
-
           if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆|肉/) do
             j(jj, pid)
           end

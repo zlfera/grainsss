@@ -58,8 +58,8 @@ defmodule Grain.Tasks do
         u1(b(), pid)
 
       {false, false} ->
-        # Map.keys(p)
-        # |> Enum.each(IO.puts(&Process.alive?(p[&1])))
+        Map.keys(p)
+        |> Enum.each(IO.puts(&Process.alive?(p[&1])))
 
         IO.puts("当前任务正在进行中")
     end
@@ -93,7 +93,7 @@ defmodule Grain.Tasks do
         end)
       else
         {:ok, pid_list} = Agent.start_link(fn -> [] end)
-        i = spawn(Gt, :grain, [y, pid_list])
+        i = Task.async(Gt, :grain, [y, pid_list])
         Agent.update(pid, &Map.put(&1, y, i))
       end
     end)
@@ -103,9 +103,9 @@ defmodule Grain.Tasks do
   end
 
   def u1(c, pid) when c == [] do
-    # rows_map = Agent.get(pid, & &1)
+    rows_map = Agent.get(pid, & &1)
 
-    # Enum.each(Map.values(rows_map), fn i -> Task.await(i, 50000) end)
+    Enum.each(Map.values(rows_map), fn i -> Task.await(i, 50000) end)
 
     IO.puts("交易已经结束")
     Agent.update(pid, &Map.drop(&1, Map.keys(&1)))
