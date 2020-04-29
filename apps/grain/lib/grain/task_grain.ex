@@ -88,8 +88,6 @@ defmodule Grain.TaskGrain do
     case dd["status"] do
       "yes" ->
         Enum.each(dd["rows"], fn jj ->
-          IO.inspect(jj)
-
           if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆|肉/) do
             j(jj, pid)
           end
@@ -128,6 +126,15 @@ defmodule Grain.TaskGrain do
               "采购"
           end
 
+        storage_depot_name =
+          case bs do
+            "拍卖" ->
+              get_data["storage_depot_name"]
+
+            _ ->
+              get_data["deliveryPlace"]
+          end
+
         current_price =
           if get_data["currentPrice"] == "" do
             "0"
@@ -149,12 +156,11 @@ defmodule Grain.TaskGrain do
           status: get_data["statusName"],
           trantype: bs,
           store_no: get_data["storeNo"],
-          storage_depot_name: get_data["storageDepotName"]
+          storage_depot_name: storage_depot_name
         }
 
         changeset = G.changeset(%G{}, attr)
-        zzz = Repo.insert(changeset)
-        IO.inspect(zzz)
+        Repo.insert(changeset)
       end)
 
       Agent.update(pid, &Enum.drop_every(&1, 1))
