@@ -129,7 +129,7 @@ defmodule Grain.TaskGrain do
         storage_depot_name =
           case bs do
             "拍卖" ->
-              get_data["storage_depot_name"]
+              get_data["storageDepotName"]
 
             _ ->
               get_data["deliveryPlace"]
