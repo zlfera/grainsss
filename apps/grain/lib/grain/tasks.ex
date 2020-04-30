@@ -58,8 +58,8 @@ defmodule Grain.Tasks do
         u1(b(), pid)
 
       {false, false} ->
-        Map.keys(p)
-        |> Enum.each(IO.puts(&Process.alive?(p[&1])))
+        Map.values(p)
+        |> Enum.each(fn x -> IO.puts(Process.alive?(x)) end)
 
         IO.puts("当前任务正在进行中")
     end
