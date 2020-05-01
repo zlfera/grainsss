@@ -54,7 +54,7 @@
 <% end %>
 <nav class="pagination">
    <%= for x <- the_begin_page(@page_num)..(the_begin_page(@page_num) + 9) do %>
-     <%= if x < limit_num(@g,@params) do %>
+     <%= if x <= limit_num(@g,@params) do %>
        <a href=<%= url(x,@params) %>><%= x %></a>
      <% end %>
   <% end %>
