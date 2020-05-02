@@ -59,7 +59,8 @@ defmodule Grain.Grains do
   def search_grain(params) do
     gg =
       Ggg
-      |> order_by(desc: :inserted_at)
+      # (desc: :inserted_at)
+      |> order_by(desc: :id)
       |> city(params["city1"])
       |> city(params["city2"])
       |> city(params["city3"])
