@@ -65,6 +65,7 @@ defmodule Grain.Grains do
       |> city(params["city2"])
       |> city(params["city3"])
       |> year(params["year"])
+      |> order_by(desc: :inserted_at)
 
     ggg = page(gg, params)
     {length(Gr.all(gg)), Gr.all(ggg)}
@@ -72,7 +73,7 @@ defmodule Grain.Grains do
 
   def search_grains(user_input) do
     Ggg
-    |> order_by(desc: :inserted_at)
+    |> order_by(desc: :id)
     |> Ecto.Query.limit(5000)
     # |> offset(i)
     |> Gr.all()
