@@ -74,7 +74,7 @@ defmodule Grain.Grains do
   def search_grains(user_input) do
     Ggg
     |> order_by(desc: :id)
-    |> Ecto.Query.limit(5000)
+    |> Ecto.Query.limit(500)
     # |> offset(i)
     |> Gr.all()
     |> Enum.reject(&(String.match?(&1.address, ~r/#{user_input}/) == false))
