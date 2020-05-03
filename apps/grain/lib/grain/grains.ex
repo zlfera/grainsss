@@ -65,7 +65,6 @@ defmodule Grain.Grains do
       |> city(params["city2"])
       |> city(params["city3"])
       |> year(params["year"])
-      |> order_by(asc: :inserted_at)
 
     ggg = page(gg, params)
     {length(Gr.all(gg)), Gr.all(ggg)}
