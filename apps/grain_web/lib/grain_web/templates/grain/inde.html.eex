@@ -58,6 +58,7 @@
        <a href=<%= url(x,@params) %>><%= x %></a>
      <% end %>
   <% end %>
+  <strong>总共<%= @g %>条数据</strong>
   <%= if @page_num > 10 do %>
   <nav><a href=<%= the_up_page(@params) %>>上一页</a></nav>
   <% end %>
