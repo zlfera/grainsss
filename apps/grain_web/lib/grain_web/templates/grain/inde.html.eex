@@ -53,7 +53,6 @@
   </table>
 <% end %>
 <nav class="pagination">
-  <span>总共<%= @g %>条数据</span>
    <%= for x <- the_begin_page(@page_num)..(the_begin_page(@page_num) + 9) do %>
      <%= if x <= limit_num(@g,@params) do %>
        <a href=<%= url(x,@params) %>><%= x %></a>
@@ -65,5 +64,6 @@
   <%= if ((the_begin_page(@page_num) + 9) * limit(@params)) < @g do %>
     <nav><a href=<%= the_next_page(@page_num,@params) %>>下一页</a></nav>
   <% end %>
+  <span>总共<%= @g %>条数据</span>
 </nav>
 </div>
