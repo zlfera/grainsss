@@ -160,8 +160,7 @@ defmodule Grain.TaskGrain do
         }
 
         changeset = G.changeset(%G{}, attr)
-        zzz = Repo.insert(changeset)
-        IO.inspect(zzz)
+        Repo.insert(changeset)
       end)
 
       Agent.update(pid, &Enum.drop_every(&1, 1))
