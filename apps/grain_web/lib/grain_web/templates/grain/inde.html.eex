@@ -13,7 +13,8 @@
     <%= text_input f, :limit %>
     <%= label f,"城市3" %>
     <%= text_input f, :city3 %>
-    <%= checkbox(f, :trefalse)  %>
+    <%= label f, "过滤未成交" %>
+    <%= checkbox(f, :bool) %>
 
     <%= submit "查询", class: "submit" %>
     </div>

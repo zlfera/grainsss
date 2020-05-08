@@ -8,6 +8,14 @@ defmodule Grain.Grains do
   alias Grain.Grains.Grain, as: Ggg
   alias Grain.Repo, as: Gr
 
+  def bool(g, bool) do
+    if bool in ["", nil, "false"] do
+      g
+    else
+      where(g, [a], a.status == "成交")
+    end
+  end
+
   def year(g, year) do
     if year in ["", nil] do
       g
@@ -61,6 +69,7 @@ defmodule Grain.Grains do
       Ggg
       # (desc: :inserted_at)
       |> order_by(desc: :id)
+      |> bool(params["bool"])
       |> city(params["city1"])
       |> city(params["city2"])
       |> city(params["city3"])
