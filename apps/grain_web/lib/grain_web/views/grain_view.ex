@@ -17,7 +17,9 @@ defmodule GrainWeb.GrainView do
   def url(num, params) do
     "/grains?page=#{num}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
       params["city2"]
-    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{params["page_num"]}"
+    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{params["page_num"]}&bool=#{
+      params["bool"]
+    }"
   end
 
   def the_up_page(params) do
@@ -25,13 +27,17 @@ defmodule GrainWeb.GrainView do
 
     "/grains?page=#{page_num - 10}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
       params["city2"]
-    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num - 10}"
+    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num - 10}&bool=#{
+      page_num["bool"]
+    }"
   end
 
   def the_next_page(page_num, params) do
     "/grains?page=#{page_num + 10}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
       params["city2"]
-    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num + 10}"
+    }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num + 10}&bool=#{
+      params["bool"]
+    }"
   end
 
   def name(redis) do
