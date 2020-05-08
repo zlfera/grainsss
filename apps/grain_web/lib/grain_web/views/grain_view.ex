@@ -28,7 +28,7 @@ defmodule GrainWeb.GrainView do
     "/grains?page=#{page_num - 10}&limit=#{params["limit"]}&city1=#{params["city1"]}&city2=#{
       params["city2"]
     }&city3=#{params["city3"]}&year=#{params["year"]}&page_num=#{page_num - 10}&bool=#{
-      page_num["bool"]
+      params["bool"]
     }"
   end
 
