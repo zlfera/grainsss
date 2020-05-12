@@ -69,11 +69,11 @@ defmodule Grain.Grains do
       Ggg
       # (desc: :inserted_at)
       |> order_by(desc: :id)
-      |> bool(params["bool"])
       |> city(params["city1"])
       |> city(params["city2"])
       |> city(params["city3"])
       |> year(params["year"])
+      |> bool(params["bool"])
 
     ggg = page(gg, params)
     {length(Gr.all(gg)), Gr.all(ggg)}
