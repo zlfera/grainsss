@@ -93,7 +93,9 @@ defmodule Grain.TaskGrain do
           end
         end)
 
-        Process.sleep(2000)
+        list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
+        sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
+        Process.sleep(sleep_time)
         grain(y, pid)
 
       x when x in ["end", "no"] ->
