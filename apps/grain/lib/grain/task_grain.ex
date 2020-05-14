@@ -97,7 +97,7 @@ defmodule Grain.TaskGrain do
         grain(y, pid)
 
       x when x in ["end", "no"] ->
-        "ren wu jie shu"
+        IO.puts("任务结束")
 
       "interval" ->
         push(pid)
