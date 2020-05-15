@@ -18,4 +18,4 @@ config :grain, Grain.Repo,
   # database: "wecwjsnz",
   # hostname: "baasu.db.elephantsql.com",
   ssl: true,
-  pool_size: 3
+  pool_size: 5
