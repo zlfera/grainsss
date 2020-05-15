@@ -32,6 +32,7 @@ defmodule Grain.Grains do
 
       or_where(g, [a], like(a.address, ^city))
       |> or_where([a], like(a.storage_depot_name, ^city))
+      |> or_where([a], like(a.market_name, ^city))
     end
   end
 
