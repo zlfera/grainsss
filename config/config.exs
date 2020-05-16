@@ -26,10 +26,16 @@ defmodule Renwu do
   def zz do
     {:ok, pid} = Agent.start_link(fn -> %{} end)
 
-    [
-      {{:extended, "5 0-59/1 0-8/1 * *"}, {Grain.Tasks, :run, [pid]}},
-      {"0 22 * * *", {Grain.Task, :grain_delete, []}}
-    ]
+    case Date.day_of_week(DateTime.utc_now()) do
+      x when x in [6, 7] ->
+        []
+
+      _ ->
+        [
+          {{:extended, "5 0-59/1 0-8/1 * *"}, {Grain.Tasks, :run, [pid]}},
+          {"0 22 * * *", {Grain.Task, :grain_delete, []}}
+        ]
+    end
   end
 end
 
