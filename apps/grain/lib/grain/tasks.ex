@@ -86,17 +86,33 @@ defmodule Grain.Tasks do
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
 
-      if Map.has_key?(qww, y) do
-        Enum.each(Map.keys(qww), fn k ->
-          if !Process.alive?(qww[k]) do
-            Agent.update(pid, &Map.delete(&1, k))
-          end
-        end)
-      else
-        {:ok, pid_list} = Agent.start_link(fn -> [] end)
-        i = spawn(Gt, :grain, [y, pid_list])
-        Agent.update(pid, &Map.put(&1, y, i))
+      cond do
+        qww[y] == nil ->
+          {:ok, pid_list} = Agent.start_link(fn -> [] end)
+          i = spawn(Gt, :grain, [y, pid_list])
+          Agent.update(pid, &Map.put(&1, y, i))
+
+        is_pid(qww[y]) == false ->
+          IO.puts("参数错误")
+
+        Process.alive?(qww[y]) == true ->
+          nil
+
+        Process.alive?(qww[y]) == false ->
+          Agent.update(pid, &Map.delete(&1, y))
       end
+
+      # if Map.has_key?(qww, y) do
+      #  Enum.each(Map.keys(qww), fn k ->
+      #    if !Process.alive?(qww[k]) do
+      #      Agent.update(pid, &Map.delete(&1, k))
+      #    end
+      #  end)
+      # else
+      #  {:ok, pid_list} = Agent.start_link(fn -> [] end)
+      #  i = spawn(Gt, :grain, [y, pid_list])
+      #  Agent.update(pid, &Map.put(&1, y, i))
+      # end
     end)
 
     Process.sleep(2000)
