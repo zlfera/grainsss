@@ -22,19 +22,28 @@ config :new_relic_agent,
   app_name: "Grain",
   license_key: "ee9c2eabf9a8054364cfc885b768dc549c1ee5c6"
 
-{:ok, pid} = Agent.start_link(fn -> %{} end)
+defmodule Renwu do
+  def zz do
+    {:ok, pid} = Agent.start_link(fn -> %{} end)
+
+    [
+      {{:extended, "5 0-59/30 0-8/3 * *"}, {Grain.Tasks, :run, [pid]}},
+      {"0 22 * * *", {Grain.Task, :grain_delete, []}}
+    ]
+  end
+end
 
 config :grain,
   ecto_repos: [Grain.Repo]
 
-config :grain, Grain.Scheduler,
-  jobs: [
-    {{:extended, "5 0-59/1 0-8/1 * *"}, {Grain.Tasks, :run, [pid]}},
-    # {{:extended, "10 * * * *"}, {Grain.Tasks, :run, [pid]}},
-    # {"* * * * *", {Grain.Tasks, :run, [pid]}}
-    {"0 22 * * *", {Grain.Task, :grain_delete, []}}
-    # {"30/30 0-3/1 * * *", {Grain.Tasks, :run, [pid]}}
-  ]
+config :grain, Grain.Scheduler, jobs: Renwu.zz()
+# [
+# {{:extended, "5 0-59/1 0-8/1 * *"}, {Grain.Tasks, :run, [pid]}},
+# {{:extended, "10 * * * *"}, {Grain.Tasks, :run, [pid]}},
+# {"* * * * *", {Grain.Tasks, :run, [pid]}}
+# {"0 22 * * *", {Grain.Task, :grain_delete, []}}
+# {"30/30 0-3/1 * * *", {Grain.Tasks, :run, [pid]}}
+# ]
 
 # Configures Elixir's Logger
 config :logger, :console,
