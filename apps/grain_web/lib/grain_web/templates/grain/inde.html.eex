@@ -12,11 +12,10 @@
     <%= text_input f, :city3 %>
     <%= label f, "年份"%>
     <%= text_input f, :year %>
+    <%= label f, "只显示已成交" %>
+    <%= checkbox(f, :bool) %>
     <%= label f, "每页显示行数" %>
     <%= text_input f, :limit %>
-    <%= label f, "过滤未成交" %>
-    <%= checkbox(f, :bool) %>
-
     <%= submit "查询", class: "submit" %>
     </div>
     <table class="qgg-table">
