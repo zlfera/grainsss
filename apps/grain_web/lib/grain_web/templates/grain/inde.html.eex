@@ -4,7 +4,7 @@
   <h4>联系方式：13581243756 微信同号</h4>
   <%= form_for @conn,Routes.grain_path(@conn, :inde),[method: :get] ,fn f -> %>
     <div>
-    <label for="">查询已交易粮库1（例如“九江”）</label>
+    <label for="">查询已交易城市1（例如“九江”）</label>
     <%= text_input f, :city1 %>
     <%= label f,"城市2" %>
     <%= text_input f, :city2 %>
