@@ -8,12 +8,12 @@
     <%= text_input f, :city1 %>
     <%= label f,"城市2" %>
     <%= text_input f, :city2 %>
+    <%= label f,"城市3" %>
+    <%= text_input f, :city3 %>
     <%= label f, "年份"%>
     <%= text_input f, :year %>
     <%= label f, "每页显示行数" %>
     <%= text_input f, :limit %>
-    <%= label f,"城市3" %>
-    <%= text_input f, :city3 %>
     <%= label f, "过滤未成交" %>
     <%= checkbox(f, :bool) %>
 
@@ -42,7 +42,7 @@
         <!--<td><%= dizeng(@pid) %></td>--!>
           <td><%= redis.inserted_at |> Timex.to_datetime("Etc/UTC") |> Timex.to_datetime("Asia/Shanghai") |> DateTime.to_naive %></td>
           <td><%= name(redis) %></td>
-          <td><%= redis.trantype %>: <%= redis.year %>年 <%= redis.variety %> <%= redis.trade_amount %>吨</td>
+          <td><%= redis.mark_number %></br><%= redis.trantype %>: <%= redis.year %>年 <%= redis.variety %> <%= redis.trade_amount %>吨</td>
           <!--<td><%= redis.variety %></td>
           <td><%= redis.grade %></td>
           <td><%= redis.year %></td>

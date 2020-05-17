@@ -50,11 +50,7 @@ defmodule GrainWeb.GrainView do
         end
       end
 
-    raw(
-      "#{redis.mark_number}</br>#{redis.storage_depot_name}</br>#{redis.store_no}#{a}</br>#{
-        redis.request_no
-      }"
-    )
+    raw("#{redis.storage_depot_name}</br>#{redis.store_no}#{a}</br>#{redis.request_no}")
   end
 
   def dizeng(pid) do
