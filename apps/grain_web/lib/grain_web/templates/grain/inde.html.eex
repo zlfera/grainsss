@@ -4,7 +4,7 @@
   <h4>联系方式：13581243756 微信同号</h4>
   <%= form_for @conn,Routes.grain_path(@conn, :inde),[method: :get] ,fn f -> %>
     <div>
-    <label for="">查询已交易城市1（例如“九江”）</label>
+    <label for="">已交易城市1（例如“九江”）</label>
     <%= text_input f, :city1 %>
     <%= label f,"城市2" %>
     <%= text_input f, :city2 %>
@@ -12,9 +12,9 @@
     <%= text_input f, :city3 %>
     <%= label f, "年份"%>
     <%= text_input f, :year %>
-    <%= label f, "只显示已成交" %>
+    <%= label f, "显示已成交" %>
     <%= checkbox(f, :bool) %>
-    <%= label f, "每页显示行数" %>
+    <%= label f, "每页行数" %>
     <%= text_input f, :limit %>
     <%= submit "查询", class: "submit" %>
     </div>
