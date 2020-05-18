@@ -98,10 +98,10 @@ defmodule Grain.TaskGrain do
         Process.sleep(sleep_time)
         grain(y, pid)
 
-      x when x in ["end", "no"] ->
+      "end" ->
         IO.puts("任务结束")
 
-      "interval" ->
+      x when x in ["interval", "no"] ->
         push(pid)
         Process.sleep(5000)
         grain(y, pid)
