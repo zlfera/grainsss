@@ -27,9 +27,22 @@ config :new_relic_agent,
 config :grain,
   ecto_repos: [Grain.Repo]
 
+defmodule Cc do
+  def z(pid) do
+    case Date.day_of_week(DateTime.utc_now()) do
+      x when x in [6, 7] ->
+        nil
+
+      _ ->
+        Grain.Tasks.run(pid)
+    end
+  end
+end
+
 config :grain, Grain.Scheduler,
   jobs: [
-    {{:extended, "5 0-59/1 0-8/1 * *"}, {Grain.Tasks, :run, [pid]}},
+    {{:extended, "5 0-59/1 0-8/1 * *"}, {Cc, :z, [pid]}},
+    # {Grain.Tasks, :run, [pid]}},
     # {{:extended, "10 * * * *"}, {Grain.Tasks, :run, [pid]}},
     # {"* * * * *", {Grain.Tasks, :run, [pid]}}
     {"0 22 * * *", {Grain.Task, :grain_delete, []}}
