@@ -56,15 +56,16 @@ config :grain, Grain.Repo,
   # password: "rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve",
   # database: "wecwjsnz",
   # hostname: "baasu.db.elephantsql.com",
-   pool_size: 5,
-   url:"postgres://wecwjsnz:rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve@baasu.db.elephantsql.com:5432/wecwjsnz"
+  pool_size: 5,
+  url:
+    "postgres://wecwjsnz:rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve@baasu.db.elephantsql.com:5432/wecwjsnz"
 
-  #pool_size: 10,
-  #username: "postgres",
-  #password: "postgres",
-  #database: "grain_dev",
-  #hostname: "localhost",
-  #show_sensitive_data_on_connection_error: true
+# pool_size: 10,
+# username: "postgres",
+# password: "postgres",
+# database: "grain_dev",
+# hostname: "localhost",
+# show_sensitive_data_on_connection_error: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
