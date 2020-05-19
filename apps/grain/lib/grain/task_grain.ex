@@ -98,10 +98,16 @@ defmodule Grain.TaskGrain do
         Process.sleep(sleep_time)
         grain(y, pid)
 
-      "end" ->
-        IO.puts("任务结束")
+      x when x in ["end", "no"] ->
+        pid_map = Agent.get(pid, & &1)
 
-      x when x in ["interval", "no"] ->
+        if Enum.empty?(pid_map) do
+          IO.puts("任务结束")
+        else
+          push(pid)
+        end
+
+      "interval" ->
         push(pid)
         Process.sleep(5000)
         grain(y, pid)
