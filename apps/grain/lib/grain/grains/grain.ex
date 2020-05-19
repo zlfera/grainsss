@@ -54,6 +54,6 @@ defmodule Grain.Grains.Grain do
       :year,
       :trantype
     ])
-    |> unique_constraint(:mark_number)
+    |> unique_constraint(:request_no)
   end
 end
