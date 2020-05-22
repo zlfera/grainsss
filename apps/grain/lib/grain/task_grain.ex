@@ -140,7 +140,7 @@ defmodule Grain.TaskGrain do
               get_data["storageDepotName"]
 
             _ ->
-              get_data["deliveryPlace"]
+              get_data["storageDepotName"]
           end
 
         current_price =
