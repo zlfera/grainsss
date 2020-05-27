@@ -36,7 +36,7 @@ defmodule Grain.TaskGrain do
     ]
 
     get_data =
-      HTTPoison.request(:post, "http://www.grainmarket.com.cn/centerweb/getData", "", [], params)
+      HTTPoison.request(:post, "http://36.33.35.42:8000/centerweb/getData", "", [], params)
 
     case get_data do
       {:ok, get_data} ->
