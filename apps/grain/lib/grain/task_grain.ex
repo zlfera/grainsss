@@ -120,7 +120,6 @@ defmodule Grain.TaskGrain do
 
   def push(pid) do
     rows = Agent.get(pid, & &1) |> Enum.reverse()
-    IO.inspect(rows)
 
     if !Enum.empty?(rows) do
       Enum.each(rows, fn attr ->
