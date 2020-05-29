@@ -100,6 +100,7 @@ defmodule Grain.TaskGrain do
 
       x when x in ["end", "no"] ->
         pid_map = Agent.get(pid, & &1)
+        IO.inspect(pid_map)
 
         if Enum.empty?(pid_map) do
           IO.puts("任务结束")
