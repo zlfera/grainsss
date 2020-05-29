@@ -86,7 +86,7 @@ defmodule Grain.Tasks do
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
       IO.inspect(qww)
-      IO.inspect(qww[y])
+      IO.inspect(Process.alive?(qww[y]))
 
       cond do
         qww[y] == nil ->
