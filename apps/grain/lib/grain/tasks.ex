@@ -85,6 +85,8 @@ defmodule Grain.Tasks do
     Enum.each(c, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
+      IO.inspect(qww)
+      IO.inspect(qww[y])
 
       cond do
         qww[y] == nil ->
