@@ -104,6 +104,8 @@ defmodule Grain.Tasks do
           IO.inspect(Agent.get(pid, & &1))
       end
 
+      qww = Agent.get(pid, & &1)
+      IO.inspect(Process.alive?(qww[y]))
       # if Map.has_key?(qww, y) do
       #  Enum.each(Map.keys(qww), fn k ->
       #    if !Process.alive?(qww[k]) do
