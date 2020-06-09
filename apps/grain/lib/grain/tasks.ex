@@ -102,6 +102,8 @@ defmodule Grain.Tasks do
           IO.puts("参数错误")
 
         Process.alive?(qww[y]) == true ->
+          IO.puts(123)
+
           Map.keys(qww)
           |> Enum.each(fn x ->
             if !Process.alive?(qww[x]) do
