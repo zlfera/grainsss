@@ -85,7 +85,6 @@ defmodule Grain.Tasks do
     Enum.each(c, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
-
       IO.inspect(qww)
 
       cond do
@@ -97,15 +96,8 @@ defmodule Grain.Tasks do
         is_pid(qww[y]) == false ->
           IO.puts("参数错误")
 
-        Process.alive?(qww[y]) == true ->
-          IO.puts(123)
-
-          Map.keys(qww)
-          |> Enum.each(fn x ->
-            if !Process.alive?(qww[x]) do
-              Agent.update(pid, &Map.delete(&1, x))
-            end
-          end)
+        true ->
+          nil
       end
 
       qww = Agent.get(pid, & &1)
@@ -123,6 +115,14 @@ defmodule Grain.Tasks do
       #  i = spawn(Gt, :grain, [y, pid_list])
       #  Agent.update(pid, &Map.put(&1, y, i))
       # end
+    end)
+
+    qww = Agent.get(pid, & &1)
+
+    Enum.each(Map.values(qww), fn x ->
+      if !Process.alive?(x) do
+        Agent.update(pid, &Map.delete(&1, x))
+      end
     end)
 
     Process.sleep(2000)
