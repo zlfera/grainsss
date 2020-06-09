@@ -59,10 +59,13 @@ defmodule Grain.Tasks do
         u1(b(), pid)
 
       {false, false} ->
+        IO.puts("######")
+
         Map.values(p)
         |> Enum.each(fn x -> IO.puts(Process.alive?(x)) end)
 
         IO.puts("当前任务正在进行中")
+        IO.puts("######")
     end
 
     spawn(HTTPoison, :get, ["https://youmilegg.herokuapp.com/home/grain_home"])
@@ -85,7 +88,9 @@ defmodule Grain.Tasks do
     Enum.each(c, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
+      IO.puts("@@@@@@")
       IO.inspect(qww)
+      IO.puts("@@@@@@")
 
       cond do
         qww[y] == nil ->
@@ -105,7 +110,9 @@ defmodule Grain.Tasks do
       end
 
       qww = Agent.get(pid, & &1)
+      IO.puts("$$$$$$")
       IO.inspect(Process.alive?(qww[y]))
+      IO.puts("$$$$$$")
       # if Map.has_key?(qww, y) do
       #  Enum.each(Map.keys(qww), fn k ->
       #    if !Process.alive?(qww[k]) do
