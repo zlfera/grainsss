@@ -102,11 +102,12 @@ defmodule Grain.Tasks do
           IO.puts("参数错误")
 
         Process.alive?(qww[y]) == true ->
-          nil
-
-        Process.alive?(qww[y]) == false ->
-          Agent.update(pid, &Map.delete(&1, y))
-          IO.inspect(Agent.get(pid, & &1))
+          Map.keys(qww)
+          |> Enum.each(fn x ->
+            if !Process.alive?(qww[x]) do
+              Agent.update(pid, &Map.delete(qww, &1))
+            end
+          end)
       end
 
       qww = Agent.get(pid, & &1)
