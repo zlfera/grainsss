@@ -85,7 +85,6 @@ defmodule Grain.Tasks do
     Enum.each(c, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
-      IO.inspect(qww)
 
       cond do
         qww[y] == nil ->
@@ -99,10 +98,6 @@ defmodule Grain.Tasks do
         true ->
           nil
       end
-
-      qww = Agent.get(pid, & &1)
-
-      IO.inspect(Process.alive?(qww[y]))
 
       # if Map.has_key?(qww, y) do
       #  Enum.each(Map.keys(qww), fn k ->
@@ -125,6 +120,7 @@ defmodule Grain.Tasks do
       end
     end)
 
+    IO.inspect(Agent.get(pid, & &1))
     Process.sleep(2000)
     u1(b(), pid)
   end
