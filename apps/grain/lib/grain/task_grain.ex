@@ -109,8 +109,8 @@ defmodule Grain.TaskGrain do
         end
 
       "interval" ->
-        Process.sleep(5000)
         push(pid)
+        Process.sleep(5000)
         grain(y, pid)
 
       _ ->
