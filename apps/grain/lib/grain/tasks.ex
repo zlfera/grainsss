@@ -114,8 +114,9 @@ defmodule Grain.Tasks do
 
     qww = Agent.get(pid, & &1)
 
-    Enum.each(Map.values(qww), fn x ->
-      if !Process.alive?(x) do
+    Enum.each(Map.keys(qww), fn x ->
+      if !Process.alive?(qww[x]) do
+        IO.inspect(x)
         Agent.update(pid, &Map.delete(&1, x))
       end
     end)
