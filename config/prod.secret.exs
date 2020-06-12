@@ -17,5 +17,5 @@ config :grain, Grain.Repo,
   # password: "rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve",
   # database: "wecwjsnz",
   # hostname: "baasu.db.elephantsql.com",
-  ssl: true,
+  # ssl: true,
   pool_size: 5
