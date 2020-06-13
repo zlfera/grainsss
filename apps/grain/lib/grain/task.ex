@@ -6,11 +6,11 @@ defmodule Grain.Task do
   def grain_delete do
     l = Ggg |> Gr.all() |> length()
 
-    if l > 80000 do
+    if l > 50000 do
       g =
         Ggg
         |> order_by(asc: :inserted_at)
-        |> limit(20000)
+        |> limit(10000)
         |> Gr.all()
 
       Enum.each(g, fn i ->

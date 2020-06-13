@@ -58,13 +58,13 @@ config :grain, Grain.Repo,
   # hostname: "baasu.db.elephantsql.com",
   # pool_size: 5,
   # ssl: true,
-  url:
-    "postgres://wecwjsnz:rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve@baasu.db.elephantsql.com:5432/wecwjsnz",
-  pool_size: 1,
-  # username: "postgres",
-  # password: "postgres",
-  # database: "grain_dev",
-  # hostname: "localhost",
+  # url:"postgres://wecwjsnz:rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve@baasu.db.elephantsql.com:5432/wecwjsnz",
+  # url:"postgres://jglfexii:HT4YHxk9Mx0o38YSpRW04Kjh97uIke22@baasu.db.elephantsql.com:5432/jglfexii",
+  pool_size: 10,
+  username: "postgres",
+  password: "postgres",
+  database: "grain_dev",
+  hostname: "localhost",
   show_sensitive_data_on_connection_error: true
 
 # Do not include metadata nor timestamps in development logs
