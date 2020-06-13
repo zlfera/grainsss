@@ -60,7 +60,7 @@ config :grain, Grain.Repo,
   # ssl: true,
   url:
     "postgres://wecwjsnz:rsrLgvRN6qOhfXFDm3MQz9HwISL7TMve@baasu.db.elephantsql.com:5432/wecwjsnz",
-  pool_size: 10,
+  pool_size: 1,
   # username: "postgres",
   # password: "postgres",
   # database: "grain_dev",
