@@ -6,7 +6,7 @@ defmodule Grain.Task do
   def grain_delete do
     l = Ggg |> Gr.all() |> length()
 
-    if l > 40000 do
+    if l > 30000 do
       g =
         Ggg
         |> order_by(asc: :inserted_at)
