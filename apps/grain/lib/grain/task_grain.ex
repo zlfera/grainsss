@@ -102,11 +102,11 @@ defmodule Grain.TaskGrain do
         Process.sleep(2000)
         pid_map = Agent.get(pid, & &1)
 
-        if Enum.empty?(pid_map) do
-          IO.puts("任务结束")
-        else
+        if !Enum.empty?(pid_map) do
           push(pid)
         end
+
+        IO.puts("任务结束")
 
       "interval" ->
         push(pid)
