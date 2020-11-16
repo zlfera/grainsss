@@ -17,7 +17,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 let g:coc_snippet_next = '<TAB>'
-"autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 Plug 'mattn/emmet-vim'
 let g:user_emmet_leader_key='<space>'
 Plug 'scrooloose/nerdtree'
@@ -26,12 +26,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 let g:mix_format_silent_errors = 1
-"Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 Plug 'honza/vim-snippets'
 set autowrite
 let g:mix_format_on_save = 1
 Plug 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -70,5 +70,4 @@ inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
-
-"inoremap < <><ESC>i
+inoremap / ./<ESC>i
