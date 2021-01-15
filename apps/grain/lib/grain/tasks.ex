@@ -70,7 +70,7 @@ defmodule Grain.Tasks do
   end
 
   def b do
-    uuu = "http://123.127.88.167:8888/tradeClient/observe/specialList"
+    uuu = "http://36.33.35.40:8888/tradeClient/observe/specialList"
 
     case HTTPoison.get(uuu) do
       {:ok, url} ->
