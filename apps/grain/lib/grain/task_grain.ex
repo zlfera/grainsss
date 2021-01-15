@@ -50,7 +50,7 @@ defmodule Grain.TaskGrain do
   end
 
   def a(dqqq) do
-    uu = "http://123.127.88.167:8888/tradeClient/observe/requestList?specialNo="
+    uu = "http://36.33.35.40:8888/tradeClient/observe/requestList?specialNo="
     u = uu <> dqqq
 
     case HTTPoison.get(u) do
