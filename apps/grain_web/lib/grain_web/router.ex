@@ -38,7 +38,7 @@ defmodule GrainWeb.Router do
 
     scope "/" do
       pipe_through [:browser, :admins_only]
-      live_dashboard "/dashboard", metrics: GrainWeb.Telemetry
+      live_dashboard "/dashboard", metrics: GrainWeb.Telemetry, ecto_repos: [Grain.Repo]
     end
   end
 end
