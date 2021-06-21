@@ -71,17 +71,30 @@ defmodule Grain.Tasks do
 
   def b do
     uuu = "http://36.33.35.40:8888/tradeClient/observe/specialList"
+    uuuu = "http://60.173.214.163:5188/observe/specialList"
 
-    case HTTPoison.get(uuu) do
-      {:ok, url} ->
-        url.body |> Jason.decode!()
+    uuuuu =
+      case HTTPoison.get(uuuu) do
+        {:ok, url} ->
+          url.body |> Jason.decode!()
 
-      {:error, _} ->
-        b()
-    end
+        {:error, _} ->
+          b()
+      end
+
+    [uuuuuu] =
+      case HTTPoison.get(uuu) do
+        {:ok, url} ->
+          url.body |> Jason.decode!()
+
+        {:error, _} ->
+          b()
+      end
+
+    [uuuuu, uuuuuu]
   end
 
-  def u1(c, pid) when c != [] do
+  def u1(c, pid) when c != [[], []] do
     Enum.each(c, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
