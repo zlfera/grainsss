@@ -17,9 +17,9 @@ config :grain_web, GrainWeb.Endpoint,
 
 # Import environment specific config. This must remain at the bottom
 # of thisname file so it overrides the configuration defined above.
-config :new_relic_agent,
-  app_name: "Grain",
-  license_key: "ee9c2eabf9a8054364cfc885b768dc549c1ee5c6"
+# config :new_relic_agent,
+# app_name: "Grain",
+# license_key: "ee9c2eabf9a8054364cfc885b768dc549c1ee5c6"
 
 {:ok, pid} = Agent.start_link(fn -> %{} end)
 

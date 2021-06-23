@@ -91,13 +91,15 @@ defmodule Grain.Tasks do
           b()
       end
 
-    if u2["success"] == false do
-      u1
-    else
-      Enum.each(u2["data"], fn x ->
-        [x | u1]
-        # List.insert_at(u1, -1, x)
-      end)
+    case u2["success"] do
+      true ->
+        Enum.each(u2["data"], fn x ->
+          [x | u1]
+          # List.insert_at(u1, -1, x)
+        end)
+
+      _ ->
+        u1
     end
   end
 

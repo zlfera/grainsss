@@ -50,9 +50,9 @@ defmodule GrainWeb.MixProject do
       {:grain, in_umbrella: true},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.1"},
-      {:new_relic_agent, "~> 1.0"},
-      {:ecto_psql_extras, "~>0.2"},
-      {:new_relic_phoenix, "~> 0.1"}
+      # {:new_relic_agent, "~> 1.0"},
+      {:ecto_psql_extras, "~>0.2"}
+      # {:new_relic_phoenix, "~> 0.1"}
     ]
   end
 
