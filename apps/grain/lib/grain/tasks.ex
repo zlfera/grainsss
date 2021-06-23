@@ -95,7 +95,8 @@ defmodule Grain.Tasks do
       u1
     else
       Enum.each(u2["data"], fn x ->
-        List.insert_at(u1, -1, x)
+        [x | u1]
+        # List.insert_at(u1, -1, x)
       end)
     end
   end
