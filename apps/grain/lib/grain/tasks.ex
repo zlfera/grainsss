@@ -69,20 +69,11 @@ defmodule Grain.Tasks do
     spawn(HTTPoison, :get, ["https://youmile.herokuapp.com/home/grain_home"])
   end
 
-  def b do
+  def b() do
     uuu = "http://36.33.35.40:8888/tradeClient/observe/specialList"
     uuuu = "http://60.173.214.163:5188/observe/specialList"
 
-    uuuuu =
-      case HTTPoison.get(uuuu) do
-        {:ok, url} ->
-          url.body |> Jason.decode!()
-
-        {:error, _} ->
-          b()
-      end
-
-    [uuuuuu] =
+    u1 =
       case HTTPoison.get(uuu) do
         {:ok, url} ->
           url.body |> Jason.decode!()
@@ -91,10 +82,25 @@ defmodule Grain.Tasks do
           b()
       end
 
-    [uuuuu, uuuuuu]
+    u2 =
+      case HTTPoison.get(uuuu) do
+        {:ok, url} ->
+          url.body |> Jason.decode!()
+
+        {:error, _} ->
+          b()
+      end
+
+    if u2["success"] == false do
+      u1
+    else
+      Enum.each(u2["data"], fn x ->
+        List.insert_at(u1, -1, x)
+      end)
+    end
   end
 
-  def u1(c, pid) when c != [[], []] do
+  def u1(c, pid) when c != [] do
     Enum.each(c, fn x ->
       y = x["specialNo"]
       qww = Agent.get(pid, & &1)
