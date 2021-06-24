@@ -91,14 +91,13 @@ defmodule Grain.Tasks do
           b()
       end
 
-    u4 =
-      case u2["success"] do
-        true ->
-          Enum.reduce(u2["data"], u1, fn x, y -> [x | y] end)
+    case u2["success"] do
+      true ->
+        Enum.reduce(u2["data"], u1, fn x, y -> [x | y] end)
 
-        _ ->
-          u1
-      end
+      _ ->
+        u1
+    end
   end
 
   def u1(c, pid) when c != [] do
