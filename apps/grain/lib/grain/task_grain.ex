@@ -1,7 +1,6 @@
 defmodule Grain.TaskGrain do
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
-
   # def get_list(special_no, id \\ "1", size \\ "10") do
   #  params = [
   #    params: %{
@@ -50,15 +49,54 @@ defmodule Grain.TaskGrain do
   end
 
   def a(dqqq) do
-    uu = "http://36.33.35.40:8888/tradeClient/observe/requestList?specialNo="
-    u = uu <> dqqq
+    u = "http://36.33.35.40:8888/tradeClient/observe/requestList?specialNo="
+    uu = "http://60.173.214.163:5188/observe/requestList?specialNo="
 
-    case HTTPoison.get(u) do
-      {:ok, url} ->
-        url.body |> Jason.decode!()
+    # case dqqq do
+    # x  ->
+    #  uu = "http://36.33.35.40:8888/tradeClient/observe/requestList?specialNo="
+    # u = uu <> x
 
-      _ ->
-        a(dqqq)
+    u =
+      case HTTPoison.get(u <> dqqq) do
+        {:ok, url} ->
+          url.body |> Jason.decode!()
+
+        _ ->
+          a(dqqq)
+      end
+
+    # _ ->
+    # uu = "http://60.173.214.163:5188/observe/requestList?specialNo="
+    # u = uu <> dqqq
+
+    uu =
+      case HTTPoison.get(uu <> dqqq) do
+        {:ok, url} ->
+          url.body |> Jason.decode!()
+
+        _ ->
+          a(dqqq)
+      end
+
+    # end
+
+    # {:ok, u1} = HTTPoison.get(u <> dqqq)
+
+    # {:ok, u2} = HTTPoison.get(uu <> dqqq)
+    # u1 = u1.body |> Jason.decode!()
+
+    # u2 = u2.body |> Jason.decode!()
+
+    cond do
+      u["status"] == "end" and uu["status"] == "end" ->
+        IO.puts("拍卖已经结束")
+
+      u["status"] != "end" ->
+        u
+
+      uu["status"] != "end" ->
+        uu
     end
   end
 
