@@ -55,15 +55,20 @@ defmodule Grain.TaskGrain do
         IO.puts("拍卖已经结束")
 
       u["status"] != "end" ->
-        u1
+        {:u, u1}
 
       uu["status"] != "end" ->
-        uu2
+        {:uu, uu2}
     end
   end
 
-  def s(d, pid) do
-    attr = d["requestNo"]
+  def s(t, d, pid) do
+    attr =
+      if t == :u do
+        attr = d["requestNo"]
+      else
+        d
+      end
 
     rows = Agent.get(pid, & &1)
 
@@ -78,18 +83,18 @@ defmodule Grain.TaskGrain do
     end
   end
 
-  def j(j, pid) do
-    s(j, pid)
+  def j(t, j, pid) do
+    s(t, j, pid)
   end
 
   def grain(y, pid) do
-    dd = a(y)
+    {t, dd} = a(y)
 
     case dd["status"] do
       "yes" ->
         Enum.each(dd["rows"], fn jj ->
           if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆|肉/) do
-            j(jj, pid)
+            j(t, jj, pid)
           end
         end)
 
@@ -103,13 +108,13 @@ defmodule Grain.TaskGrain do
         pid_map = Agent.get(pid, & &1)
 
         if !Enum.empty?(pid_map) do
-          push(pid)
+          push(t, pid)
         end
 
         IO.puts("任务结束")
 
       "interval" ->
-        push(pid)
+        push(t, pid)
         Process.sleep(5000)
         grain(y, pid)
 
@@ -119,60 +124,64 @@ defmodule Grain.TaskGrain do
     end
   end
 
-  def push(pid) do
-    rows = Agent.get(pid, & &1) |> Enum.reverse()
+  def push(t, pid) do
+    if t == :u do
+      rows = Agent.get(pid, & &1) |> Enum.reverse()
 
-    if !Enum.empty?(rows) do
-      Enum.each(rows, fn attr ->
-        get_data = get_year(attr)
+      if !Enum.empty?(rows) do
+        Enum.each(rows, fn attr ->
+          get_data = get_year(attr)
 
-        bs =
-          case get_data["bs"] do
-            x when x in ["s", "S"] ->
-              "拍卖"
+          bs =
+            case get_data["bs"] do
+              x when x in ["s", "S"] ->
+                "拍卖"
 
-            _ ->
-              "采购"
-          end
+              _ ->
+                "采购"
+            end
 
-        storage_depot_name =
-          case bs do
-            "拍卖" ->
-              get_data["storageDepotName"]
+          storage_depot_name =
+            case bs do
+              "拍卖" ->
+                get_data["storageDepotName"]
 
-            _ ->
-              get_data["storageDepotName"]
-          end
+              _ ->
+                get_data["storageDepotName"]
+            end
 
-        current_price =
-          if get_data["currentPrice"] == "" do
-            "0"
-          else
-            get_data["currentPrice"]
-          end
+          current_price =
+            if get_data["currentPrice"] == "" do
+              "0"
+            else
+              get_data["currentPrice"]
+            end
 
-        attr = %{
-          market_name: get_data["marketName"],
-          mark_number: get_data["requestAlias"],
-          request_no: get_data["requestNo"],
-          year: get_data["prodDate"],
-          variety: get_data["varietyName"],
-          grade: get_data["gradeName"],
-          trade_amount: get_data["num"],
-          starting_price: get_data["basePrice"],
-          latest_price: current_price,
-          address: get_data["buyDepotName"],
-          status: get_data["statusName"],
-          trantype: bs,
-          store_no: get_data["storeNo"],
-          storage_depot_name: storage_depot_name
-        }
+          attr = %{
+            market_name: get_data["marketName"],
+            mark_number: get_data["requestAlias"],
+            request_no: get_data["requestNo"],
+            year: get_data["prodDate"],
+            variety: get_data["varietyName"],
+            grade: get_data["gradeName"],
+            trade_amount: get_data["num"],
+            starting_price: get_data["basePrice"],
+            latest_price: current_price,
+            address: get_data["buyDepotName"],
+            status: get_data["statusName"],
+            trantype: bs,
+            store_no: get_data["storeNo"],
+            storage_depot_name: storage_depot_name
+          }
 
-        changeset = G.changeset(%G{}, attr)
-        Repo.insert(changeset)
-      end)
+          changeset = G.changeset(%G{}, attr)
+          Repo.insert(changeset)
+        end)
 
-      Agent.update(pid, &Enum.drop_every(&1, 1))
+        Agent.update(pid, &Enum.drop_every(&1, 1))
+      end
+    else
+      IO.puts(1_234_567_890)
     end
   end
 end
