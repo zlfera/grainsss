@@ -63,23 +63,52 @@ defmodule Grain.TaskGrain do
   end
 
   def s(t, d, pid) do
-    attr =
-      if t == :u do
-        attr = d["requestNo"]
-      else
-        d
+    if t == :u do
+      attr = d["requestNo"]
+
+      rows = Agent.get(pid, & &1)
+
+      j = Enum.find_value(rows, false, fn x -> x == attr end)
+
+      case j do
+        false ->
+          Agent.update(pid, &[attr | &1])
+
+        true ->
+          nil
       end
+    else
+      # attr = d["requestNo"]
 
-    rows = Agent.get(pid, & &1)
+      attr = %{
+        market_name: "difang",
+        mark_number: d["requestAlias"],
+        year: "",
+        variety: d["varietyName"],
+        grade: d["gradeName"],
+        trade_amount: d["num"],
+        starting_price: d["basePrice"],
+        latest_price: d["currentPrice"],
+        address: d["requestBuyDepotName"],
+        status: "",
+        trantype: "",
+        requestNo: d["requestNo"],
+        store_no: "",
+        storage_depot_name: ""
+      }
 
-    j = Enum.find_value(rows, false, fn x -> x == attr end)
+      rows = Agent.get(pid, & &1)
 
-    case j do
-      false ->
-        Agent.update(pid, &[attr | &1])
+      case j do
+        false ->
+          Agent.update(pid, &[attr | &1])
 
-      true ->
-        nil
+        true ->
+          Agent.update(pid, fn rows ->
+            index = Enum.find_index(rows, &(&1.requestNo == attr.requestNo))
+            List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
+          end)
+      end
     end
   end
 
@@ -98,10 +127,17 @@ defmodule Grain.TaskGrain do
           end
         end)
 
-        list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
-        sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
-        Process.sleep(sleep_time)
-        grain(y, pid)
+        if t == :u do
+          list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
+          sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
+          Process.sleep(sleep_time)
+          grain(y, pid)
+        else
+          list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
+          sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
+          Process.sleep(sleep_time - 2)
+          grain(y, pid)
+        end
 
       x when x in ["end", "no"] ->
         Process.sleep(2000)
@@ -181,7 +217,16 @@ defmodule Grain.TaskGrain do
         Agent.update(pid, &Enum.drop_every(&1, 1))
       end
     else
-      IO.puts(1_234_567_890)
+      rows = Agent.get(pid, & &1) |> Enum.reverse()
+
+      if !Enum.empty?(rows) do
+        Enum.each(rows, fn attr ->
+          changeset = G.changeset(%G{}, attr)
+          Repo.insert(changeset)
+        end)
+
+        Agent.update(pid, &Enum.drop_every(&1, 1))
+      end
     end
   end
 end
