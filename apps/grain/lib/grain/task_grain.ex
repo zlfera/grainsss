@@ -63,13 +63,13 @@ defmodule Grain.TaskGrain do
   end
 
   def s(t, d, pid) do
+    attr = d
+
+    rows = Agent.get(pid, & &1)
+
+    j = Enum.find_value(rows, false, fn x -> x == attr end)
+
     if t == :u do
-      attr = d["requestNo"]
-
-      rows = Agent.get(pid, & &1)
-
-      j = Enum.find_value(rows, false, fn x -> x == attr end)
-
       case j do
         false ->
           Agent.update(pid, &[attr | &1])
