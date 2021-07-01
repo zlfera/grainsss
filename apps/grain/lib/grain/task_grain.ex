@@ -53,6 +53,7 @@ defmodule Grain.TaskGrain do
     cond do
       u["status"] == "end" and uu["status"] == "end" ->
         IO.puts("拍卖已经结束")
+        {:u, u}
 
       u["status"] != "end" ->
         {:u, u}
@@ -136,7 +137,7 @@ defmodule Grain.TaskGrain do
         else
           list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
           sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
-          Process.sleep(sleep_time - 3)
+          Process.sleep(sleep_time - 2)
           grain(y, pid)
         end
 
