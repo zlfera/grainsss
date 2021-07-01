@@ -135,14 +135,14 @@ defmodule Grain.TaskGrain do
           list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
           sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
           IO.inspect(sleep_time)
-          Process.sleep(sleep_time)
+          Process.sleep(sleep_time * 1000)
           grain(y, pid)
         else
           list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
           sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
           IO.puts(1_234_567_890)
           IO.inspect(sleep_time)
-          Process.sleep(sleep_time - 2)
+          Process.sleep(sleep_time * 1000 - 3000)
           grain(y, pid)
         end
 
