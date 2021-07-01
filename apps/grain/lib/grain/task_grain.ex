@@ -101,6 +101,8 @@ defmodule Grain.TaskGrain do
         storage_depot_name: ""
       }
 
+      IO.inspect(attr)
+
       case j do
         false ->
           Agent.update(pid, &[attr | &1])
