@@ -139,12 +139,6 @@ defmodule Grain.Tasks do
       # end
     end)
 
-    Enum.each(Agent.get(pid, & &1), fn {k, v} ->
-      if !Process.alive?(v) do
-        Agent.update(pid, &Map.delete(&1, k))
-      end
-    end)
-
     Process.sleep(2000)
     u1(b(), pid)
   end
