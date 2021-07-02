@@ -73,7 +73,7 @@ defmodule Grain.TaskGrain do
 
       rows = Agent.get(pid, & &1)
 
-      j = Enum.find_value(rows, false, fn x -> x.requestNo == attr end)
+      j = Enum.find_value(rows, false, fn x -> x == attr end)
 
       case j do
         false ->
