@@ -49,6 +49,13 @@ defmodule Grain.Tasks do
     # end)
 
     p = Agent.get(pid, & &1)
+
+    Enum.each(Agent.get(pid, & &1), fn {k, v} ->
+      if !Process.alive?(v) do
+        Agent.update(pid, &Map.delete(&1, k))
+      end
+    end)
+
     IO.inspect(p)
 
     case {Enum.empty?(b()), Enum.empty?(p)} do
