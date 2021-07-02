@@ -49,6 +49,7 @@ defmodule Grain.Tasks do
     # end)
 
     p = Agent.get(pid, & &1)
+    IO.inspect(p)
 
     case {Enum.empty?(b()), Enum.empty?(p)} do
       {true, _} ->

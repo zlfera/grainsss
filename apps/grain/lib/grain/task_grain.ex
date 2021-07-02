@@ -64,10 +64,6 @@ defmodule Grain.TaskGrain do
   end
 
   def s(t, d, pid) do
-    IO.puts(1_234_567_890)
-    IO.inspect(d)
-    IO.puts(1_234_567_890)
-
     if t == :u do
       attr = d["requestNo"]
 
@@ -104,6 +100,8 @@ defmodule Grain.TaskGrain do
         store_no: "",
         storage_depot_name: ""
       }
+
+      IO.inspect(attr)
 
       case j do
         false ->
