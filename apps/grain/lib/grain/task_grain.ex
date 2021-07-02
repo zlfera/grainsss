@@ -64,6 +64,8 @@ defmodule Grain.TaskGrain do
   end
 
   def s(t, d, pid) do
+    IO.inspect(d)
+
     if t == :u do
       attr = d["requestNo"]
 
