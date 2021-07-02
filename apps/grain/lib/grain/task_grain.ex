@@ -64,14 +64,16 @@ defmodule Grain.TaskGrain do
   end
 
   def s(t, d, pid) do
+    IO.puts(1_234_567_890)
     IO.inspect(d)
+    IO.puts(1_234_567_890)
 
     if t == :u do
       attr = d["requestNo"]
 
       rows = Agent.get(pid, & &1)
 
-      j = Enum.find_value(rows, false, fn x -> x["requestNo"] == attr end)
+      j = Enum.find_value(rows, false, fn x -> x.requestNo == attr end)
 
       case j do
         false ->
@@ -102,8 +104,6 @@ defmodule Grain.TaskGrain do
         store_no: "",
         storage_depot_name: ""
       }
-
-      IO.inspect(attr)
 
       case j do
         false ->
@@ -136,14 +136,13 @@ defmodule Grain.TaskGrain do
         if t == :u do
           list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
           sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
-          IO.inspect(sleep_time)
+
           Process.sleep(sleep_time * 1000)
           grain(y, pid)
         else
           list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
           sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
-          IO.puts(1_234_567_890)
-          IO.inspect(sleep_time)
+
           Process.sleep(sleep_time * 1000 - 3000)
           grain(y, pid)
         end
