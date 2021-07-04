@@ -2,14 +2,21 @@ defmodule Grain.TaskGrain do
   alias Grain.Grains.Grain, as: G
   alias Grain.Repo
 
-  def get_year(request_no) do
+  def get_year(request_no, t) do
+    ff =
+      if t == :u do
+        "G"
+      else
+        "S"
+      end
+
     params = [
       params: %{
         param:
           Jason.encode!(%{
             m: "tradeCenterPlanDetailInfo",
             requestNo: request_no,
-            flag: "G"
+            flag: ff
           })
       }
     ]
@@ -24,7 +31,7 @@ defmodule Grain.TaskGrain do
         |> Map.get("data")
 
       _ ->
-        get_year(request_no)
+        get_year(request_no, t)
     end
   end
 
@@ -63,61 +70,22 @@ defmodule Grain.TaskGrain do
     end
   end
 
-  def s(t, d, pid) do
-    if t == :u do
-      attr = d["requestNo"]
+  def s(d, pid) do
+    rows = Agent.get(pid, & &1)
 
-      rows = Agent.get(pid, & &1)
+    j = Enum.find_value(rows, false, fn x -> x == d["requestNo"] end)
 
-      j = Enum.find_value(rows, false, fn x -> x == attr end)
+    case j do
+      false ->
+        Agent.update(pid, &[d["requestNo"] | &1])
 
-      case j do
-        false ->
-          Agent.update(pid, &[attr | &1])
-
-        true ->
-          nil
-      end
-    else
-      # attr = d["requestNo"]
-      rows = Agent.get(pid, & &1)
-
-      j = Enum.find_value(rows, false, fn x -> x.requestNo == d["requestNo"] end)
-
-      attr = %{
-        market_name: "difang",
-        mark_number: d["requestAlias"],
-        year: "",
-        variety: d["varietyName"],
-        grade: d["gradeName"],
-        trade_amount: d["num"],
-        starting_price: d["basePrice"],
-        latest_price: d["currentPrice"],
-        address: d["requestBuyDepotName"],
-        status: "",
-        trantype: "",
-        requestNo: d["requestNo"],
-        store_no: "",
-        storage_depot_name: ""
-      }
-
-      IO.inspect(attr)
-
-      case j do
-        false ->
-          Agent.update(pid, &[attr | &1])
-
-        true ->
-          Agent.update(pid, fn rows ->
-            index = Enum.find_index(rows, &(&1.requestNo == attr.requestNo))
-            List.update_at(rows, index, &Map.put(&1, :latest_price, attr.latest_price))
-          end)
-      end
+      true ->
+        nil
     end
   end
 
-  def j(t, j, pid) do
-    s(t, j, pid)
+  def j(j, pid) do
+    s(j, pid)
   end
 
   def grain(y, pid) do
@@ -127,23 +95,15 @@ defmodule Grain.TaskGrain do
       "yes" ->
         Enum.each(dd["rows"], fn jj ->
           if !String.match?(jj["varietyName"], ~r/玉米|麦|油|豆|肉/) do
-            j(t, jj, pid)
+            j(jj, pid)
           end
         end)
 
-        if t == :u do
-          list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
-          sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
+        list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
+        sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
 
-          Process.sleep(sleep_time * 1000)
-          grain(y, pid)
-        else
-          list_rows = Enum.sort(dd["rows"], &(&1["remainSeconds"] >= &2["remainSeconds"]))
-          sleep_time = List.first(list_rows)["remainSeconds"] |> String.to_integer()
-
-          Process.sleep(sleep_time * 1000 - 3000)
-          grain(y, pid)
-        end
+        Process.sleep(sleep_time * 1000)
+        grain(y, pid)
 
       x when x in ["end", "no"] ->
         Process.sleep(2000)
@@ -167,72 +127,59 @@ defmodule Grain.TaskGrain do
   end
 
   def push(t, pid) do
-    if t == :u do
-      rows = Agent.get(pid, & &1) |> Enum.reverse()
+    rows = Agent.get(pid, & &1) |> Enum.reverse()
 
-      if !Enum.empty?(rows) do
-        Enum.each(rows, fn attr ->
-          get_data = get_year(attr)
+    if !Enum.empty?(rows) do
+      Enum.each(rows, fn attr ->
+        get_data = get_year(attr, t)
 
-          bs =
-            case get_data["bs"] do
-              x when x in ["s", "S"] ->
-                "拍卖"
+        bs =
+          case get_data["bs"] do
+            x when x in ["s", "S"] ->
+              "拍卖"
 
-              _ ->
-                "采购"
-            end
+            _ ->
+              "采购"
+          end
 
-          storage_depot_name =
-            case bs do
-              "拍卖" ->
-                get_data["storageDepotName"]
+        storage_depot_name =
+          case bs do
+            "拍卖" ->
+              get_data["storageDepotName"]
 
-              _ ->
-                get_data["storageDepotName"]
-            end
+            _ ->
+              get_data["storageDepotName"]
+          end
 
-          current_price =
-            if get_data["currentPrice"] == "" do
-              "0"
-            else
-              get_data["currentPrice"]
-            end
+        current_price =
+          if get_data["currentPrice"] == "" do
+            "0"
+          else
+            get_data["currentPrice"]
+          end
 
-          attr = %{
-            market_name: get_data["marketName"],
-            mark_number: get_data["requestAlias"],
-            request_no: get_data["requestNo"],
-            year: get_data["prodDate"],
-            variety: get_data["varietyName"],
-            grade: get_data["gradeName"],
-            trade_amount: get_data["num"],
-            starting_price: get_data["basePrice"],
-            latest_price: current_price,
-            address: get_data["buyDepotName"],
-            status: get_data["statusName"],
-            trantype: bs,
-            store_no: get_data["storeNo"],
-            storage_depot_name: storage_depot_name
-          }
+        attr = %{
+          market_name: get_data["marketName"],
+          mark_number: get_data["requestAlias"],
+          request_no: get_data["requestNo"],
+          year: get_data["prodDate"],
+          variety: get_data["varietyName"],
+          grade: get_data["gradeName"],
+          trade_amount: get_data["num"],
+          starting_price: get_data["basePrice"],
+          latest_price: current_price,
+          address: get_data["buyDepotName"],
+          status: get_data["statusName"],
+          trantype: bs,
+          store_no: get_data["storeNo"],
+          storage_depot_name: storage_depot_name
+        }
 
-          changeset = G.changeset(%G{}, attr)
-          Repo.insert(changeset)
-        end)
+        changeset = G.changeset(%G{}, attr)
+        Repo.insert(changeset)
+      end)
 
-        Agent.update(pid, &Enum.drop_every(&1, 1))
-      end
-    else
-      rows = Agent.get(pid, & &1) |> Enum.reverse()
-
-      if !Enum.empty?(rows) do
-        Enum.each(rows, fn attr ->
-          changeset = G.changeset(%G{}, attr)
-          Repo.insert(changeset)
-        end)
-
-        Agent.update(pid, &Enum.drop_every(&1, 1))
-      end
+      Agent.update(pid, &Enum.drop_every(&1, 1))
     end
   end
 end
