@@ -50,12 +50,6 @@ defmodule Grain.Tasks do
 
     p = Agent.get(pid, & &1)
 
-    Enum.each(Agent.get(pid, & &1), fn {k, v} ->
-      if !Process.alive?(v) do
-        Agent.update(pid, &Map.delete(&1, k))
-      end
-    end)
-
     IO.inspect(p)
 
     case {Enum.empty?(b()), Enum.empty?(p)} do
@@ -137,6 +131,12 @@ defmodule Grain.Tasks do
       #  i = spawn(Gt, :grain, [y, pid_list])
       #  Agent.update(pid, &Map.put(&1, y, i))
       # end
+    end)
+
+    Enum.each(Agent.get(pid, & &1), fn {k, v} ->
+      if !Process.alive?(v) do
+        Agent.update(pid, &Map.delete(&1, k))
+      end
     end)
 
     Process.sleep(2000)
