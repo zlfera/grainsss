@@ -151,6 +151,13 @@ defmodule Grain.TaskGrain do
               get_data["storageDepotName"]
           end
 
+        address =
+          if get_data["buyDepotName"] == "" do
+            get_data["storageDepotName"]
+          else
+            get_data["buyDepotName"]
+          end
+
         current_price =
           if get_data["currentPrice"] == "" do
             "0"
@@ -168,7 +175,7 @@ defmodule Grain.TaskGrain do
           trade_amount: get_data["num"],
           starting_price: get_data["basePrice"],
           latest_price: current_price,
-          address: get_data["buyDepotName"],
+          address: address,
           status: get_data["statusName"],
           trantype: bs,
           store_no: get_data["storeNo"],
@@ -176,7 +183,8 @@ defmodule Grain.TaskGrain do
         }
 
         changeset = G.changeset(%G{}, attr)
-        Repo.insert(changeset)
+        ss = Repo.insert(changeset)
+        IO.inspect(ss)
       end)
 
       Agent.update(pid, &Enum.drop_every(&1, 1))
