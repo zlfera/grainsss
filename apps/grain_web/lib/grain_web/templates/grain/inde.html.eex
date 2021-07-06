@@ -41,7 +41,7 @@
         <!--<td><%= dizeng(@pid) %></td>--!>
           <td><%= redis.inserted_at |> Timex.to_datetime("Etc/UTC") |> Timex.to_datetime("Asia/Shanghai") |> DateTime.to_naive %></td>
           <td><%= name(redis) %></td>
-          <td><%= redis.mark_number %></br><%= redis.trantype %>: <%= redis.year %>年 <%= redis.variety %> <%= redis.trade_amount %>吨</td>
+          <td><%= redis.mark_number %></br><%= redis.trantype %>: <%= redis.year %>年 <%= redis.grade %> <%= redis.variety %> <%= redis.trade_amount %>吨</td>
           <!--<td><%= redis.variety %></td>
           <td><%= redis.grade %></td>
           <td><%= redis.year %></td>
