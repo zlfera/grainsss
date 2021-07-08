@@ -53,8 +53,21 @@ defmodule Grain.Tasks do
     IO.inspect(p)
 
     case {Enum.empty?(b()), Enum.empty?(p)} do
-      {true, _} ->
+      {true, true} ->
         IO.puts("当前没有任务")
+
+      {true, false} ->
+        Enum.each(Map.values(p), fn x ->
+          if Process.alive?(x) do
+            IO.puts()
+          else
+            Enum.each(Agent.get(pid, & &1), fn {k, v} ->
+              if !Process.alive?(v) do
+                Agent.update(pid, &Map.delete(&1, k))
+              end
+            end)
+          end
+        end)
 
       {false, true} ->
         IO.puts("启动新任务")
