@@ -50,8 +50,6 @@ defmodule Grain.Tasks do
 
     p = Agent.get(pid, & &1)
 
-    IO.inspect(p)
-
     case {Enum.empty?(b()), Enum.empty?(p)} do
       {true, true} ->
         IO.puts("当前没有任务")
@@ -95,6 +93,9 @@ defmodule Grain.Tasks do
 
         {:error, _} ->
           b()
+
+        {_, url} ->
+          url.body |> Jason.decode!()
       end
 
     u2 =
