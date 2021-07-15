@@ -40,7 +40,7 @@ defmodule Grain.TaskGrain do
     uu = "http://60.173.214.163:5188/observe/requestList?specialNo="
 
     u =
-      case HTTPoison.get(u <> dqqq) do
+      case HTTPoison.get(u <> dqqq, timeout: 5000) do
         {:ok, url} ->
           url.body |> Jason.decode!()
 
@@ -49,7 +49,7 @@ defmodule Grain.TaskGrain do
       end
 
     uu =
-      case HTTPoison.get(uu <> dqqq) do
+      case HTTPoison.get(uu <> dqqq, timeout: 5000) do
         {:ok, url} ->
           url.body |> Jason.decode!()
 
@@ -58,7 +58,7 @@ defmodule Grain.TaskGrain do
       end
 
     cond do
-      u["status"] == "end" and uu["status"] == "end" ->
+      u["status"] == "end" && uu["status"] == "end" ->
         IO.puts("拍卖已经结束")
         {:u, u}
 

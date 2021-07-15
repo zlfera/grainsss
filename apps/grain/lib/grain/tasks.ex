@@ -57,7 +57,7 @@ defmodule Grain.Tasks do
       {true, false} ->
         Enum.each(Map.values(p), fn x ->
           if Process.alive?(x) do
-            IO.puts()
+            IO.puts(123)
           else
             Enum.each(Agent.get(pid, & &1), fn {k, v} ->
               if !Process.alive?(v) do
