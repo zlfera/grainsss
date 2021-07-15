@@ -60,6 +60,7 @@ defmodule Grain.TaskGrain do
     cond do
       u["status"] == "end" && uu["status"] == "end" ->
         IO.puts("拍卖已经结束")
+
         {:u, u}
 
       u["status"] != "end" ->
