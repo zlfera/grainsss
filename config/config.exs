@@ -1,6 +1,6 @@
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
-use Mix.Config
+import Config
 
 config :grain_web,
   ecto_repos: [Grain.Repo],
@@ -63,4 +63,4 @@ config :phoenix, :json_library, Jason
 # app_name: "Grain App",
 # license_key: "ee9c2eabf9a8054364cfc885b768dc549c1ee5c6"
 
-import_config "#{Mix.env()}.exs"
+import_config "#{config_env()}.exs"
